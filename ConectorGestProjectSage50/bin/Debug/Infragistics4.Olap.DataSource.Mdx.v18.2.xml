@@ -1,0 +1,1323 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataSource.Mdx.v18.2</name>
+    </assembly>
+    <members>
+        <member name="M:Infragistics.Olap.Xmla.MdxDataSourceInternal.#ctor(Infragistics.Olap.Xmla.MdxDataSourceOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="!:MdxDataSource"/> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDataSourceInternal.SetCatalog(System.String)">
+            <summary>
+            Sets the current catalog for the data source and updates <see cref="!:OlapDataSource.Cubes"/> and <see cref="P:Infragistics.Olap.Xmla.MdxDataSourceInternal.Catalog"/> properties.
+            </summary>
+            <param name="catalogName">Name of the catalog.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task`1"/> which is completed when the cubes for the specified catalog are loaded.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDataSourceOptions.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IAxisFilterElement">
+            <summary>
+            Provides an information about the filters applied to given axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IAxisFilterElement.AddFilterPart(Infragistics.Olap.Xmla.IMdxCollectionElement,System.Boolean)">
+            <summary>
+            Adds a collection of existing filters.
+            </summary>
+            <param name="filterCollection">Collection of <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items participating in the filter.</param>
+            <param name="addToSingleCollection">if set to <c>true</c> the collection with the filter items is added to the collection of <see cref="P:Infragistics.Olap.Xmla.IAxisFilterElement.SingleFilterElements"/> regardless the count of its elements.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IAxisFilterElement.FilterCollection">
+            <summary>
+            Gets the filter collection.
+            </summary>
+            <value>The filter collection.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IAxisFilterElement.SingleFilterElements">
+            <summary>
+            Gets the single filter elements.
+            </summary>
+            <value>The single filter elements.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxAxis">
+            <summary>
+            Base interface for implementation of MDX axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxAxis.GetMdxSets">
+            <summary>
+            Gets list of all <see cref="T:Infragistics.Olap.Xmla.IMdxSet"/> elements included in the MDX axis which this instance describes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxAxis.AddSet(Infragistics.Olap.Xmla.IMdxSet)">
+            <summary>
+            Adds a <see cref="T:Infragistics.Olap.Xmla.IMdxSet"/> to this axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxAxis.AxisIndex">
+            <summary>
+            Gets or sets the index of this axis.
+            </summary>
+            <value>The index of the axis.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxAxisProvider">
+            <summary>
+            Provides a generation of <see cref="T:Infragistics.Olap.Xmla.IMdxAxis"/>.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxAxisProvider.CreateAxis(System.Int32)">
+            <summary>
+            Creates MDX axis for the specified index.
+            </summary>
+            <param name="axisIndex">Index of the axis.</param>
+            <returns>Instance of MDX axis.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxCollectionElement">
+            <summary>
+            Base interface for collection of <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxCollectionElement.AddElement(Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Adds <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> item to collection.
+            </summary>
+            <param name="mdxElement">The MDX element to add.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxCollectionElement.CollectionElements">
+            <summary>
+            Gets the collection of the <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items.
+            </summary>
+            <value>The collection elements.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxDimensionAxisProvider">
+            <summary>
+            Provides a generation of dimension <see cref="T:Infragistics.Olap.Xmla.IMdxAxis"/>.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxElement">
+            <summary>
+            Base interface for particular MDX element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxElement.ElementType">
+            <summary>
+            Gets the type of the MDX element.
+            </summary>
+            <value>The type of the element.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxExpression">
+            <summary>
+            Provides a base interface for an element that provides MDX expression executed against the OLAP cube.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxExpression.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxExpression.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxExtendedFilterInfo">
+            <summary>
+            Provides an access to extended filter information.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxExtendedFilterInfo.FilterElements">
+            <summary>
+            Gets or sets the list of additional filter elements.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxFilterInfo">
+            <summary>
+            Provides a filter information about all axes including the measures.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxFilterInfo.ColumnsFilter">
+            <summary>
+            Gets the columns axis filter element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxFilterInfo.RowsFilter">
+            <summary>
+            Gets the rows axis filter element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxFilterInfo.FiltersFilter">
+            <summary>
+            Gets the slicer axis filter element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxFilterInfo.MeasureFilter">
+            <summary>
+            Gets the measures filter element.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxItemElement">
+            <summary>
+            Base interface for MDX elements./>
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxItemElement.SourceItemExpression">
+            <summary>
+            Gets the string expression of an item.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxQuery">
+            <summary>
+            Represents the query that will be executed on cube.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxQuery.RowAxis">
+            <summary>
+            Gets the row axis of the query.
+            </summary>
+            <value>The row axis of the query.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxQuery.ColumnAxis">
+            <summary>
+            Gets the column axis of the query.
+            </summary>
+            <value>The column axis of the query.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxQuery.SlicerAxis">
+            <summary>
+            Gets the filter info related to the query.
+            </summary>
+            <value>The slicer axis of the query.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxQuery.MdxSettings">
+            <summary>
+            Gets the settings which control the rules this query is build with..
+            </summary>
+            <value>The MDX settings.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxQuery.CalculatedMembersCache">
+            <summary>
+            Gets the instance of calculated members cache.
+            </summary>
+            <value>The calculated members cache.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IMdxSet">
+            <summary>
+            Base interface for implementation of MDX sets.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxSet.GetMdxElements">
+            <summary>
+            Gets list of all MDX elements included in the MDX set which this instance describes.
+            </summary>
+            <returns>List of all MDX elements included in this MDX set.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxSet.AddElement(Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Adds <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> to this set.
+            </summary>
+            <param name="mdxElement">The MDX element to add.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IMdxSet.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether this MDX is enabled. When the set is disabled it will cause no affect over the final query.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IMdxSet.Clone">
+            <summary>
+            Creates a clone of this instance with all its MDX elemetns.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxAxis">
+            <summary>
+            Represents a MDX axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxAxis"/> class.
+            </summary>
+            <param name="axisIndex">Index of the axis.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.#ctor(System.Int32,Infragistics.Olap.Xmla.MdxAxisSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxAxis"/> class.
+            </summary>
+            <param name="axisIndex">Index of the axis.</param>
+            <param name="settings">The MDX settings used when the <see cref="P:Infragistics.Olap.Xmla.MdxAxis.MdxExpression"/> of this axis is generated.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxis.AxisIndex">
+            <summary>
+            Gets or sets the index of this axis.
+            </summary>
+            <value>The index of the axis.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxis.MdxSettings">
+            <summary>
+            Gets or sets the MDX settings used when the <see cref="P:Infragistics.Olap.Xmla.MdxAxis.MdxExpression"/> of this axis is generated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxis.MdxDimensionAxisSettings">
+            <summary>
+            Gets the settings applied to MDX dimension axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxis.Sets">
+            <summary>
+            Gets the sets of this axis.
+            </summary>
+            <value>The sets.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxis.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.GetMdxSets">
+            <summary>
+            Gets list of all <see cref="T:Infragistics.Olap.Xmla.IMdxSet"/> elements included in the MDX axis which this instance describes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.AddSet(Infragistics.Olap.Xmla.IMdxSet)">
+            <summary>
+            Adds a <see cref="T:Infragistics.Olap.Xmla.IMdxSet"/> to this axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.GetMdxExpression">
+            <summary>
+            Gets the MDX expression of this axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.AddDisctinct(System.Text.StringBuilder,Infragistics.Olap.Xmla.MdxDimensionAxisSettings)">
+            <summary>
+            Wrapps this axis' expression with <c>Distinct</c> method.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.AddNonEmpty(System.Text.StringBuilder,Infragistics.Olap.Xmla.MdxDimensionAxisSettings)">
+            <summary>
+            Adds the <c>NON EMPTY</c> clause for this axis.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.AddDimensionProperties(System.Text.StringBuilder,Infragistics.Olap.Xmla.MdxDimensionAxisSettings)">
+            <summary>
+            Adds the <c>DIMENSION PROPERTIES</c> clause for this axis.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxis.AddAxisName(System.Text.StringBuilder)">
+            <summary>
+            Adds the name of the axis to this axis' expression.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxAxisFilterElement">
+            <summary>
+            Provides an information about the filters applied to given axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxisFilterElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxAxisFilterElement"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxisFilterElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxisFilterElement.SingleFilterElements">
+            <summary>
+            Gets the single filter elements. These elements could be included to the WHERE clause when the MDX query is composed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxisFilterElement.FilterCollection">
+            <summary>
+            Gets a collection of all particiapting filter items. When MDX query is composed these elements have to be used as base for creation of a nested subquery (supported by SSAS) or 
+            as base for creation of a calculated members which have to be included in WHERE clause. 
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxisFilterElement.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxAxisFilterElement.AddFilterPart(Infragistics.Olap.Xmla.IMdxCollectionElement,System.Boolean)">
+            <summary>
+            Adds a collection of existing filters.
+            </summary>
+            <param name="filterCollection">Collection of <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items participating in the filter.</param>
+            <param name="addToSingleCollection">if set to <c>true</c> the collection with the filter items is added to the collection of <see cref="P:Infragistics.Olap.Xmla.MdxAxisFilterElement.SingleFilterElements"/> regardless the count of its elements.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxAxisFilterElement.ElementType">
+            <summary>
+            Gets the type of the MDX element.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxCalculatedMembersCache">
+            <summary>
+            Provides a storage for user defined calculated members.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxCalculatedMembersCache.GetCalculatedMembers(Infragistics.Olap.Xmla.MdxCalculatedMembersCache)">
+            <summary>
+            Gets the region which contains the definitions of all calculated members.
+            </summary>
+            <param name="calculatedMembersCache">The calculated members cache.</param>
+            <returns>The result string with the definitions of all calculated members.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxCalculatedMembersCache.AddMember(System.String,System.String,System.String)">
+            <summary>
+            Adds a calculated member definition.
+            </summary>
+            <param name="uniqueName">The unique name for the calculated mamber.</param>
+            <param name="queryAlias">The alias of the clculated meber used in MDX query.</param>
+            <param name="expression">The expression for the calculated member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxCalculatedMembersCache.GetMemberAliasExpressionPairs">
+            <summary>
+            Gets the member alias expression pairs.
+            </summary>
+            <returns>A key value pair with the members' alias and expressions.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxCalculatedMembersCache.CheckCacheMember(System.String)">
+            <summary>
+            Verifies if member with the specified unique name already exists.
+            </summary>
+            <param name="uniqueName">The verified member unique name.</param>
+            <returns><c>true</c> if calculated member with that name already exists, othewise <c>false</c></returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxChildrenCollectionElement">
+            <summary>
+            MDX element which MDX expression represents its children into the context of MDX.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxChildrenCollectionElement.#ctor(System.String,System.String,System.Int32,System.String,Infragistics.Olap.Xmla.MdxDimensionMember)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxChildrenCollectionElement"/> class.
+            </summary>
+            <param name="elementExpression">The MDX expression for this element</param>
+            <param name="elementUniqueName">The unique name of the element.</param>
+            <param name="memberDepth">The level depth of the member in its parent hierarchy.</param>
+            <param name="parentHierarchyUniqueName">The hierarchy unique name.</param>
+            <param name="parent">The parent element.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxChildrenCollectionElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value>The MDX expression.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxConstantElement">
+            <summary>
+            Represents a <see cref="T:Infragistics.Olap.Xmla.IMdxExpression"/> defined as a string.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxConstantElement.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxConstantElement"/> class.
+            </summary>
+            <param name="mdxExpression">The MDX expression.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxConstantElement.ElementType">
+            <summary>
+            Gets the type of this element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxConstantElement.MdxExpression">
+            <summary>
+            Gets the MDX expression of this element.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxConstantElement.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxElement">
+            <summary>
+            Base class for all elements present in MDX query.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxElement"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElement.ElementType">
+            <summary>
+            Gets the type of the MDX element.
+            </summary>
+            <value>The type of the element.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElement.SourceItemExpression">
+            <summary>
+            Gets the string expression of an item.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElement.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxElementCollectionElement">
+            <summary>
+            Base class for collection of <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElementCollectionElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxElementCollectionElement"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElementCollectionElement.WrapExpressionWithBrackets">
+            <summary>
+            Gets or sets the array with two string symbols which represents the open and the close brackets. 
+            By default if there is more than item in the <see cref="P:Infragistics.Olap.Xmla.MdxElementCollectionElement.CollectionElements"/> then when the MDX is evaluated 
+            the whole MDX is wraped with curly brackets '{' and '}'.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElementCollectionElement.CollectionElements">
+            <summary>
+            Gets the collection of the <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> items.
+            </summary>
+            <value>The collection elements.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElementCollectionElement.ElementType">
+            <summary>
+            Gets the type of the MDX element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxElementCollectionElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElementCollectionElement.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElementCollectionElement.AddElement(Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Adds <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> item to collection.
+            </summary>
+            <param name="mdxElement">The MDX element to add.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxElementCollectionElement.GetMdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxElementType">
+            <summary>
+            Provides an information about the type of the <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.Member">
+            <summary>
+            Represents a single element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.MemberTree">
+            <summary>
+            Represents an hierarchy element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.Calculated">
+            <summary>
+            Represents a custom (calculated) element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.Filter">
+            <summary>
+            Represents a filter element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.Collection">
+            <summary>
+            Represents a collection of elements.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.MdxElementType.UserDefined">
+            <summary>
+            Represents an user defined element for new element types which implements <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/>.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxLevelMembersElement">
+            <summary>
+            MDX element which MDX expression represents its children into the context of MDX.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxLevelMembersElement.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxLevelMembersElement"/> class.
+            </summary>
+            <param name="elementExpression">The olap element item.</param>
+            <param name="elementUniqueName">The unique name of the olap element.</param>
+            <param name="memberDepth">The member depth.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxLevelMembersElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value>The MDX expression.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxQueryBuilder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxQueryBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.#ctor(Infragistics.Olap.Xmla.MdxSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxQueryBuilder"/> class.
+            </summary>
+            <param name="settings">The settings instance which this builder works with.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxQueryBuilder.MdxSettings">
+            <summary>
+            Gets or sets the MDX settings which this builder works with..
+            </summary>
+            <value>The MDX settings.</value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.BuildMdxQuery(Infragistics.Olap.Xmla.IMdxAxis,Infragistics.Olap.Xmla.IMdxAxis,Infragistics.Olap.Xmla.IMdxAxis,Infragistics.Olap.Xmla.MdxCalculatedMembersCache,System.String)">
+            <summary>
+            Builds the MDX query for the specified MDX parts.
+            </summary>
+            <param name="mdxColumnsAxis">The MDX columns axis.</param>
+            <param name="mdxRowsAxis">The MDX rows axis.</param>
+            <param name="mdxSlicerAxis">The MDX slicer axis.</param>
+            <param name="calculatedMembersCache">The calculated members cache.</param>
+            <param name="cubeName">Name of the cube.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.GetCalculatedMembers(Infragistics.Olap.Xmla.IMdxAxis,Infragistics.Olap.Xmla.IMdxAxis,Infragistics.Olap.Xmla.IMdxFilterInfo,Infragistics.Olap.Xmla.MdxCalculatedMembersCache)">
+            <summary>
+            Gets the region which contains the definitions of all calculated members.
+            </summary>
+            <param name="mdxColumnsAxis">The MDX columns axis.</param>
+            <param name="mdxRowsAxis">The MDX rows axis.</param>
+            <param name="filterInfo">The filter info.</param>
+            <param name="calculatedMembersCache">The calculated members cache.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.GetFromClause(Infragistics.Olap.Xmla.IMdxFilterInfo,System.String)">
+            <summary>
+            Gets SELECT FROM regions of MDX query.
+            </summary>
+            <param name="filterInfo">The filter info.</param>
+            <param name="cubeName">Name of the cube.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.GetExtendedFilterInfoFromClause(System.String,Infragistics.Olap.Xmla.IMdxExtendedFilterInfo)">
+            <summary>
+            Gets the extended SELECT FROM region of MDX query.
+            </summary>
+            <param name="fromClause">THe existing FROM clause.</param>
+            <param name="extendedFilterInfo">The extended filter info provider object.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.GetFilterFromClause(System.String,Infragistics.Olap.Xmla.IAxisFilterElement,Infragistics.Olap.Xmla.IAxisFilterElement)">
+            <summary>
+            Gets the SELECT FROM region of MDX query.
+            </summary>
+            <param name="fromClause">From clause.</param>
+            <param name="filterInfo1">The filter info1.</param>
+            <param name="filterInfo2">The filter info2.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxQueryBuilder.GetWhereClause(Infragistics.Olap.Xmla.IMdxFilterInfo)">
+            <summary>
+            Gets the WHERE region of MDX query.
+            </summary>
+            <param name="filterInfo">The filter info provider object.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxSet">
+            <summary>
+            Represents a MDX set.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxSet"/> class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.#ctor(Infragistics.Olap.Xmla.MdxSetSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxSet"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSet.MdxSettings">
+            <summary>
+            Gets or sets the MDX settings used when the <see cref="P:Infragistics.Olap.Xmla.MdxSet.MdxExpression"/> of this set is generated.
+            </summary>
+            <value>The MDX settings.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSet.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether this MDX is enabled. When the set is disabled it will cause no affect over the final query.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSet.Elements">
+            <summary>
+            Gets a collection of all MDX elements particiapting in this MDX set.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSet.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.RebuildExpression">
+            <summary>
+            Rebuilds the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.AddElement(Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Adds <see cref="T:Infragistics.Olap.Xmla.IMdxElement"/> to this set.
+            </summary>
+            <param name="mdxElement">The MDX element to add.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.GetMdxElements">
+            <summary>
+            Gets list of all MDX elements included in the MDX set which this instance describes.
+            </summary>
+            <returns>
+            List of all MDX elements included in this MDX set.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.SupportsElementType(Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Called in order to determine if given type of element is supported and recognizable by this MDX set.
+            </summary>
+            <param name="mdxElement">The MDX element to verify.</param>
+            <returns><c>true</c> if the element can be successfully translated bty this MDX set into the context of MDX, otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.GetMdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.AddElementExpression(System.Text.StringBuilder,Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Adds the given element's MDX expression to set's expression.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="mdxElement">The MDX element.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.AddVisualTotals(System.Text.StringBuilder,Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Wrapps this set expression with <c>VisualTotals</c> method.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="mdxElement">The MDX element.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.AddCalculatedMembers(System.Text.StringBuilder,Infragistics.Olap.Xmla.IMdxElement)">
+            <summary>
+            Wrapps this set expression with <c>AddCalculatedMembers</c> method.
+            </summary>
+            <param name="stringBuilder">The string builder.</param>
+            <param name="mdxElement">The MDX element.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSet.Clone">
+            <summary>
+            Creates a clone of this instance with all its MDX elemetns.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxSettings">
+            <summary>
+            Provides an information about the rules used when the query and its sets and axes are composed.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.ColumnsAxisSettings">
+            <summary>
+            Gets the columns axis MDX settings.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.RowsAxisSettings">
+            <summary>
+            Gets the rows axis MDX settings.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.SlicerAxisSettings">
+            <summary>
+            Gets the slicer axis MDX settings.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.VisualTotalsOnRows">
+            <summary>
+            Gets or sets a value indicating whether the set's expression on rows axis is wrapped with <c>VisualTotals</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>VisualTotals</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.VisualTotalsOnColumns">
+            <summary>
+            Gets or sets a value indicating whether the set's expression on column axis is wrapped with <c>VisualTotals</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>VisualTotals</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.AddCalculatedMembersOnRows">
+            <summary>
+            Gets or sets a value indicating whether the set's expression on rows axis is wrapped with <c>AddCalculatedMembers</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>AddCalculatedMembers</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.AddCalculatedMembersOnColumns">
+            <summary>
+            Gets or sets a value indicating whether the set's expression on columns axis is wrapped with <c>AddCalculatedMembers</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>AddCalculatedMembers</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.HierarchizeRows">
+            <summary>
+            Gets or sets a value indicating whether the axis' expression on rows axis is wrapped with <c>Hierarchize</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>Hierarchize</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.HierarchizeColumns">
+            <summary>
+            Gets or sets a value indicating whether the axis' expression on columns axis is wrapped with <c>Hierarchize</c> method call.
+            </summary>
+            <value>
+              <c>true</c> if set's expression is wrapped with <c>Hierarchize</c> method call; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.DistinctOnRows">
+            <summary>
+            Gets or sets a value indicating whether the row's axis expression should be wrapped with <c>Distinct</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.DistinctOnColumns">
+            <summary>
+            Gets or sets a value indicating whether the columns' axis expression should be wrapped with <c>Distinct</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.NonEmptyOnRows">
+            <summary>
+            Gets or sets a value indicating whether <c>NON EMPTY</c> clause is present for rows axis expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.NonEmptyOnColumns">
+            <summary>
+            Gets or sets a value indicating whether <c>NON EMPTY</c> clause is present for columns axis expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.AddDimensionPropertiesOnRows">
+            <summary>
+            Gets or sets a value indicating whether <c>DIMENSION PROPERTIES</c> clause is present for rows axis expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.AddDimensionPropertiesOnColumns">
+            <summary>
+            Gets or sets a value indicating whether <c>DIMENSION PROPERTIES</c> clause is present for columns axis expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.DimensionPropertiesOnRows">
+            <summary>
+            Gets the list of the dimension properties to be present on rows axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSettings.DimensionPropertiesOnColumns">
+            <summary>
+            Gets the list of the dimension properties to be present on columns axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSettings.ResetToDefaultDimensionProperties(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Populates the list with the default minimum of the dimension properties.
+            </summary>
+            <param name="dimensionProperties">The dimension properties.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxAxisSettings">
+            <summary>
+            Provides a settings for MDX axis generation.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxSlicerAxisSettings">
+            <summary>
+            Provides a settings for MDX slicer axis generation.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxDimensionAxisSettings">
+            <summary>
+            Provides a settings for MDX dimension axis generation.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxDimensionAxisSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.MdxSetSettings">
+            <summary>
+            Gets the MDX set settings applied to all sets of this axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.Hierarchize">
+            <summary>
+            Gets or sets a value indicating whether the axis' expression should be wrapped with <c>Hierarchize</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.Distinct">
+            <summary>
+            Gets or sets a value indicating whether the axis' expression should be wrapped with <c>Distinct</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.NonEmpty">
+            <summary>
+            Gets or sets a value indicating whether <c>NON EMPTY</c> clause is present for axis' expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.AddDimensionProperties">
+            <summary>
+            Gets or sets a value indicating whether <c>DIMENSION PROPERTIES</c> clause is present for axis' expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.VisualTotals">
+            <summary>
+            Gets or sets a value indicating whether all set expressions of this axis should be wrapped with <c>VisualTotals</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.AddCalculatedMembers">
+            <summary>
+            Gets or sets a value indicating whether all set expressions of this axis should be wrapped with <c>AddCalculatedMembers</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisSettings.DimensionProperties">
+            <summary>
+            Gets the list of the dimension properties to be present on this axis expression.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxSetSettings">
+            <summary>
+            Provides a settings for MDX set generation.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSetSettings.VisualTotals">
+            <summary>
+            Gets or sets a value indicating whether set expression should be wrapped with <c>VisualTotals</c> method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSetSettings.AddCalculatedMembers">
+            <summary>
+            Gets or sets a value indicating whether set expression should be wrapped with <c>AddCalculatedMembers</c> method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxSingleElement">
+            <summary>
+            Single MDX element which MDX expression in the context of MDX is represented by its unique name.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSingleElement.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxSingleElement"/> class.
+            </summary>
+            <param name="elementExpression">The MDX expression for this element</param>
+            <param name="elementUniqueName">The unique name of the element.</param>
+            <param name="memberDepth">The level depth of the member in its parent hierarchy.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSingleElement.#ctor(System.String,System.String,System.Int32,Infragistics.Olap.Xmla.MdxElementType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxSingleElement"/> class.
+            </summary>
+            <param name="elementExpression">The MDX expression for this element</param>
+            <param name="elementUniqueName">The unique name of the element.</param>
+            <param name="memberDepth">The level depth of the member in its parent hierarchy.</param>
+            <param name="elementType">Type of the element.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSingleElement.MdxExpression">
+            <summary>
+            Gets the MDX expression.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSingleElement.ElementUniqueName">
+            <summary>
+            Gets the unique name of this MDX element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxSingleElement.MemberDepth">
+            <summary>
+            The level depth of the member in its parent hierarchy.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.MdxDimensionMember">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionMember.#ctor(System.String,System.String,System.Int32,System.String,Infragistics.Olap.Xmla.MdxDimensionMember)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxChildrenCollectionElement"/> class.
+            </summary>
+            <param name="elementExpression">The MDX expression for this element</param>
+            <param name="elementUniqueName">The unique name of the element.</param>
+            <param name="memberDepth">The level depth of the member in its parent hierarchy.</param>
+            <param name="parentHierarchyUniqueName">The hierarchy unique name.</param>
+            <param name="parent">The parent element.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionMember.ParentHierarchyUniqueName">
+            <summary>
+            Gets the unique name of the parent hierarchy.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionMember.Parent">
+            <summary>
+            Gets the parent member.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxSlicerAxis.#ctor(Infragistics.Olap.Xmla.MdxSlicerAxisSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxAxis"/> class.
+            </summary>
+            <param name="settings">The MDX settings used when the <see cref="!:IMdxElement.MdxExpression"/> of this axis is generated.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.#ctor(Infragistics.Olap.Core.IOlapDataSource,Infragistics.Olap.Xmla.MdxDimensionAxisSettings,System.Collections.Generic.IList{Infragistics.Olap.Core.Data.ICoreOlapElement},Infragistics.Olap.Core.PositionItemInfo{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxDimensionAxisProvider"/> class.
+            The mdx axis created by <see cref="M:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.CreateAxis(System.Int32)"/> method depends on <paramref name="rootPositionInfo"/> only.
+            </summary>
+            <param name="xmlaDataSource">The xmla data source.</param>
+            <param name="mdxSettings">The settings.</param>
+            <param name="sourceAxis">The source axis.</param>
+            <param name="rootPositionInfo">The current result axis root position info.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.#ctor(Infragistics.Olap.Core.Data.Axis,Infragistics.Olap.Xmla.MdxDimensionAxisSettings,System.Collections.Generic.IList{Infragistics.Olap.Core.IPositionItem{System.String,System.Object}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.MdxDimensionAxisProvider"/> class.
+            </summary>
+            <param name="curentResultAxis">The curent result axis.</param>
+            <param name="mdxSettings">The MDX settings.</param>
+            <param name="positionsToExtend">The positions to extend.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.Axis">
+            <summary>
+            Gets the latest created axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.RootPositionInfo">
+            <summary>
+            Gets or sets the root position info cache the axis provider is given with.        
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.ClearAxis">
+            <summary>
+            Clears the axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.ExtendAxis(Infragistics.Olap.Xmla.IMdxAxis,System.Int32)">
+            <summary>
+            Extends the provided axis using the positions cache of <see cref="P:Infragistics.Olap.Xmla.MdxDimensionAxisProvider.CurrentResultAxis"/>.
+            </summary>
+            <param name="axisToExtend">The axis to extend.</param>
+            <param name="axisIndex">Index of the axis.</param>
+            <returns>The partial axis.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.GetCatalogsAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompleted">GetCatalogsAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.GetCatalogsAsyncCompletedEventArgs.Catalogs">
+            <summary>
+            Returns a collection which contains each
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>
+            retrieved from the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.GetCatalogsAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompleted">GetCatalogsAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.SetCatalogAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="!:Infragistics.Olap.OlapDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.SetCatalogAsyncCompletedEventArgs.CatalogName">
+            <summary>
+            Returns the name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>
+            associated with this event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.SetCatalogAsyncCompletedEventArgs.Cubes">
+            <summary>
+            Returns a collection of the
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cubes</see>
+            associated with the catalog.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.SetCatalogAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="!:Infragistics.Olap.OlapDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.MdxDataSource">
+            <summary>
+            Provides access to a multi-dimensional data source.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for a list of the available
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cubes</see>
+            associated with the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.OnGetCatalogsAsyncCompleted(Infragistics.Olap.Mdx.GetCatalogsAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompleted">GetCatalogsAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="!:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompletedEventArgs">GetCatalogsAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.Mdx.MdxDataSource.SetCatalogAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to change the
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>
+            associated with this data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.OnSetCatalogAsyncCompleted(Infragistics.Olap.Mdx.SetCatalogAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="!:Infragistics.Olap.MdxDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="!:Infragistics.Olap.MdxDataSource.SetCatalogAsyncCompletedEventArgs">SetCatalogAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.#ctor">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.#ctor(Infragistics.Olap.Mdx.MdxInitialSettings)">
+            <summary>
+            Creates a new instance of the class, initialized with the specified settings.
+            </summary>
+            <param name="settings">
+            An
+            <see cref="T:Infragistics.Olap.Mdx.MdxInitialSettings">MdxInitialSettings</see>
+            instance containing the initial settings for the data source, or
+            null.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsync(System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to return a list of all
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalogs</see>
+            associated with this data source.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.GetCatalogsAsyncCompleted">GetCatalogsAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxDataSource.SetCatalogAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to set the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>
+             as the data source's current catalog.
+            </summary>
+            <param name="catalogName">
+            The name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>
+            to which the data source's current catalog is to be set.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="!:Infragistics.Olap.MdxDataSource.Mdx.MdxDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            A catalog is synonymous to a database; it defines the set of
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cubes</see>
+            that are available to the consumer.
+            </p>
+            <p class="body">
+            Changing the data source's currently selected catalog triggers
+            re-initialization of the data source.Any previously defined
+            cubes, as well as their associated hierarchies and measures,
+            are no longer valid, so any cached information that references
+            hierarchies, measures, or cubes defined by the previously selected
+            catalog should be refreshed after calling this method.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.MdxDataSource.Catalog">
+            <summary>
+            Returns the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>,
+            or null if no catalog is selected.
+            </summary>
+            <remarks>
+            <p class="body">
+            The current catalog can be changed by calling the SetCatalogAsync method.
+            </p>
+            <p class="body">
+            Setting the current catalog is an asynchronous operation; as such this property
+            will not return a valid value until the
+            <see cref="E:Infragistics.Olap.Mdx.MdxDataSource.SetCatalogAsyncCompleted">SetCatalogAsyncCompleted</see>
+            event has occurred.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.MdxDataSource.IsAsyncOperationPending">
+            <summary>
+            Returns boolean value indicating whether the data source
+            is currently processing an asynchronous method call.
+            </summary>
+            <remarks>
+            <p class="body">
+            This property returns true when an asynchronous method
+            has been called, and the OLAP server has not yet sent a response indicating
+            that the operation is complete.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.MdxInitialSettings">
+            <summary>
+            Class which exposes properties used to specify the
+            initial data contained within the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.MdxInitialSettings.#ctor">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.MdxInitialSettings.Catalog">
+            <summary>
+            Returns or sets a string value which determines the initial
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>
+            for the data source.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Mdx.MdxInitialSettings.ExecuteProperties">
+            <summary>
+            Specifies additional properties to customize MDX query execution.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Mdx.CatalogsCollection">
+            <summary>
+            Collection class for
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>
+            objects.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Mdx.CatalogsCollection.CreateTable">
+            <summary>CreateTable</summary>
+        </member>
+    </members>
+</doc>

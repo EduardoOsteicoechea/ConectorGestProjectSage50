@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataSource.Xmla.v18.2</name>
+    </assembly>
+    <members>
+        <member name="M:Infragistics.Olap.Xmla.XmlaDataSourceInternal.#ctor(Infragistics.Olap.Xmla.XmlaDataSourceOptions)">
+            <summary>
+            Creates a new instance of the
+            <see cref="T:Infragistics.Olap.Xmla.XmlaDataSource">XmlaDataSource</see>
+            class.
+            </summary>
+            <param name="options">
+            A
+            <see cref="T:Infragistics.Olap.Xmla.XmlaDataSourceOptions">XmlaDataSourceOptions</see>
+            instance.
+            </param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaDataSource">
+            <summary>
+            Provides access to an XMLA (XML for analysis) data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaDataSource.#ctor">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaDataSource.#ctor(Infragistics.Olap.Xmla.XmlaInitialSettings)">
+            <summary>
+            Creates a new instance of the class, initialized with the specified settings.
+            </summary>
+            <param name="settings">
+            An
+            <see cref="T:Infragistics.Olap.Xmla.XmlaInitialSettings">XmlaInitialSettings</see>
+            instance containing the initial settings for the data source, or
+            null.
+            </param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaDataSource.InitialSettings">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.Xmla.XmlaInitialSettings">XmlaInitialSettings</see>
+            instance associated with this data source.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaDataSource.XmlaDataSourceTypeConverter">
+            <summary>
+            XmlaDataSourceTypeConverter object type converter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaDataSource.XmlaDataSourceTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="destinationType">A System.Type that represents the type you want to convert to.</param>
+            <returns>true if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaDataSource.XmlaDataSourceTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified
+            context and culture information.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="culture">A System.Globalization.CultureInfo. If null is passed, the current culture is assumed.</param>
+            <param name="value">The System.Object to convert.</param>
+            <param name="destinationType">The System.Type to convert the value parameter to.</param>
+            <returns>An System.Object that represents the converted value.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaInitialSettings">
+            <summary>
+            Class which exposes properties used to specify the
+            initial data contained within the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaInitialSettings.#ctor">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaInitialSettings.ServerUrl">
+            <summary>
+            Returns or sets a string value which defines the URL (universal resource locator)
+            for the associated OLAP server.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaInitialSettings.Username">
+            <summary>
+            Returns or sets the username for server authentication.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaInitialSettings.Password">
+            <summary>
+            Returns or sets the password for server authentication.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaInitialSettings.Domain">
+            <summary>
+            Returns or sets the domain for server authentication.
+            </summary>
+        </member>
+    </members>
+</doc>

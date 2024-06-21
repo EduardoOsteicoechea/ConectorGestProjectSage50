@@ -1,0 +1,2913 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataSource.Flat.v18.2</name>
+    </assembly>
+    <members>
+        <member name="M:Infragistics.Olap.FlatData.CubeGenerator.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">
+            <summary>
+            Generates cube data
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.CubeGenerationParameters">
+            <summary>
+            Encapsulates the options available when generating cube metadata for a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this class to specify non-default options when generating cube metadata via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            <p class="body">
+            This class provides the ability to:
+            <ul>
+                <li>
+                Specify the manner in which
+                <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">Dimension descriptors</see>
+                are created, and how hierarchies are assigned to them.
+                </li>
+                <li>
+                Specify the manner in which
+                <see cref="T:Infragistics.Olap.Core.Data.Measure">measure</see>
+                data is
+                <see cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">aggregated</see>.
+                </li>
+                <li>
+                Specify the manner in which hierarchical
+                <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">levels</see>
+                are created.
+                </li>
+                <li>
+                Override the default list of properties to which the data source is bound.
+                </li>
+            </ul>
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.LevelCreationParameters">LevelCreationParameters class</seealso>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube method (FlatDataSource class)</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.CubeGenerationParameters.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.CubeGenerationParameters.HierarchyDimensionGrouping">
+            <summary>
+            Determines the manner in which
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchies</see>
+            are associated with
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptors</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            By default, only one
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimension</see>
+            is created for the data source, and each
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+            appears as a child of that dimension.
+            </p>
+            <p class="body">
+            Use this property to control the way hierarchies are associated with DimensionDescriptors.
+            </p>
+            <p class="body">
+            Note that when setting the
+            <see cref="P:Infragistics.Olap.InitialSettings.Rows">Rows</see>,
+            <see cref="P:Infragistics.Olap.InitialSettings.Columns">Columns</see>,
+            or
+            <see cref="P:Infragistics.Olap.InitialSettings.Filters">Filters</see>
+            properties of a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">FlatDataSourceInitialSettings</see>
+            instance, the hierarchy names must be fully qualified, using the following form:
+            </p>
+            <p class="body">
+            [<i>Dimension</i>].[<i>Hierarchy</i>]
+            </p>
+            <p class="body">
+            Because the HierarchyDimensionGrouping property determines the dimension name,
+            a fully qualified hierarchy name can vary for different settings of the property.
+            For example, assume we have a class named 'Foo', with a property name 'Bar'; also
+            assume that the 'Bar' property is decorated with a Category attribute named 'FooBar'.
+            The following table outlines the different forms of the fully qualified hierarchy
+            names resulting from each HierarchyDimensionGrouping property setting:
+            </p>
+            <p class="body">
+            <table>
+            <th><td>HierarchyDimensionGrouping</td><td>Qualified Name</td></th>
+            <tr>
+                <td>AllInOne</td>
+                <td>[Foo].[Bar]</td>
+            </tr>
+            <tr>
+                <td>ByCategory</td>
+                <td>[FooBar].[Bar]</td>
+            </tr>
+            <tr>
+                <td>Separate</td>
+                <td>[Bar].[Bar]</td>
+            </tr>
+            </table>
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.CubeGenerationParameters.LevelCreationParameters">
+            <summary>
+            Returns an object whose properties determine the manner in which hierarchical
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">levels</see>
+            are created.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.CubeGenerationParameters.TypedList">
+            <summary>
+            Returns or sets a reference to the
+            <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.itypedlist(v=vs.100).aspx">ITypedList</a>
+            implementation which defines the list of properties to which this data source is bound.
+            </summary>
+            <remarks>
+            <p class="body">
+            When the data source's cube data is generated, the list of properties to bind
+            are obtained via the property descriptors for the type referenced by the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property.
+            </p>
+            <p class="body">
+            Use this property to override the default behavior by filtering out properties
+            of the bound object which should not appear in the data source.
+            </p>
+            <p class="body">
+            Only the
+            <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.itypedlist.getitemproperties(v=vs.100).aspx">GetItemProperties</a>>
+            method of your ITypedList implementation is used. When the cube generation layer
+            builds the list of properties to be bound, this property is queried to determine
+            whether the default property descriptor list should be overridden.
+            </p>
+            <p class="body">
+            Note that if the object assigned to the 
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemSource">ItemSource</see>
+            property implements the ITypedList interface, that implementation  will
+            not be used unless explicitly assigned to this property. This is to maintain
+            legacy behavior; if the bound list object implements ITypedList, but the intent
+            is to use the default list, implicitly using the ITypedList implementation
+            could break existing code.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.CubeGenerationParameters.DefaultDimensionName">
+            <summary>
+            Returns or sets the name used for the Dimension which is generated
+            when the
+            <see cref="P:Infragistics.Olap.FlatData.CubeGenerationParameters.HierarchyDimensionGrouping">HierarchyDimensionGrouping</see>
+            property is set to 'AllInOne'
+            </summary>
+            <remarks>
+            <p class="body">
+            By default, the name of the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            is used for the name of the one Dimension which is generated when HierarchyDimensionGrouping
+            is set to 'AllInOne'; use this property to override this behavior.
+            </p>
+            <p class="body">
+            When this property is explicitly set, user interface elements representing
+            the associated Dimension use this value as the display name .
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.LevelCreationParameters">
+            <summary>
+            Encapsulates the options available when generating hierarchical
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">levels</see>
+            for a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            Use this class to specify non-default options when generating hierarchical levels via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            <p class="body">
+            This class provides the ability to:
+            <ul>
+                <li>
+                Specify whether an 'all members'
+                <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">level</see>
+                is created for a given hierarchy.
+                </li>
+                <li>
+                Specify the manner in which levels are created for properties of type System.DateTime.
+                </li>
+            </ul>
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters class</seealso>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube method (FlatDataSource class)</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.LevelCreationParameters.GenerateAllMembersLevel">
+            <summary>
+            Indicates whether an 'All Members' level is generated for
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptors</see>
+            </summary>
+            <remarks>
+            <p class="body">
+            The value of this property defaults to <b>true</b>.
+            </p>
+            <p class="body">
+            When set to true, a level is generated for each HierarchyDescriptor
+            which represents all members of that level. The resulting hierarchy
+            displays expandable row/column headers, which group subsequent levels.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.LevelCreationParameters.DateTimeLevelCreation">
+            <summary>
+            Indicates the manner in which levels are created for hierarchies
+            associated with the System.DateTime data type.
+            </summary>
+            <remarks>
+            <p class="body">
+            The value of this property defaults to a combination of constants
+            which causes year, month, and date levels to be created. By default,
+            hierarchical levels are not created for the semester or quarter in
+            which a date falls.
+            </p>
+            <p class="body">
+            The constants of the
+            <see cref="T:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags">DateTimeLevelCreationFlags</see>
+            enumeration can be combined by the logical OR operator to produce any combination of date levels.
+            </p>
+            <p class="body">
+            For example, to group by semester and quarter only, set this property to
+            'DateTimeLevelCreationFlags.Semester | DateTimeLevelCreationFlags.Quarter'.
+            </p>
+            <p class="body">
+            Note that this property supercedes the value of the
+            <see cref="P:Infragistics.Olap.FlatData.LevelCreationParameters.GenerateAllMembersLevel">GenerateAllMembersLevel</see>
+            for hierarchies associated with the System.DateTime data type.
+            </p>
+            <p class="body">
+            Setting this property to 'None' causes the level creation logic to observe the
+            value of the GenerateAllMembersLevel for DateTime hierarchies.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.FromInt(System.Int32)">
+            <summary>
+            Returns a value of type(T) obtained by coercing the specified value.
+            </summary>
+            <param name="value">The integer value to convert.</param>
+            <returns>The equivalent of the specified value for type(T)</returns>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Zero">
+            <summary>
+            Returns a value of zero.
+            </summary>
+            <returns>A value of zero for type(T)</returns>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.One">
+            <summary>
+            Returns a value of one.
+            </summary>
+            <returns>A value of one for type(T)</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Add(`0,`0)">
+            <summary>
+            Returns the sum of the specified parameters.
+            </summary>
+            <param name="x">First parameter</param>
+            <param name="y">Second parameter</param>
+            <returns>The sum of the two specified parameters.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Divide(`0,`0)">
+            <summary>
+            Returns the dividend of the specified parameters.
+            </summary>
+            <param name="numerator">The numerator for the division operation.</param>
+            <param name="denominator">The denominator for the division operation.</param>
+            <returns>The dividend of the two specified parameters.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Min(`0,`0)">
+            <summary>
+            Returns the minimum of the two specified parameters.
+            </summary>
+            <param name="x">First parameter</param>
+            <param name="y">Second parameter</param>
+            <returns>The sum of the two specified parameters.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Max(`0,`0)">
+            <summary>
+            Returns the maximum of the two specified parameters.
+            </summary>
+            <param name="x">First parameter</param>
+            <param name="y">Second parameter</param>
+            <returns>The sum of the two specified parameters.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Aggregator`1.Compare(`0,`0)">
+            <summary>
+            Returns the result of the logical comparison of the two arguments.
+            </summary>
+            <param name="x">First parameter</param>
+            <param name="y">Second parameter</param>
+            <returns>-1 if x &lt; y; 1 if x &gt; y; 0 if x == y.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.FromInt(System.Int32)">
+            <summary>FromInt</summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Zero">
+            <summary>Zero</summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.One">
+            <summary>One</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Add(System.Int32,System.Int32)">
+            <summary>Add</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Divide(System.Int32,System.Int32)">
+            <summary>Divide</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Min(System.Int32,System.Int32)">
+            <summary>Min</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Max(System.Int32,System.Int32)">
+            <summary>Max</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.Int32Aggregator.Compare(System.Int32,System.Int32)">
+            <summary>Compare</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.FromInt(System.Int32)">
+            <summary>FromInt</summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Zero">
+            <summary>Zero</summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.One">
+            <summary>One</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Add(System.UInt32,System.UInt32)">
+            <summary>Add</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Divide(System.UInt32,System.UInt32)">
+            <summary>Divide</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Min(System.UInt32,System.UInt32)">
+            <summary>Min</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Max(System.UInt32,System.UInt32)">
+            <summary>Max</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureAggregator.UInt32Aggregator.Compare(System.UInt32,System.UInt32)">
+            <summary>Compare</summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.ColumnDescriptor">
+            <summary>
+            Encapsulates the descriptive properties of a column in a database table.
+            </summary>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.TableDescriptor">TableDescriptor class</seealso>
+            <seealso cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.GetTables">GetTables method (FlatDataSourceAdapterBase class)</seealso>
+            <seealso cref="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.Columns">Columns property (TableDescriptor class)</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.ColumnDescriptor.DataType">
+            <summary>
+            Returns the .NET framework type of the data contained within this column.
+            </summary>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap">SqlTypeMap class</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbTypeMap">OleDbTypeMap class</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.ColumnDescriptor.Table">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.TableDescriptor">table</see>
+            to which this column belongs.
+            </summary>
+            <remarks>
+            <p class="body">
+            In the case where this instance was created by the 
+            <see cref="!:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.VerifyQueryString">VerifyQueryString</see>
+            method, this property returns null.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor">
+            <summary>
+            PropertyDescriptor-derived class used by the ItemProxy class
+            to publish its pseudo-properties so that they appear as actual
+            public properties to a consumer.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor.CanResetValue(System.Object)">
+            <summary>
+            Returns false to indicate that the associated object 
+            is immutable and as such does not support the changing
+            of its value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor.ComponentType">
+            <summary>
+            Returns typeof(ItemProxy).
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor.GetValue(System.Object)">
+            <summary>
+            Returns the value of the property associated with this
+            descriptor for the specified component.
+            </summary>
+            <param name="component">The ItemProxy instance whose property value is to be returned.</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor.IsReadOnly">
+            <summary>
+            Returns true to indicate that this object is immutable.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.CustomPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <summary>
+            Returns false.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.CustomTypeDescriptor">
+            <summary>
+            Provides the ability to expose non-existent properties on an object.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.DatabaseItemDescriptorBase">
+            <summary>
+            Encapsulates the descriptive properties of a database table.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.DatabaseItemDescriptorBase.Name">
+            <summary>
+            Returns the name of the item.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.DatabaseItemDescriptorBase.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.ConnectionException">
+            <summary>
+            Thrown when an attempt to establish a connection to a data source fails.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.ConnectionException.ConnectionString">
+            <summary>
+            Returns the connection string which caused the exception to be thrown.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase">
+            <summary>
+            Encapsulates a database connection and a select command, which are used to
+            initialize a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>
+            instance with data obtained directly from a database.
+            </summary>
+            <remarks>
+            <p class="body">
+            A flat data source adapter serves as a bridge between a 
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>
+            instance and a database. 
+            </p>
+            <p class="body">
+            The adapter greatly simplifies the process of obtaining data from a non-OLAP
+            database, and preparing it for display within an OLAP data consumer such as
+            the WinPivotGrid.
+            </p>
+            <p class="body">
+            A class which derives from FlatDataSourceAdapterBase handles connectivity
+            and data retrieval for a specific database technology; for example, the
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter">OleDbAdapter</see>
+            class uses an
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbconnection(v=vs.110).aspx">OleDbConnection</a>
+            and an
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbcommand(v=vs.110).aspx">OleDbCommand</a>
+            to connect the FlatDataSource to a database using OleDb technology.
+            </p>
+            <p class="body">
+            Similarly, the
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter">SqlAdapter</see>
+            class uses Sql-based technology to provide support for connecting to and retrieving
+            data from a SQLServer database.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter">OleDbAdapter class</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter">SqlAdapter class</seealso>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.connectionCreatedInternally">
+            <summary>
+            Indicates whether the database connection was created internally.
+            Such connections are disposed when this adapter instance is disposed.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Create(Infragistics.Olap.FlatData.FlatDataSourceAdapterType,System.String,System.String)">
+            <summary>
+            Creates a new instance based on the specified parameters.
+            </summary>
+            <param name="adapterType">Constant which identifies the database connection technology.</param>
+            <param name="connectionString">The connection string.</param>
+            <param name="queryString">The SQL query string.</param>
+            <returns>A FlatDataSourceAdapterBase instance, initialized with the specified parameters.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <remarks>
+            <p class="body">
+            This parameter can be null provided that the
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">Connection</see>
+            property is set to a valid open connection prior to calling the
+            <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+            method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.#ctor(System.Data.IDbConnection)">
+            <summary>
+            Creates a new instance of this class using the specified connection.
+            </summary>
+            <param name="connection">
+            <p>
+            An IDbConnection implementation such as a
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx">SqlConnection</a>
+            or
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbconnection(v=vs.110).aspx">OleDbConnection</a>.
+            </p>
+            <p>
+            This parameter can be null provided that the
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">Connection</see>
+            property is set to a valid open connection prior to calling the
+            <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+            method.
+            </p>
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.TestConnection(System.Boolean)">
+            <summary>
+            Returns a boolean value indicating whether the
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">Connection</see>
+            is currently valid.
+            </summary>
+            <param name="keepOpen">
+            Optional boolean value indicating whether the connection, if successful, should be
+            kept open. By default, the connection is immediately closed.
+            </param>
+            <returns>A boolean value indicating whether the connection succeeded.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.TestConnection(System.Exception@,System.Boolean)">
+            <summary>
+            Returns a boolean value indicating whether the
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">Connection</see>
+            is currently valid.
+            </summary>
+            <param name="exception">
+            [out] Upon return, contains a reference to the exception that resulted
+            from attempting to open the connection. If the connection succeeded, this value is null.
+            </param>
+            <param name="keepOpen">
+            Optional boolean value indicating whether the connection, if successful, should be
+            kept open. By default, the connection is immediately closed.
+            </param>
+            <returns>A boolean value indicating whether the connection succeeded.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">
+            <summary>
+            Initializes the specified FlatDataSource from the data
+            obtained through this adapter instance.
+            </summary>
+            <param name="dataSource">
+            A
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>
+            instance to be initialized. This instance should be created with the
+            parameterless constructor overload.
+            </param>
+            <param name="cubeName">
+            A descriptive name for the cube generated by this adapter instance.
+            </param>
+            <param name="initialSettings">
+            An optional
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">FlatDataSourceInitialSettings</see>
+            instance which determines the initial state of the data source.
+            </param>
+            <param name="cubeGenerationParams">
+            An optional
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters</see>
+            instance which controls the manner in which the datacube is generated.
+            </param>
+            <param name="fieldAttributeCallback">
+            An optional delegate which provides the ability to specify attributes for the
+            property descriptor that is created for the recordset column.
+            </param>
+            <remarks>
+            <p class="body">
+            The
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">Connection</see>
+            must be set to an open database connection before calling this method; failure to do so will
+            result in an exception being thrown.
+            </p>
+            <p class="body">
+            The Fill method is functionally similar to the DbDataAdapter's
+            <a href="https://msdn.microsoft.com/en-us/library/zxkb3c3d(v=vs.110).aspx">Fill</a>
+            method. After establishing a connection to a database, and defining a record selection
+            criteria, use the Fill method to populate the FlatDataSource with row data obtained from
+            the database select query.
+            </p>
+            <p class="body">
+            Note that the Fill method executes synchronously, and will not block the calling thread,
+            but the specified FlatDataSource instance will not be available to provide data until the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event occurs.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.InitializeDataSource(Infragistics.Olap.FlatData.FlatDataSource,System.Data.IDbConnection,System.String,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">
+            <summary>
+            Initializes the specified
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>.
+            </summary>
+            <param name="dataSource">
+            The FlatDataSource instance to be initialized.
+            </param>
+            <param name="connection">
+            The previously opened database connection.
+            </param>
+            <param name="queryString">
+            The query string which defines the record selection criteria.
+            </param>
+            <param name="cubeGenerationParams">
+            A
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters</see>
+            which controls the manner in which the resulting datacube is generated.
+            </param>
+            <param name="fieldAttributeCallback">
+            <p>
+            An optional delegate which provides the ability to specify attributes for the
+            property descriptor that is created for the recordset column.
+            This method is called when a PropertyDescriptor is created for a column in the
+            recordset created from the query, passing the name of the column. The value returned from
+            the method is used to specify the attributes for the corresponding "property".
+            </p>
+            <p>
+            This delegate makes it possible to use the 'ByCategory' setting for the
+            <see cref="P:Infragistics.Olap.FlatData.CubeGenerationParameters.HierarchyDimensionGrouping">HierarchyDimensionGrouping</see>
+            property of the
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters</see>
+            class; by providing a
+            <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.categoryattribute(v=vs.100).aspx">CategoryAttribute</a>
+            in the returned array, similar properties can be grouped together based on their category.
+            </p>
+            <p>
+            Note that the 
+            <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.browsableattribute(v=vs.100).aspx">BrowsableAttribute</a>
+            can be used to hide a database field from the property list, by specifying false for the 'browsable' constructor parameter.
+            </p>
+            </param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Connection">
+            <summary>
+            Returns or sets a connection to the data source associated
+            with this adapter instance.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.VerifyConnection(System.Data.IDbConnection)">
+            <summary>
+            Verifies the specified database connection.
+            </summary>
+            <param name="connection">The IDbConnection implementation to verify.</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.QueryString">
+            <summary>
+            Returns or sets the query string used to define the record selection criteria.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.GetColumns(System.String)">
+            <summary>
+            When overridden in a derived class, returns a list of the columns
+            returned from the specified query string.
+            </summary>
+            <param name="queryString">A SQL query string which definbes the record selection criteria.</param>
+            <returns>The resulting list of columns or null if the specified query string is invalid.</returns>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.AdapterType">
+            <summary>
+            Returns a value which identifies the database connection
+            technology used by this adapter.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.DefaultDimensionName">
+            <summary>For internal use.</summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.GetTables">
+            <summary>
+            Returns a list of the tables which belong to the associated database.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Dispose">
+            <summary>
+            Releases resourses used by this class
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.System#IDisposable#Dispose">
+            <summary>
+            Releases resourses used by this class
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.ItemProxy">
+            <summary>
+            Class which encapsulates an item produced as the result of a
+            database query. An instance of this class corresponds to a record
+            in a rowset; each 'property' exposed by this class corresponds to
+            the cell value for the column whose name matches that property name.
+            Note that instances of this class are immutable.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.ItemProxy.Item(System.String)">
+            <summary>
+            Returns the value of the specified property.
+            </summary>
+            <param name="property">The name of the property whose value is to be returned.</param>
+            <returns>The unconverted value.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter">
+            <summary>
+            Provides a conduit between an
+            <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms722784(v=vs.85).aspx">OLE DB</a>
+            database and a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>
+            instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            The OleDbAdapter class is used to extract data from a database by using an
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbconnection(v=vs.110).aspx">OleDbConnection</a>
+            and an
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbcommand(v=vs.110).aspx">OleDbCommand</a> to
+            populate the associated FlatDataSource.
+            </p>
+            <p class="body">
+            When the ConnectionString and QueryString properties have been set, call the
+            <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+            method to populate a FlatDataSource instance.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class using the specified connection string.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.#ctor(System.Data.OleDb.OleDbConnection)">
+            <summary>
+            Creates a new instance of this class using the specified connection.
+            </summary>
+            <param name="connection">
+            The OleDbConnection used to connect to the database.
+            Note that the caller is responsible for disposing of this connection.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class using the specified connection string and query string.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.AdapterType">
+            <summary>
+            Returns FlatDataSourceAdapterType.OleDb.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.TypeMap">
+            <summary>
+            Returns an object which maps OLE DB data types to their
+            respective .NET framework counterparts.
+            </summary>
+            <remarks>
+            <p class="body">
+            Note that the indexer for the OleDbTypeMap class is settable, so that
+            the developer can remap data types at their convenience.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.InitializeDataSource(Infragistics.Olap.FlatData.FlatDataSource,System.Data.IDbConnection,System.String,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">
+            <summary>
+            Initializes the specified
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.VerifyConnection(System.Data.IDbConnection)">
+            <summary>
+            Verifies that the specified database connection is a OleDbConnection.
+            </summary>
+            <param name="connection">The IDbConnection implementation to verify.</param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.GetColumns(System.String)">
+            <summary>
+            Returns the resulting column list from the specified query string,
+            or null if the specified query string is invalid.
+            </summary>
+            <param name="queryString">The SQL query string from which to obtain the column list.</param>
+            <returns>A list of ColumnDescriptor instances, or null if the queryString is invalid.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.GetTables">
+            <summary>
+            Returns a list of the tables which belong to the associated database.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.OleDbAdapterTypeConverter">
+            <summary>
+            SqlAdapterTypeConverter object type converter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.OleDbAdapterTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="destinationType">A System.Type that represents the type you want to convert to.</param>
+            <returns>true if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter.OleDbAdapterTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified
+            context and culture information.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="culture">A System.Globalization.CultureInfo. If null is passed, the current culture is assumed.</param>
+            <param name="value">The System.Object to convert.</param>
+            <param name="destinationType">The System.Type to convert the value parameter to.</param>
+            <returns>An System.Object that represents the converted value.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbTypeMap">
+            <summary>
+            Provides support for mapping OleDb-specific data types
+            to their respective .NET framework counterparts.
+            </summary>
+            <remarks>
+            <p class="body">
+            A type map is used primarily for informative purposes, so that the
+            developer can easily determine the .NET data type of a column in a database
+            table.
+            </p>
+            <p class="body">
+            The indexer for this class is settable, i.e., the developer <b>can change the .NET data type
+            to which a given database-specific type is mapped</b>. This feature exists only to
+            support complex development scenarios, and is intended to be used carefully and only
+            in situations where a straightforward conversion between types is possible.
+            </p>
+            <p class="body">
+            For example, a developer might want to remap a data type that is not CLS-compliant
+            (such as an unsigned short integer) to a type that is, and is certain that data will
+            not be corrupted by the conversion process.
+            </p>
+            <p class="body">
+            The following table lists the default type conversion for each OleDbType constant:
+            </p>
+            <p class="body">
+            <table>
+            <th>OleDbType</th><th>.NET Type</th>
+            <tr>
+            <td>Empty</td>
+            <td>DBNull</td>
+            </tr>
+            <tr>
+            <td>SmallInt</td>
+            <td>Int16</td>
+            </tr>
+            <tr>
+            <td>Integer</td>
+            <td>Int32</td>
+            </tr>
+            <tr>
+            <td>Single</td>
+            <td>Single</td>
+            </tr>
+            <tr>
+            <td>Double</td>
+            <td>Double</td>
+            </tr>
+            <tr>
+            <td>Currency</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>Date</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>BSTR</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>IDispatch</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>Error</td>
+            <td>Exception</td>
+            </tr>
+            <tr>
+            <td>Boolean</td>
+            <td>Boolean</td>
+            </tr>
+            <tr>
+            <td>Variant</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>IUnknown</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>Decimal</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>TinyInt</td>
+            <td>SByte</td>
+            </tr>
+            <tr>
+            <td>UnsignedTinyInt</td>
+            <td>Byte</td>
+            </tr>
+            <tr>
+            <td>UnsignedSmallInt</td>
+            <td>UInt16</td>
+            </tr>
+            <tr>
+            <td>UnsignedInt</td>
+            <td>UInt32</td>
+            </tr>
+            <tr>
+            <td>BigInt</td>
+            <td>Int64</td>
+            </tr>
+            <tr>
+            <td>UnsignedBigInt</td>
+            <td>UInt64</td>
+            </tr>
+            <tr>
+            <td>Filetime</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>Guid</td>
+            <td>Guid</td>
+            </tr>
+            <tr>
+            <td>Binary</td>
+            <td>Byte[]</td>
+            </tr>
+            <tr>
+            <td>Char</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>WChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>Numeric</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>DBDate</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>DBTime</td>
+            <td>TimeSpan</td>
+            </tr>
+            <tr>
+            <td>DBTimeStamp</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>PropVariant</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>VarNumeric</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>VarChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>LongVarChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>VarWChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>LongVarWChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>VarBinary</td>
+            <td>Byte</td>
+            </tr>
+            <tr>
+            <td>LongVarBinary</td>
+            <td>Byte[]</td>
+            </tr>
+            </table>
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap">SqlTypeMap class</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbTypeMap.Item(System.Data.OleDb.OleDbType)">
+            <summary>
+            Returns or sets the .NET framework type which corresponds to the
+            specified OleDbType constant.
+            </summary>
+            <param name="oleDbType">
+            The
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbtype(v=vs.110).aspx">OleDbType</a>
+            constant for which the .NET framework type is to be returned.
+            </param>
+            <returns>The .NET framework type for the specified OleDb type.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbTypeMap.Reset">
+            <summary>
+            Restores all values to their respective defaults.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.PropertyMetadata">
+            <summary>
+            Stores the name, data type, and attributes of a property.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.PropertyMetadata.ToString">
+            <summary>
+            Returns the string representation of this instance.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter">
+            <summary>
+            Provides a conduit between a SqlServer database and a
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>
+            instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            The SqlAdapter class is used to extract data from a database by using a
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx">SqlConnection</a>
+            and a
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand(v=vs.110).aspx">SqlCommand</a> to
+            populate the associated FlatDataSource.
+            </p>
+            <p class="body">
+            When the ConnectionString and QueryString properties have been set, call the
+            <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+            method to populate a FlatDataSource instance.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class using the specified connection string.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.#ctor(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Creates a new instance of this class using the specified connection.
+            </summary>
+            <param name="connection">
+            The SqlConnection used to connect to the database.
+            Note that the caller is responsible for disposing of this connection.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of this class using the specified connection string and query string.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.AdapterType">
+            <summary>
+            Returns FlatDataSourceAdapterType.Sql.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.TypeMap">
+            <summary>
+            Returns an object which maps SQL data types to their
+            respective .NET framework counterparts.
+            </summary>
+            <remarks>
+            <p class="body">
+            The following MSDN article outlines the default mappings:
+            <a href="https://msdn.microsoft.com/en-us/library/cc716729(v=vs.100).aspx">SQL Server Data Type Mappings (ADO.NET)</a>
+            </p>
+            <p class="body">
+            Note that the indexer for the SqlTypeMap class is settable, so that
+            the developer can remap data types at their convenience.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.InitializeDataSource(Infragistics.Olap.FlatData.FlatDataSource,System.Data.IDbConnection,System.String,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">
+            <summary>
+            Initializes the specified
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSource">FlatDataSource</see>.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.VerifyConnection(System.Data.IDbConnection)">
+            <summary>
+            Verifies that the specified database connection is a SqlConnection.
+            </summary>
+            <param name="connection">The IDbConnection implementation to verify.</param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.GetTables">
+            <summary>
+            Returns a list of the tables which belong to the associated database.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.GetColumns(System.String)">
+            <summary>
+            Returns the resulting column list from the specified query string,
+            or null if the specified query string is invalid.
+            </summary>
+            <param name="queryString">The SQL query string from which to obtain the column list.</param>
+            <returns>A list of ColumnDescriptor instances, or null if the queryString is invalid.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.SqlAdapterTypeConverter">
+            <summary>
+            SqlAdapterTypeConverter object type converter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.SqlAdapterTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="destinationType">A System.Type that represents the type you want to convert to.</param>
+            <returns>true if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter.SqlAdapterTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified
+            context and culture information.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="culture">A System.Globalization.CultureInfo. If null is passed, the current culture is assumed.</param>
+            <param name="value">The System.Object to convert.</param>
+            <param name="destinationType">The System.Type to convert the value parameter to.</param>
+            <returns>An System.Object that represents the converted value.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap">
+            <summary>
+            Provides support for mapping Sql-specific data types
+            to their respective .NET framework counterparts.
+            </summary>
+            <remarks>
+            <p class="body">
+            A type map is used primarily for informative purposes, so that the
+            developer can easily determine the .NET data type of a column in a database
+            table.
+            </p>
+            <p class="body">
+            The indexer for this class is settable, i.e., the developer <b>can change the .NET data type
+            to which a given database-specific type is mapped</b>. This feature exists only to
+            support complex development scenarios, and is intended to be used carefully and only
+            in situations where a straightforward conversion between types is possible.
+            </p>
+            <p class="body">
+            For example, a developer might want to remap a data type that is not CLS-compliant
+            (such as an unsigned short integer) to a type that is, and is certain that data will
+            not be corrupted by the conversion process.
+            </p>
+            <p class="body">
+            The following table lists the default type conversion for each SqlDbType constant:
+            </p>
+            <p class="body">
+            <table>
+            <th>SqlDbType</th><th>.NET Type</th>
+            <tr>
+            <td>BigInt</td>
+            <td>Int64</td>
+            </tr>
+            <tr>
+            <td>Binary</td>
+            <td>Byte[]</td>
+            </tr>
+            <tr>
+            <td>Bit</td>
+            <td>Boolean</td>
+            </tr>
+            <tr>
+            <td>Char</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>DateTime</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>Decimal</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>Float</td>
+            <td>Double</td>
+            </tr>
+            <tr>
+            <td>Image</td>
+            <td>Byte[]</td>
+            </tr>
+            <tr>
+            <td>Int</td>
+            <td>Int32</td>
+            </tr>
+            <tr>
+            <td>Money</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>NChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>NText</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>NVarChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>Real</td>
+            <td>Single</td>
+            </tr>
+            <tr>
+            <td>UniqueIdentifier</td>
+            <td>Guid</td>
+            </tr>
+            <tr>
+            <td>SmallDateTime</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>SmallInt</td>
+            <td>Int16</td>
+            </tr>
+            <tr>
+            <td>SmallMoney</td>
+            <td>Decimal</td>
+            </tr>
+            <tr>
+            <td>Text</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>Timestamp</td>
+            <td>Byte[]</td>
+            </tr>
+            <tr>
+            <td>TinyInt</td>
+            <td>Byte</td>
+            </tr>
+            <tr>
+            <td>VarBinary</td>
+            <td>Byte[]</td>
+            </tr>
+            <tr>
+            <td>VarChar</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>Variant</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>Xml</td>
+            <td>String</td>
+            </tr>
+            <tr>
+            <td>Udt</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>Structured</td>
+            <td>Object</td>
+            </tr>
+            <tr>
+            <td>Date</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>Time</td>
+            <td>TimeSpan</td>
+            </tr>
+            <tr>
+            <td>DateTime2</td>
+            <td>DateTime</td>
+            </tr>
+            <tr>
+            <td>DateTimeOffset</td>
+            <td>DateTimeOffset</td>
+            </tr>
+            </table>
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbTypeMap">OleDbTypeMap class</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap.Item(System.Data.SqlDbType)">
+            <summary>
+            Returns or sets the .NET framework type which corresponds to the
+            specified SqlDbType constant.
+            </summary>
+            <param name="sqlType">
+            The
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.sqldbtype(v=vs.100).aspx">SqlDbType</a>
+            constant for which the .NET framework type is to be returned.
+            </param>
+            <returns>The .NET framework type for the specified Sql type.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap.Reset">
+            <summary>
+            Restores all values to their respective defaults.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.Sql.SqlTypeMap.TryParse(System.String,System.Data.SqlDbType@)">
+            <summary>
+            Attempts to parse the specified SQL Server Database Engine type
+            and returns the corresponding System.Data.SqlDbType constant if
+            the parse operation is successful.
+            </summary>
+            <param name="sqlServerType">A string specifying the SQL Server Database Engine type.</param>
+            <param name="sqlDbType">[out] If the parse operation was successful, contains the corresponding System.Data.SqlDbType constant. If the parse operation fails, this value is undefined.</param>
+            <returns>A boolean value indicating whether the value was successfully parsed.</returns>
+            <remarks>
+            <p class="body">
+            See the following MSDN topic for further information:
+            <a href="https://msdn.microsoft.com/en-us/library/cc716729(v=vs.100).aspx">"SQL Server Data Type Mappings (ADO.NET)"</a>.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.Adapters.TableDescriptor">
+            <summary>
+            Encapsulates the descriptive properties of a database table.
+            </summary>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.ColumnDescriptor">ColumnDescriptor class</seealso>
+            <seealso cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.GetTables">GetTables method (FlatDataSourceAdapterBase class)</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.Schema">
+            <summary>
+            Returns the schema of the table.
+            </summary>
+            <remarks>
+            <p class="body">
+            The table schema is used to qualify table names. For example,
+            given a table whose schema is 'Foo' and whose name is 'Bar',
+            a SELECT statement would appear as follows:
+            </p>
+            <p class="body">
+            SELECT * FROM Foo.Bar;
+            </p>
+            <p class="body">
+            The
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.QualifiedName">QualifiedName</see>
+            property returns the concatenation of the Schema and Name properties in cases where the Schema
+            property is non-empty, and returns the same value as the Name property otherwise.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.QualifiedName">
+            <summary>
+            Returns the fully qualified name of the table.
+            </summary>
+            <remarks>
+            <p class="body">
+            In the case where the
+            <see cref="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.Schema">Schema</see>
+            property is empty, this property returns the same value as the
+            <see cref="!:Infragistics.Olap.FlatData.Adapters.TableDescriptor.Name">Name</see>
+            property.
+            </p>
+            <p class="body">
+            If the Schema property is non-empty, this property returns the concatenation
+            of the Schema and Name properties, separated by a period ('.');
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.Adapters.TableDescriptor.Columns">
+            <summary>
+            Returns a list of the columns which belong to this table.
+            </summary>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.ColumnDescriptor">ColumnDescriptor class</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.Adapters.TableDescriptor.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.DimensionDescriptor">
+            <summary>
+            Describes the properties of a
+            <see cref="T:Infragistics.Olap.Core.Data.Dimension">Dimension</see>
+            for a FlatDataSource.
+            </summary>
+            <remarks>
+            <p class="body">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchies</see>
+            available for use on the row and column axes are defined by adding items to the
+            <see cref="P:Infragistics.Olap.FlatData.DimensionDescriptor.HierarchyDescriptors">HierarchyDescriptors</see>
+            collection. These descriptors can be generated automatically using the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.DimensionDescriptor.HierarchyDescriptors">
+            <summary>
+            Returns a collection of the
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy descriptors</see>
+            associated with this dimension.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.DimensionDescriptorsCollection">
+            <summary>
+            Collection class for objects of type
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptor</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.DimensionDescriptorsCollection.DataSource">
+            <summary>
+            Returns a reference to the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.DimensionDescriptorsCollection.Add(System.String,System.String)">
+            <summary>
+            Adds a new
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptor</see>
+            to this collection.
+            </summary>
+            <param name="name">A unique name for the DimensionDescriptor.</param>
+            <param name="caption">An optional caption.</param>
+            <returns>
+            A reference to the
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptor</see>
+            that was added to the collection.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.DimensionDescriptorsCollection.Remove(System.String)">
+            <summary>
+            Removes the
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptor</see>
+            with the specified name from this collection.
+            </summary>
+            <param name="name">The name of the DimensionDescriptor to remove.</param>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.OlapAxisElementType">
+            <summary>
+            Constants which represent a type of OLAP axis element.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.OlapAxisElementType.None">
+            <summary>
+            No descriptor is generated for the associated class member, i.e.,
+            the associated class member is not considered to be part of the
+            data source.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.OlapAxisElementType.Hierarchy">
+            <summary>
+            The associated class member represents a Hierarchy, i.e., a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            is generated for the associated class member.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.OlapAxisElementType.Measure">
+            <summary>
+            The associated class member represents a Measure, i.e., a
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            is generated for the associated class member.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.MeasureAggregation">
+            <summary>
+            Constants which describe the manner in which a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            is aggregated.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.None">
+            <summary>
+            No aggregation occurs. The
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            occurs, providing the opportunity to execute a customized aggregation function.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.Sum">
+            <summary>
+            The aggregation consists of the sum of the value of each cell.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.Average">
+            <summary>
+            The aggregation consists of the sum of the value of each cell
+            divided by the number of cells with a non-null value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.Min">
+            <summary>
+            The aggregation consists of the smallest cell value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.Max">
+            <summary>
+            The aggregation consists of the largest cell value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.MeasureAggregation.Count">
+            <summary>
+            The aggregation consists of the total number of cells with non-null values.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.HierarchyDimensionGrouping">
+            <summary>
+            Constants which describe the manner in which
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchies</see>
+            are assigned to
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimensionDescriptors</see>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.HierarchyDimensionGrouping.AllInOne">
+            <summary>
+            Only one
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimension</see>
+            is created, and all
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchies</see>
+            are added to that dimension.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.HierarchyDimensionGrouping.Separate">
+            <summary>
+            One
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimension</see>
+            is created for each
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.HierarchyDimensionGrouping.ByCategory">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimension</see>
+            is created for each System.ComponentModel.CategoryAttribute contained within
+            the type specified by the data source's
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property. Each
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+            is added to the dimension which corresponds to the associated property descriptor's
+            category. Hierarchies which are associated with members that do not belong to a
+            category are added to a default dimension.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags">
+            <summary>
+            Flagged enumeration which determines the manner in which
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">levels</see>
+            are generated for 
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchies</see>
+            associated with the System.DateTime data type.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.None">
+            <summary>
+            No date-specific levels are generated. The manner in which DateTime
+            levels are generated is determined by the value of the
+            <see cref="P:Infragistics.Olap.FlatData.LevelCreationParameters.GenerateAllMembersLevel">GenerateAllMembersLevel</see>
+            property.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.Year">
+            <summary>
+            A level is generated for the year component of the date.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.Semester">
+            <summary>
+            A level is generated which groups a date according to which
+            half of the year it belongs. Dates which fall in the range of
+            January 1st thru June 30 are separated from dates which fall
+            in the range of July 1st thru December 31.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.Quarter">
+            <summary>
+            A level is generated which groups the dates according to which
+            quarter of the year it belongs. The date ranges for the four
+            quarters are as follows:
+            <ul>
+                <li>January 1 thru March 31</li>
+                <li>April 1 thru June 30</li>
+                <li>July 1 thru September 30</li>
+                <li>October 1 thru December 31</li>
+            </ul>
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.Month">
+            <summary>
+            A level is generated which groups a date according to the
+            month in which it falls.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.DateTimeLevelCreationFlags.Date">
+            <summary>
+            A level is generated which corresponds to an exact date.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.FlatDataSourceAdapterType">
+            <summary>
+            Constants which identify the connection technology used by a database
+            <see cref="!:Infragistics.Olap.FlatData.FlatData.Adapters.FlatDataSourceAdapterBase">adapter</see>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.FlatDataSourceAdapterType.Sql">
+            <summary>
+            A data adapter which uses a
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx">SqlConnection</a>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.FlatData.FlatDataSourceAdapterType.OleDb">
+            <summary>
+            A data adapter which uses an
+            <a href="https://msdn.microsoft.com/en-us/library/system.data.oledb.oledbconnection(v=vs.110).aspx">OleDbConnection</a>.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs.OlapElementDescriptor">
+            <summary>
+            Returns or sets a reference to the OLAP element to be associated with this instance's
+            <see cref="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs.PropertyDescriptor">PropertyDescriptor</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            At the entry point for a handler of this event, this property returns either a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            or
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            instance, depending on whether the data type of the class member it represents
+            is numeric (members whose type is numeric (int, double, decimal, etc.) are assumed
+            to represent a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>).
+            </p>
+            <p class="body">
+            Setting this property to null effectively removes the corresponding class member
+            from the data source, i.e., no axis element is created for that member.
+            </p>
+            <p class="body">
+            The default behavior, whereby numeric types become measureDescriptors and non-numeric types
+            become hierarchies, can be overriden by simply assigning an instance of the desired
+            type to this property. When a class member whose type is non-numeric is
+            designated as a Measure, however, the default aggregation method is undefined,
+            and cells for that measure appear empty by default. This behavior can be overridden
+            by handling the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event, and manually aggregating the items therein.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs.PropertyDescriptor">
+            <summary>
+            Returns a reference to the PropertyDescriptor for which this OLAP element
+            was generated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs.Visible">
+            <summary>
+            Returns or sets a boolean value indicating whether the
+            associated class member is visible to the data source.
+            </summary>
+            <remarks>
+            <p class="body">
+            Setting this property to false is the logical equivalent to setting the
+            <see cref="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorEventArgs.OlapElementDescriptor">OlapElementDescriptor</see>
+            property to null.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeOlapAxisElementDescriptorEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeOlapAxisElementDescriptorHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeHierarchyDescriptorEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.InitializeHierarchyDescriptorEventArgs.HierarchyDescriptor">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            being initialized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeHierarchyDescriptorHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeMeasureDescriptorEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.InitializeMeasureDescriptorEventArgs.MeasureDescriptor">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            being initialized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.InitializeMeasureDescriptorHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.AggregateMeasureEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Value">
+            <summary>
+            Returns or sets a value which represents the result of the aggregation function.
+            </summary>
+            <remarks>
+            <p class="body">
+            When execution returns from the AggregateMeasure event, the value of this
+            property is evaluated to determine whether it can be successfully converted
+            to the type returned by the associated MeasureDescriptor's
+            <see cref="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase.DataType">DataType</see>
+            property.
+            </p>
+            <p class="body">
+            If conversion to that type is not possible, an exception is thrown. This validation
+            can be bypassed by setting the
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Validate">Validate</see>
+            property to false; note, however, that this does not prevent any other exceptions
+            from being thrown, it only prevents the type check from taking place.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Validate">
+            <summary>
+            Returns or sets a boolean value indicating whether the
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Value">Value</see>
+            should be evaluated by the associated
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.MeasureDescriptor">MeasureDescriptor</see>
+            to determine whether a conversion is possible.
+            </summary>
+            <remarks>
+            <p class="body">
+            This property is only applicable when the
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Handled">Handled</see>
+            property returns true when execution returns from the AggregateMeasure event.
+            </p>
+            <p class="body">
+            By default, an exception is thrown when execution returns from the AggregateMeasure
+            event if the assigned
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Value">value</see>
+            cannot be assigned to a value of the associated MeasureDescriptor's DataType.
+            </p>
+            <p class="body">
+            Set this property to false to prevent this type check from taking place.
+            </p>
+            <p class="body">
+            Note that bypassing this type check does not necessarily prevent other exceptions
+            from being thrown.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Handled">
+            <summary>
+            Returns or sets a boolean value indicating whether this event was handled.
+            </summary>
+            <remarks>
+            <p class="body">
+            Set this property to true to indicate that the data source should not
+            execute its own internal aggregation function.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Items">
+            <summary>
+            Returns a System.Collections.IEnumerable implementation which
+            contains the list of items to be aggregated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.MeasureDescriptor">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            associated with the data to be aggregated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Row">
+            <summary>
+            Returns the index of the row associated with the data to be aggregated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Column">
+            <summary>
+            Returns the index of the column associated with the data to be aggregated.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Measure">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            associated with the data to be aggregated.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.AggregateMeasureHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.FlatDataSource">
+            <summary>
+            Provides a communication layer between the data contained within an IEnumerable
+            implementation and consumers which typically present OLAP data.
+            </summary>
+            <remarks>
+            <p class="body">
+            The FlatDataSource class provides a mechanism by which 'ordinary' object data
+            can be presented similarly to the way OLAP (Online Analytical Processing) data
+            is typically presented.
+            </p>
+            <p class="body">
+            A FlatDataSource instance can be created for any collection or list which
+            implements the IEnumerable interface. The developer can then specify the contents
+            of the row, column, and measure (a.k.a., 'slicer') axes in the same way the axes
+            are specified for actual OLAP data sources.
+            </p>
+            <p class="body">
+            For most applications, the schema for the data source can be automatically generated using the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method; this method uses the reflection methods available through the System.Type class
+            to obtain information about the publicly exposed properties of the class. Hierarchy
+            and Measure descriptors are then created using this information, along with the parameters
+            defined by an optional
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters</see>
+            instance.
+            </p>
+            <p class="body">
+            The FlatDataSource class also supports a manual mode of operation, where hierarchy, level,
+            and measure descriptors are created by the developer, providing a high level of
+            flexibility. This is accomplished by populating the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.DimensionDescriptors">DimensionDescriptors</see>,
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.MeasureDescriptors">MeasureDescriptors</see>,
+            <see cref="P:Infragistics.Olap.FlatData.DimensionDescriptor.HierarchyDescriptors">HierarchyDescriptors</see>,
+            and
+            <see cref="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">LevelDescriptors</see>
+            collections
+            </p>
+            <p class="body">
+            A hybrid approach is also supported, where the schema is auto-generated
+            and then customized by the developer using the object model through which the
+            OLAP element descriptor logic is exposed.
+            </p>
+            <p class="body">
+            <b>Note: </b> Before calling the
+            <see cref="M:Infragistics.Olap.OlapDataSource.InitializeAsync(System.Windows.Forms.Control)">InitializeAsync</see>
+            method, a schema for the data source must be defined, either via the GenerateCube method
+            or by manually populating the above mentioned collections. Failure to define a schema before
+            calling the InitializeAsync method results in an exception being thrown.
+            </p>
+            <p class="body">
+            Also note that once the schema has been defined, the above mentioned collections
+            cannot be modified; doing so results in an exception being thrown.
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube method</seealso>
+            <seealso cref="P:Infragistics.Olap.FlatData.FlatDataSource.DimensionDescriptors">DimensionDescriptors collection</seealso>
+            <seealso cref="P:Infragistics.Olap.FlatData.FlatDataSource.MeasureDescriptors">MeasureDescriptors collection</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor class</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor class</seealso>
+        </member>
+        <member name="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">
+            <summary>
+            Occurs when a PropertyDescriptor is processed to create a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            or
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            during the automatic cube generation process.
+            </summary>
+            <remarks>
+            <p class="body">
+            This event occurs only when the data cube is generated via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            <p class="body">
+            Each property of the class referenced by the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property can be designated as either a hierarchy or a measure, but not both.
+            </p>
+            <p class="body">
+            By default, properties of numeric types are assumed to represent Measures.
+            This event can be used to override this behavior; note, however, that non-numeric
+            measures must be aggregated 'manually', by handling the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event.
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.OnInitializeOlapAxisElementDescriptor(Infragistics.Olap.FlatData.InitializeOlapAxisElementDescriptorEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor</see>
+            event.
+            </summary>
+            <param name="e">
+            An
+            <see cref="!:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptorEventArgs">InitializeOlapAxisElementDescriptorEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">
+            <summary>
+            Occurs when a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            is created during the automatic cube generation process.
+            </summary>
+            <remarks>
+            <p class="body">
+            This event occurs only when the data cube is generated via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.OnInitializeHierarchyDescriptor(Infragistics.Olap.FlatData.InitializeHierarchyDescriptorEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor</see>
+            event.
+            </summary>
+            <param name="e">
+            An
+            <see cref="!:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptorEventArgs">InitializeHierarchyDescriptorEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">
+            <summary>
+            Occurs when a
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            is created during the automatic cube generation process.
+            </summary>
+            <remarks>
+            <p class="body">
+            This event occurs only when the data cube is generated via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.OnInitializeMeasureDescriptor(Infragistics.Olap.FlatData.InitializeMeasureDescriptorEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor</see>
+            event.
+            </summary>
+            <param name="e">
+            An
+            <see cref="!:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptorEventArgs">InitializeMeasureDescriptorEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">
+            <summary>
+            Occurs when data for a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            is
+            <see cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">aggregated</see>,
+            providing a way for the developer to override the default aggregation function.
+            </summary>
+            <remarks>
+            <p class="body">
+            This event provides a way to execute a custom aggregation function.
+            </p>
+            <p class="body">
+            A listener must set the
+            <see cref="P:Infragistics.Olap.FlatData.AggregateMeasureEventArgs.Handled">Handled</see>
+            property of the event arguments class to true to bypass default aggregation.
+            </p>
+            </remarks>
+            <seealso cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">Aggregation property (MeasureDescriptor class)</seealso>.
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.OnAggregateMeasure(Infragistics.Olap.FlatData.AggregateMeasureEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event.
+            </summary>
+            <param name="e">
+            An
+            <see cref="!:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasureEventArgs">AggregateMeasureEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.#ctor(Infragistics.Olap.FlatData.FlatDataSourceInitialSettings)">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+            <param name="settings">
+            A
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">FlatDataSourceInitialSettings</see>
+            instance containing the initial settings for the data source.
+            </param>
+            <remarks>
+            <p class="body">
+            This overload is intended to be used only when populating
+            the data source via a
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase">FlatDataSourceAdapterBase</see>-derived class.
+            </p>
+            <p class="body">
+            Using this overload for any other purpose may cause unintended behavior.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.Sql.SqlAdapter">SqlAdapter class</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.Adapters.OleDb.OleDbAdapter">OleDbAdapter class</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.#ctor(System.Collections.IEnumerable,System.Type)">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+            <param name="itemSource">
+            An IEnumerable implementation which provides the data items for this instance.
+            Must not contain null references or objects of disparate types.
+            </param>
+            <param name="itemType">
+            Optional parameter defining the data type of the items in the <paramref name="itemSource"/>.
+            If null, type is obtained from the first item in the itemSource.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.#ctor(System.Collections.IEnumerable,System.Type,Infragistics.Olap.FlatData.FlatDataSourceInitialSettings)">
+            <summary>
+            Creates a new instance of the class, initialized with the specified settings.
+            </summary>
+            <param name="itemSource">
+            An IEnumerable implementation which provides the data items for this instance.
+            Must not contain null references or disparate objects.
+            </param>
+            <param name="itemType">
+            The data type of the items in the <paramref name="itemSource"/>.
+            If null, type is obtained from the first item in the itemSource.
+            </param>
+            <param name="settings">
+            A
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">FlatDataSourceInitialSettings</see>
+            instance containing the initial settings for the data source.
+            </param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.#ctor(Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase,System.String,System.String,Infragistics.Olap.FlatData.FlatDataSourceInitialSettings)">
+            <summary>
+            Creates a new FlatDataSource instance, using the specified
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase">adapter</see>
+            to populate the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemSource">ItemSource</see>
+            collection.
+            </summary>
+            <param name="adapter">The adapter used to populate the ItemSource.</param>
+            <param name="settings">
+            A
+            <see cref="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">FlatDataSourceInitialSettings</see>
+            instance containing the initial settings for the data source.
+            </param>
+            <param name="displayName">The initial value for the DisplayName property.</param>
+            <param name="defaultDimensionName">The initial value for the DefaultDimensionName property.</param>
+            <remarks>
+            <p class="body">
+            Creating an instance with this overload is the logical equivalent
+            of creating an empty instance and populating it via the adapter's
+            <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+            method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.GetDefaultDimensionName">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">
+            <summary>
+            Generates cube data for this data source instance, based on this instance's
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>,
+            optionally using the specified
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">parameters</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            This method automatically populates the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.DimensionDescriptors">DimensionDescriptors</see>
+            and
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.MeasureDescriptors">MeasureDescriptors</see>
+            collections by inspecting the type information for the object described by the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property.
+            </p>
+            <p class="body">
+            The metadata included in each
+            <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.propertydescriptor(v=vs.100).aspx">PropertyDescriptor</a>
+            exposed by the type is used to create the respective 
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+            and
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">measure</see>
+            descriptors which define the axes available to the associated data source.
+            </p>
+            <p class="body">
+            The following sequence of events describes the cube generation process:
+            <ul>
+                <li>A TypeDescriptor is obtained for the type described by the data source's ItemType property.</li>
+                <li>
+                One or more
+                <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptors</see>
+                are created, based on the value of the 
+                <see cref="P:Infragistics.Olap.FlatData.CubeGenerationParameters.HierarchyDimensionGrouping">HierarchyDimensionGrouping</see>
+                property of the specified cube generation parameters object. By default, one hierarchy dimension is created,
+                and all non-numeric properties become hierarchies of that dimension.
+                </li>
+                <li>
+                    The
+                    <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor</see>
+                    event is raised for each property contained therein. This event provides a way to specify whether the associated property represents a
+                    <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+                    or
+                    <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">measure</see>.
+                    By default, properties of a numeric type become measures, and properties
+                    of all other types become hierarchies. The developer can override this behavior
+                    using the properties of the event arguments.
+                </li>
+                <li>
+                After the identity of a given property is established, i.e., whether it represents a hierarchy or measure, either the
+                <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor</see>
+                or
+                <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor</see>
+                is raised. This event provides an opportunity to set properties on the resulting descriptor.
+                For example, a listener of this event could add additional levels (or modify existing ones) for a hierarchy,
+                specify the aggregation function for a measure, change the caption displayed for the hierarchy/measure, etc.
+                </li>
+                <li>
+                Each dimension's
+                <see cref="P:Infragistics.Olap.FlatData.DimensionDescriptor.HierarchyDescriptors">HierarchyDescriptors</see>
+                collection is populated, as is the data source's
+                <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.MeasureDescriptors">MeasureDescriptors</see>
+                collection.
+                </li>
+            </ul>
+            </p>
+            <p class="body">
+            Cube generation is a synchronous process; at the completion of the GenerateCube method,
+            the data source is fully configured and ready to be initialized.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters class</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeOlapAxisElementDescriptor">InitializeOlapAxisElementDescriptor event</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor event</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor event</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.OnBeforeInitializeAsync">
+            <summary>
+            Overridden to ensure that metadata is created.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.VerifyCanInitialize">
+            <summary>
+            Throws an exception if this instance has not yet been
+            properly configured for initialization.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.VerifyCanSetCube">
+            <summary>
+            Throws an exception unconditionally because this data source does not support
+            changing the current cube.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSource.DimensionDescriptors">
+            <summary>
+            Returns a collection of the
+            <see cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">dimension descriptors</see>
+            associated with this instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            A dimension contains one or more
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchies</see>.
+            </p>
+            <p class="body">
+            When generating a data cube via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method, the
+            <see cref="P:Infragistics.Olap.FlatData.CubeGenerationParameters.HierarchyDimensionGrouping">HierarchyDimensionGrouping</see>
+            property of the 
+            <see cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters</see>
+            class can be used to control the manner in which dimension descriptors are created and how
+            hierarchies are assigned to them.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.DimensionDescriptor">DimensionDescriptor class</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters class</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSource.MeasureDescriptors">
+            <summary>
+            Returns a collection of the
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">measure descriptors</see>
+            associated with this instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            A measure represents the data from which cell values are obtained.
+            </p>
+            <p class="body">
+            The distinction between a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+            and a measure is similar to the distincion between a row/column and a cell;
+            where hierarchies identify the field from which the data is obtained, measures
+            represent the actual data.
+            </p>
+            <p class="body">
+            Measures are most commonly associated with numeric data, i.e., integral, floating point, and currency values.
+            </p>
+            <p class="body">
+            To visualize the function of measures in a business intelligence application, consider the following example:
+            A data source consists of a collection of objects which represents sales data; that object exposes properties
+            such as 'Date', 'Product', 'City', and 'Total'. The 'Date', 'City', and 'Product' fields are manifested as
+            hierarchies, and the 'Total' field as a measure.
+            </p>
+            <p class="body">
+            An OLAP query can be constructed, using this structure, to answer business intelligence questions such as:
+            <ul>
+                <li>What is the sales revenue for product 'X' during the first quarter of year 'Y'?</li>
+                <li>What is the sales revenue for product 'X' in city 'Y'?</li>
+                <li>What is the sales revenue for product 'X' in city 'Y' for the first quarter of year 'Z'?</li>
+            </ul>
+            </p>
+            <p class="body">
+            In each of these examples, the sales revenue is computed by adding the value of the 'Total'  
+            property for each item in the collection which fits the query criteria. This process is
+            commonly referred to as
+            <see cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">aggregation</see>.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor class</seealso>
+            <seealso cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">Aggregation property (MeasureDescriptor class)</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.CubeGenerationParameters">CubeGenerationParameters class</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSource.ItemSource">
+            <summary>
+            Returns a reference to the IEnumerable implementation which provides the data for this instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            The type of each object contained in the item source must be of the type specified by the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">
+            <summary>
+            Returns the data type of the items contained by the
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemSource">ItemSource</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSource.Adapter">
+            <summary>
+            Returns a reference to the database
+            <see cref="T:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase">adapter</see>
+            from which this instance was initialized, or null if this instance is not associated
+            with a database adapter.
+            </summary>
+            <remarks>
+            <p class="body">
+            This property returns a non-null value in the following scenarios:
+            <ul>
+                <li>
+                    The FlatDataSource instance is created via the overloaded constructor which takes a reference to a data adapter.
+                </li>
+                <li>
+                    The FlatDataSource instance is initialized via the data adapter's
+                    <see cref="M:Infragistics.Olap.FlatData.Adapters.FlatDataSourceAdapterBase.Fill(Infragistics.Olap.FlatData.FlatDataSource,Infragistics.Olap.FlatData.CubeGenerationParameters,System.Func{System.String,System.Attribute[]})">Fill</see>
+                    method.
+                </li>
+            </ul>
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.IsNumericType(System.Type)">
+            <summary>
+            Returns a boolean value indicating whether the specified type is numeric.
+            </summary>
+            <param name="type">The System.Type to test.</param>
+            <remarks>
+            <p class="body">
+            This method returns true for the following types:
+            <ul>
+            <li>System.Byte (byte)</li>
+            <li>System.SByte (sbyte)</li>
+            <li>System.Int16 (short)</li>
+            <li>System.Int32 (int)</li>
+            <li>System.Int64 (long)</li>
+            <li>System.UInt16 (ushort)</li>
+            <li>System.UInt32 (uint)</li>
+            <li>System.UInt64 (ulong)</li>
+            <li>System.Single (float)</li>
+            <li>System.Double (double)</li>
+            <li>System.Decimal (decimal)</li>
+            </ul>
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.SortLevels(Infragistics.Olap.Core.TableView,System.ComponentModel.ListSortDirection,Infragistics.Olap.LevelSortBehavior)">
+            <summary>
+            Sorts all hierarchical levels
+            </summary>
+            <param name="tableView">A reference to the TableView on which the levels are to be sorted.</param>
+            <param name="direction">Sort direction, i.e., ascending or descending.</param>
+            <param name="behavior">Sort direction, i.e., system or alphabetical.</param>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.FlatDataSource.FlatDataSourceTypeConverter">
+            <summary>
+            FlatDataSourceTypeConverter object type converter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.FlatDataSourceTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="destinationType">A System.Type that represents the type you want to convert to.</param>
+            <returns>true if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSource.FlatDataSourceTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified
+            context and culture information.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="culture">A System.Globalization.CultureInfo. If null is passed, the current culture is assumed.</param>
+            <param name="value">The System.Object to convert.</param>
+            <param name="destinationType">The System.Type to convert the value parameter to.</param>
+            <returns>An System.Object that represents the converted value.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings">
+            <summary>
+            Class which exposes properties used to specify the
+            initial data contained within the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings.#ctor">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.FlatDataSourceInitialSettings.Cube">
+            <summary>
+            Not supported; a FlatDataSource has only one cube, which is
+            defined by the associated ItemSource.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.HierarchyDescriptor">
+            <summary>
+            Describes the properties of a
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            for a FlatDataSource.
+            </summary>
+            <remarks>
+            <p class="body">
+            A hierarchy is directly associated with one property of the object referenced by the data source's
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property.
+            </p>
+            <p class="body">
+            Hierarchies can appear on the row or column axis, and can also be used for filtering.
+            </p>
+            <p class="body">
+            Each hierarchy contains one or more 
+            <see cref="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">levels</see>,
+            each of which typically present the data with progressively more detail.
+            </p>
+            </remarks>
+            <seealso cref="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">LevelDescriptors</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor class</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor event (FlatDataSource class)</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.HierarchyDescriptor.#ctor(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <param name="propertyDescriptor">The associated System.ComponentModel.PropertyDescriptor</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">
+            <summary>
+            Returns a collection containing each
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">level descriptor</see>
+            defined for this hierarchy.
+            </summary>
+            <remarks>
+            <p class="body">
+            A hierarchical level provides a way to group row/column axis data.
+            </p>
+            <p class="body">
+            In the case where the data source schema is auto-generated via the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method, two levels are created for each hierarchy; the 'All Members' level, and a
+            level which returns the value of the associated property for a given data item.
+            </p>
+            <p class="body">
+            The 'All Members' level essentially groups all values for the hierarchy under
+            one header, so that detailed data can be easily shown or hidden by expanding
+            or collapsing the header.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.HierarchyDescriptorsCollection">
+            <summary>
+            Collection class for objects of type
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Level">levels</see>
+            used to generate row and column headers are defined by adding items to the
+            <see cref="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">LevelDescriptors</see>
+            collection. These descriptors can be generated automatically using the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.HierarchyDescriptorsCollection.Add(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Adds a new
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            to this collection.
+            </summary>
+            <param name="propertyDescriptor">The associated System.ComponentModel.PropertyDescriptor.</param>
+            <returns>
+            A reference to the
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            that was added to the collection.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.HierarchyDescriptorsCollection.Remove(System.String)">
+            <summary>
+            Removes the
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            with the specified name from this collection.
+            </summary>
+            <param name="name">The name of the HierarchyDescriptor to remove.</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.HierarchyDescriptorsCollection.DataSource">
+            <summary>
+            Returns a reference to the associated data source.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.LevelDescriptor">
+            <summary>
+            Describes the properties of a hierarchical
+            <see cref="T:Infragistics.Olap.Core.Data.Level">Level</see>
+            for a FlatDataSource.
+            </summary>
+            <remarks>
+            <p class="body">
+            A hierarchical level represents a grouping of the data associated with a
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>.
+            </p>
+            <p class="body">
+            When a hierarchy is auto-generated via the data source's
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method, two levels are produced. The first level is known as the 'All Members' level
+            and provides a way for the user to hide the data for that hierarchy by collapsing the
+            associated header. The second level typically produces a header for each distinct value
+            of the property associated with the hierarchy.
+            </p>
+            <p class="body">
+            Hierarchies which are associated with the System.DateTime data type are
+            auto-generated differently. The
+            <see cref="P:Infragistics.Olap.FlatData.LevelCreationParameters.DateTimeLevelCreation">DateTimeLevelCreation</see>
+            property of the
+            <see cref="P:Infragistics.Olap.FlatData.CubeGenerationParameters.LevelCreationParameters">parameters</see>
+            object used to customize level creation provides a way to specify the manner in which date
+            fields are presented.
+            </p>
+            </remarks>
+            <seealso cref="P:Infragistics.Olap.FlatData.HierarchyDescriptor.LevelDescriptors">LevelDescriptors</seealso>
+            <seealso cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor class</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeHierarchyDescriptor">InitializeHierarchyDescriptor event (FlatDataSource class)</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.LevelDescriptor.MemberProvider">
+            <summary>
+            Returns or sets the method that is used to provide the
+            member information for this level.
+            </summary>
+            <remarks>
+            <p class="body">
+            The MemberProvider defines a function or lambda expression which is used
+            to obtain the header text for the associated hierarchical level.
+            </p>
+            <p class="body">
+            This function or lambda expression has one input parameter, and returns
+            a value of type string. The input parameter represents an instance of the
+            class referenced by the data source's
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property; this instance represents the data row for which the member information is to be provided.
+            </p>
+            <p class="body">
+            The default implementation returns the value of the property associated with the owning
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">hierarchy</see>
+            for the specified instance.
+            </p>
+            </remarks>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.LevelDescriptorsCollection">
+            <summary>
+            Collection class for objects of type
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.LevelDescriptorsCollection.DataSource">
+            <summary>
+            Returns a reference to the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.LevelDescriptorsCollection.Add(System.String,System.String)">
+            <summary>
+            Adds a new
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor</see>
+            to this collection.
+            </summary>
+            <param name="name">A unique name for the LevelDescriptor.</param>
+            <param name="caption">An optional caption.</param>
+            <returns>
+            A reference to the
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor</see>
+            that was added to the collection.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.LevelDescriptorsCollection.Remove(System.String)">
+            <summary>
+            Removes the
+            <see cref="T:Infragistics.Olap.FlatData.LevelDescriptor">LevelDescriptor</see>
+            with the specified name from this collection.
+            </summary>
+            <param name="name">The name of the LevelDescriptor to remove.</param>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.MeasureDescriptor">
+            <summary>
+            Describes the properties of a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            for a FlatDataSource.
+            </summary>
+            <remarks>
+            <p class="body">
+            A measure is directly associated with one property of the object referenced by the data source's
+            <see cref="P:Infragistics.Olap.FlatData.FlatDataSource.ItemType">ItemType</see>
+            property.
+            </p>
+            <p class="body">
+            Measures appear on a separate axis than that of hierarchies; in OLAP jargon,
+            this is typically referred to as the 'slicer' axis.
+            </p>
+            <p class="body">
+            A measure is responsible for producing the cell data, which is accomplished via a process known as
+            <see cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">aggregation</see>.
+            </p>
+            <p class="body">
+            Aggregation typically consists of summing the values of cells to produce totals,
+            although other methods of aggregation are available to a measure. The data source's
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event can also be used to further customize the aggregation process.
+            </p>
+            <p class="body">
+            A measure typically represents numeric data, although a measure of any data type is supported.
+            Note, however, that in cases where non-numeric property is designated as a Measure, the AggregateMeasure
+            event must be handled by the developer to perform the aggregation function.
+            </p>
+            </remarks>
+            <seealso cref="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">Aggregation</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.InitializeMeasureDescriptor">InitializeMeasureDescriptor event (FlatDataSource class)</seealso>
+            <seealso cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure event (FlatDataSource class)</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureDescriptor.#ctor(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+            <param name="propertyDescriptor">The associated System.ComponentModel.PropertyDescriptor</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureDescriptor.Aggregation">
+            <summary>
+            Returns or sets a value indicating the manner in which
+            cell values are aggregated for the associated
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            Measures of a non-numeric data type must be aggregated by handling the
+            <see cref="E:Infragistics.Olap.FlatData.FlatDataSource.AggregateMeasure">AggregateMeasure</see>
+            event; failure to do so causes an exception to be thrown.
+            </p>
+            <p class="body">
+            For measures of a non-numeric
+            <see cref="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase.DataType">data type</see>,
+            this property is effectively read-only; attempting to set it to any value other than 'None'
+            causes an exception to be thrown.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureDescriptor.DisplayFormat">
+            <summary>
+            Returns or sets the string used to format cell values for this instance.
+            </summary>
+            <remarks>
+            <p class="body">
+            For measures of numeric data types, this property defaults to the ideal value
+            for the associated type, as illustrated by the following table:
+            <table>
+            <th>Type</th><th>Format Specifier</th>
+            <tr>
+                <td>System.Byte (byte)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.SByte (sbyte)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.Int16 (short)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.Int32 (int)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.Int64 (long)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.UInt16 (ushort)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.UInt32 (uint)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.UInt64 (ulong)</td><td>"d"</td>
+            </tr>
+            <tr>
+                <td>System.Single (float)</td><td>"f"</td>
+            </tr>
+            <tr>
+                <td>System.Double (double)</td><td>"f"</td>
+            </tr>
+            <tr>
+                <td>System.Decimal (decimal)</td><td>"c"</td>
+            </tr>
+            </table>
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureDescriptor.DefaultDisplayFormat">
+            <summary>
+            Returns the default format string.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureDescriptor.IsNumeric">
+            <summary>
+            Returns a boolean value indicating whether this descriptor
+            is associated with a numeric data type.
+            </summary>
+            <remarks>
+            <p class="body">
+            The supported numeric data types are as follows:
+            <ul>
+            <li>System.Byte (byte)</li>
+            <li>System.SByte (sbyte)</li>
+            <li>System.Int16 (short)</li>
+            <li>System.Int32 (int)</li>
+            <li>System.Int64 (long)</li>
+            <li>System.UInt16 (ushort)</li>
+            <li>System.UInt32 (uint)</li>
+            <li>System.UInt64 (ulong)</li>
+            <li>System.Single (float)</li>
+            <li>System.Double (double)</li>
+            <li>System.Decimal (decimal)</li>
+            </ul>
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.IsNumericType(System.Type)">IsNumericType method (FlatDataSource class)</seealso>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.MeasureDescriptorsCollection">
+            <summary>
+            Collection class for objects of type
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>.
+            </summary>
+            <remarks>
+            <p class="body">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measures</see>
+            available for use on the 'slicer' axis are defined by adding items to this
+            collection. Measure descriptors can also be generated automatically using the
+            <see cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube</see>
+            method.
+            </p>
+            </remarks>
+            <seealso cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor class</seealso>
+            <seealso cref="M:Infragistics.Olap.FlatData.FlatDataSource.GenerateCube(Infragistics.Olap.FlatData.CubeGenerationParameters)">GenerateCube method (FlatDataSource class)</seealso>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.MeasureDescriptorsCollection.DataSource">
+            <summary>
+            Returns a reference to the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureDescriptorsCollection.Add(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Adds a new
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            to this collection.
+            </summary>
+            <param name="propertyDescriptor">The associated System.ComponentModel.PropertyDescriptor.</param>
+            <returns>
+            A reference to the
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            that was added to the collection.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.MeasureDescriptorsCollection.Remove(System.String)">
+            <summary>
+            Removes the
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            with the specified name from this collection.
+            </summary>
+            <param name="name">The name of the MeasureDescriptor to remove.</param>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase">
+            <summary>
+            Base class for the
+            <see cref="T:Infragistics.Olap.FlatData.HierarchyDescriptor">HierarchyDescriptor</see>
+            and
+            <see cref="T:Infragistics.Olap.FlatData.MeasureDescriptor">MeasureDescriptor</see>
+            classes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase.#ctor(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+            <param name="propertyDescriptor">The System.ComponentModel.PropertyDescriptor associated with this instance.</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase.DataType">
+            <summary>
+            Returns the data type for this element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapAxisElementDescriptorBase.PropertyDescriptor">
+            <summary>
+            Returns a reference to the System.ComponentModel.PropertyDescriptor
+            associated with this OLAP element.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.OlapElementDescriptorBase">
+            <summary>
+            Base class for OLAP element descriptors.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorBase.Name">
+            <summary>
+            Returns the name of this OLAP element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorBase.Caption">
+            <summary>
+            Returns or sets the caption for this OLAP element.
+            </summary>
+            <remarks>
+            <p class="body">
+            If this property is not explicitly set, the value of the
+            <see cref="P:Infragistics.Olap.FlatData.OlapElementDescriptorBase.Name">Name</see>
+            property is returned.
+            </p>
+            <p class="body">
+            Use this property to change the value of the string displayed
+            on the header associated with this element.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorBase.HasCaption">
+            <summary>
+            Returns a boolean value indicating whether this instance has
+            a caption explicitly set.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorBase.ToString">
+            <summary>
+            Returns the string representation of this instance.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1">
+            <summary>
+            Abstract base class for collections containing objects which derive from
+            <see cref="T:Infragistics.Olap.FlatData.OlapElementDescriptorBase">OlapElementDescriptorBase</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.Item(System.String)">
+            <summary>
+            Returns the item with the specified name.
+            </summary>
+            <param name="name">The name of the item to return.</param>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.Count">
+            <summary>
+            Returns the number of elements contained in this collection.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.TryGetItem(System.String,`0@)">
+            <summary>
+            Returns a boolean value indicating whether an item
+            with the specified name exists in this collection.
+            </summary>
+            <param name="name">The name to test.</param>
+            <param name="item">[out] Upon return, contains a reference to the item with the specified name, or null if no such item exists.</param>
+            <returns>A boolean value indicating whether the item exists.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.Contains(System.String)">
+            <summary>
+            Returns a boolean value indicating whether an item
+            with the specified name exists in this collection.
+            </summary>
+            <param name="name">The name to test.</param>
+            <returns>A boolean value indicating whether the item exists.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.AddItem(System.String,`0)">
+            <summary>
+            Adds the specified item to the collection, to be
+            associated with the specified name.
+            </summary>
+            <param name="name">The name with which the item to be added will be associated.</param>
+            <param name="item">The item to be added.</param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.RemoveItem(System.String)">
+            <summary>
+            Removes the specified item from the collection.
+            </summary>
+            <param name="name">The name with which the item to be removed is associated.</param>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.Clear">
+            <summary>
+            Removes all elements from this collection.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.DataSource">
+            <summary>
+            Returns a reference to the associated data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.FlatData.OlapElementDescriptorCollectionBase`1.ToString">
+            <summary>
+            Returns the string representation of this instance.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

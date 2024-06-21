@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataProvider.Flat.v18.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Olap.Core.IFlatDataProvider">
+            <summary>
+            Implementation of the model data provider.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.CellMetadata">
+            <summary>
+            CellMetadata class
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.RowIndex">
+            <summary>
+            Gets the index of the row tuple this cell is related to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.ColumnIndex">
+            <summary>
+            Gets the index of the column tuple this cell is related to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.CellOrdinal">
+            <summary>
+            Gets the cell ordinal.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.MeasureIndex">
+            <summary>
+            Gets the index of the measure this cell is related to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.RowTuples">
+            <summary>
+            Gets the array of the row tuples.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.ColumnTuples">
+            <summary>
+            Gets the array of the column tuples.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.CellMetadata.Measures">
+            <summary>
+            Gets the array of the measures.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.DimensionMetadata.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.DimensionMetadata"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.DimensionMetadata.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.DimensionMetadata.DefaultHierarchy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.DimensionMetadata.Caption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.LevelMetadata">
+            <summary>
+            The level metadata instance could be shared between multiple different hierarhies.
+            </summary>    
+        </member>
+        <member name="P:Infragistics.Olap.Core.MeasureMetadata.AggregatorType">
+            <summary>
+            Gets or sets the type of defult measure aggregator for <see cref="P:Infragistics.Olap.Core.MeasureMetadata.Aggregator"/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.MeasureMetadata.DisplayFolder">
+            <summary>
+            Gets or sets the name of the group on which belongs the described dimension.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableMetadata.AddRowMetadata(Infragistics.Olap.Core.RowMetadata)">
+            <summary>
+            Adds a new <see cref="T:Infragistics.Olap.Core.RowMetadata"/> to the internal row medatada array.
+            </summary>
+            <param name="rowMetadata">The instance of <see cref="T:Infragistics.Olap.Core.RowMetadata"/> to add.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableMetadata.Insert(System.Int32,Infragistics.Olap.Core.RowMetadata)">
+            <summary>
+            Inserts an <see cref="T:Infragistics.Olap.Core.RowMetadata"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to remove.</param>
+            <param name="rowMetadata">The <see cref="T:Infragistics.Olap.Core.RowMetadata"/> to insert.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableMetadata.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:Infragistics.Olap.Core.RowMetadata"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to remove.</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataProvider.v18.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Olap.IRemoteRequestSerializer">
+            <summary>
+            Provides base interface for serializing requests to XMLA service.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.IRemoteRequestSerializer.SerializeRequest(Infragistics.Olap.RemoteRequest)">
+            <summary>
+            Serializes the specified request.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>The string of the serialized request.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.IRemoteRequestSerializer.DeserializeRequest(System.String)">
+            <summary>
+            Deserializes the request.
+            </summary>
+            <param name="request">The string of the serialized request.</param>
+            <returns>Deserialized request.</returns>
+        </member>
+        <member name="T:Infragistics.Olap.IRemoteResponseSerializer">
+            <summary>
+            Provides base interface for serializing response from XMLA service.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.IRemoteResponseSerializer.SerializeResponse(System.Object,Infragistics.Olap.RemoteRequestType)">
+            <summary>
+            Serializes the specified response.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="type">The request type.</param>
+            <returns>
+            The string of the serialized response.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.IRemoteResponseSerializer.DeserializeResponse(System.String,Infragistics.Olap.RemoteRequestType)">
+            <summary>
+            Deserializes the response.
+            </summary>
+            <param name="response">The string of the serialized response.</param>
+            <param name="type">The request type.</param>
+            <returns>
+            Deserialized response.
+            </returns>
+        </member>
+        <member name="T:Infragistics.Olap.RemoteRequest">
+            <summary>
+            Provides an object for remote requests to XMLA service.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.RemoteRequest.Type">
+            <summary>
+            Gets or sets the request type.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.RemoteRequest.Properties">
+            <summary>
+            Gets or sets the additional properties applied to Discover/Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.RemoteRequest.Restrictions">
+            <summary>
+            Gets or sets the additional restrictions applied to Discover request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.RemoteRequest.Parameters">
+            <summary>
+            Gets or sets the additional parameters applied to Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.RemoteRequest.Statement">
+            <summary>
+            Gets or sets the statement of Command element applied to Execute request.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoteRequestType">
+            <summary>
+            Specifies the supported rquest types sent to XMLA service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverCatalogs">
+            <summary>
+            Identifies a request about physical attributes associated with catalogs accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverCubes">
+            <summary>
+            Identifies a request about the structure of cubes accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverDimensions">
+            <summary>
+            Identifies a request about the shared and private dimensions accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverHierarchies">
+            <summary>
+            Identifies the request about each hierarchy within a particular dimension accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverLevels">
+            <summary>
+            Identifies a request about each level within a particular hierarchy accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverMeasures">
+            <summary>
+            Identifies a request about each measure within a cube accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverMeasureGroups">
+            <summary>
+            Identifies a request about the measure groups accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverMeasureGroupDimensions">
+            <summary>
+            Identifies a request about the dimensions of measure groups accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverMembers">
+            <summary>
+            Identifies a request about the members accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.DiscoverKpis">
+            <summary>
+            Identifies a request about the KPis accessible from the Olap service.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.RemoteRequestType.ExecuteStatement">
+            <summary>
+            Identifies a request that sends XMLA commands to XMLA service.
+            </summary>
+        </member>
+    </members>
+</doc>

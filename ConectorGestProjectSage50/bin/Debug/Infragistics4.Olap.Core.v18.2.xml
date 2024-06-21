@@ -1,0 +1,1517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.Core.v18.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Win.Olap.Resources">
+            <summary>
+            Exposes a <see cref="T:Infragistics.Shared.ResourceCustomizer"/> instance for this assembly. 
+            </summary>
+            <seealso cref="P:Infragistics.Win.Olap.Resources.Customizer"/> 
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="P:Infragistics.Win.Olap.Resources.Customizer">
+            <summary>
+            Returns the <see cref="T:Infragistics.Shared.ResourceCustomizer"/> for this assembly.
+            </summary>
+            <seealso cref="T:Infragistics.Shared.ResourceCustomizer"/> 
+        </member>
+        <member name="M:Infragistics.Win.Olap.Resources.GetString(System.String,System.Object[])">
+            <summary>
+            Returns the resource string using the specified name and default culture.
+            </summary>
+            <param name="name">Name of the string resource to return.</param>
+            <param name="args">Arguments supplied to the string.Format method when formatting the string.</param>
+        </member>
+        <member name="M:Infragistics.Win.Olap.Resources.GetString(System.String)">
+            <summary>
+            Returns the resource string using the specified resource name and default culture. The string is then formatted using the arguments specified.
+            </summary>
+            <param name="name">Name of the string resource to return.</param>
+        </member>
+        <member name="M:Infragistics.Win.Olap.Resources.GetObject(System.String)">
+            <summary>
+            Returns the resource object using the specified name.
+            </summary>
+            <param name="name">Name of the resource item</param>
+            <returns>An object containing the specified resource</returns>
+        </member>
+        <member name="T:Infragistics.Olap.strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_AsyncOperationCanceled">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method was canceled before execution was complete..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_AsyncOperationPending">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method cannot be called because completion of a previously requested update operation is still pending..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_AxisNotFound">
+            <summary>
+              Looks up a localized string similar to The specified Axis &apos;{0}&apos; does not exist..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_DataSourceNotInitialized">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; method cannot be invoked because the data source has not yet been initialized..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_HierarchyAlreadyExists">
+            <summary>
+              Looks up a localized string similar to The specified Hierarchy &apos;{0}&apos; already exists..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_HierarchyNotFound">
+            <summary>
+              Looks up a localized string similar to The specified Hierarchy &apos;{0}&apos; does not exist..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_InitialSettings_AlreadyAssigned">
+            <summary>
+              Looks up a localized string similar to The specified settings object has already been assigned to a data source, and cannot be assigned to another..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_InitialSettings_CannotModify">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; property cannot be modified because the associated data source has already been initialized..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_MeasureAlreadyExists">
+            <summary>
+              Looks up a localized string similar to The specified Measure &apos;{0}&apos; already exists..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_MeasureNotFound">
+            <summary>
+              Looks up a localized string similar to The specified Measure &apos;{0}&apos; does not exist..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_MemberNotFound">
+            <summary>
+              Looks up a localized string similar to The specified Member &apos;{0}&apos; does not exist..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Exception_TimeoutExceeded">
+            <summary>
+              Looks up a localized string similar to Operation timed out..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_CubeName_Empty">
+            <summary>
+              Looks up a localized string similar to {Empty}.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_Exception_CannotSetCube">
+            <summary>
+              Looks up a localized string similar to The FlatDataSource class does not support multiple data cubes..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_Exception_IsEmpty">
+            <summary>
+              Looks up a localized string similar to The data source cannot be initialized because no schema is defined. Use the &apos;GenerateCube&apos; method to auto-generate the schema, or add items to the DimensionDescriptors and MeasureDescriptors collections..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_Exception_NoCube">
+            <summary>
+              Looks up a localized string similar to The InitializeAsync method cannot be called because no Cube has been specified..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_Exception_NullItem">
+            <summary>
+              Looks up a localized string similar to The ItemSource cannot contain null entries..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSource_Exception_TypeMismatch">
+            <summary>
+              Looks up a localized string similar to The ItemSource contains an item of type &apos;{0}&apos;, but the ItemType was specified as &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_ConnectionException">
+            <summary>
+              Looks up a localized string similar to The connection attempt failed..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_ConnectionOpenFailed">
+            <summary>
+              Looks up a localized string similar to An exception was thrown while attempting to open the database connection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_DefaultDimensionName">
+            <summary>
+              Looks up a localized string similar to Hierarchies.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_InvalidDataSource">
+            <summary>
+              Looks up a localized string similar to The specified FlatDataSource instance has already been populated and cannot be used with a data adapter..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_NoConnection">
+            <summary>
+              Looks up a localized string similar to The Connection property has not been set. The current operation requires an open database connection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.FlatDataSourceAdapterBase_NoQueryString">
+            <summary>
+              Looks up a localized string similar to The QueryString property has not been set. The current operation requires a valid query string..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.LE_ArgumentNullException_20">
+            <summary>
+              Looks up a localized string similar to destinationType.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.LevelDescriptor_All">
+            <summary>
+              Looks up a localized string similar to All.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.LevelDescriptor_DateTimeFormat_Quarter">
+            <summary>
+              Looks up a localized string similar to Q{0} {1}.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.LevelDescriptor_DateTimeFormat_Semester">
+            <summary>
+              Looks up a localized string similar to H{0} {1}.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.MeasureAggregator_Exception_NonNumericTypeNotHandled">
+            <summary>
+              Looks up a localized string similar to A measure of non-numeric type &apos;{0}&apos; must be handled via the AggregateMeasure event..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.MeasureAggregator_Exception_TypeMismatch">
+            <summary>
+              Looks up a localized string similar to The specified value, &apos;{0}&apos;, cannot be assigned to a cell of type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.MeasureDescriptor_Exception_InvalidAggregation">
+            <summary>
+              Looks up a localized string similar to A value of &apos;{0}&apos; is not supported for non-numeric data types..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.OlapElementDescriptorCollectionBase_CannotModify">
+            <summary>
+              Looks up a localized string similar to The collection cannot be modified because the associated data source has been or is currently in the process of being initialized..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.OlapElementDescriptorCollectionBase_Count">
+            <summary>
+              Looks up a localized string similar to Count = {0}.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.OlapElementDescriptorCollectionBase_Exception_Duplicate">
+            <summary>
+              Looks up a localized string similar to An element with the name &apos;{0}&apos; already exists in this collection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.OlapElementDescriptorCollectionBase_Exception_ItemDoesNotExist">
+            <summary>
+              Looks up a localized string similar to No element with the name &apos;{0}&apos; exists in this collection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.OleDbAdapter_InvalidConnection">
+            <summary>
+              Looks up a localized string similar to The specified value must be of type System.Data.OleDb.OleDbConnection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.SqlAdapter_InvalidConnection">
+            <summary>
+              Looks up a localized string similar to The specified value must be of type System.Data.SqlClient.SqlConnection..
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.strings.Token_Null">
+            <summary>
+              Looks up a localized string similar to {NULL}.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Cube">
+            <summary>
+            The Cube class represents an OLAP cube that holds a multi dimensional representation of a flat data set.
+            A cube is analogous to a table in a relational database. Where a table in a relational database has two dimensions, a cube can have any number of dimensions. In its simplest form, the dimensions of a cube correspond to a field of the flat data set.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.CatalogName">
+            <summary>
+            Gets the name of the catalog this cube belongs to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.Name">
+            <summary>
+            Gets the name of the cube.
+            </summary>
+            <value>The name of the Cube.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.CubeType">
+            <summary>
+            Gets the type of the cube.
+            </summary>
+            <value>The type of the cube.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.Caption">
+            <summary>
+            Gets the caption of the cube.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.LastProcessed">
+            <summary>
+            Gets the date and time on which the <see cref="T:Infragistics.Olap.Core.Data.Cube"/> was last processed.
+            </summary>
+            <value>The date and time on which the <see cref="T:Infragistics.Olap.Core.Data.Cube"/> was last processed.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.LastUpdated">
+            <summary>
+            Gets the date and time on which the <see cref="T:Infragistics.Olap.Core.Data.Cube"/> was last updated.
+            </summary>
+            <value>The date and time on which the <see cref="T:Infragistics.Olap.Core.Data.Cube"/> was last updated.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.Description">
+            <summary>
+            Gets the description of the cube.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Cube.Infragistics#Olap#Core#Data#ICoreOlapElement#UniqueName">
+            <summary>
+            Gets the unique name of the cube.
+            </summary>
+            <remarks>
+            The OLAP cube has not unique name but for the purpose of completenes it implements one and returns its name.
+            </remarks>
+            <value>The unique name of the cube.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Catalog">
+            <summary>
+            Represents the catalog metadata.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Catalog.Name">
+            <summary>
+            Gets the name of the catalog.
+            </summary>
+            <value>The name of the catalog.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Catalog.UniqueName">
+            <summary>
+            Gets the unique name of the catalog.
+            </summary>
+            <value>The unique name of the catalog.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Catalog.Caption">
+            <summary>
+            Gets the caption of the catalog.
+            </summary>
+            <value>The caption of the catalog.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Catalog.Description">
+            <summary>
+            Gets the description of the catalog.
+            </summary>
+            <value>The description of the catalog.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Dimension">
+            <summary>
+            Represents a dimension within a cube
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.Name">
+            <summary>
+            Gets the name of the dimension.
+            </summary>
+            <value>The name of the dimension.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.UniqueName">
+            <summary>
+            Gets the unique name of the dimension.
+            </summary>
+            <value>The unique name of the dimension.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.Caption">
+            <summary>
+            Gets the caption of the dimension.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.DimensionType">
+            <summary>
+            Gets the type of the dimension.
+            </summary>
+            <value>The type of the dimension.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.Description">
+            <summary>
+            Gets the description of the dimension.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Dimension.DefaultHierarchy">
+            <summary>
+            Gets or sets the default hierarchy from the dimension.
+            </summary>
+            <value>
+            The default hierarchy.
+            </value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.CubeType">
+            <summary>
+            Returned by Type to determine if the <see cref="F:Infragistics.Olap.Core.Data.CubeType.Cube"/> represents a dimension or a cube. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.CubeType.Cube">
+            <summary>
+            The <see cref="F:Infragistics.Olap.Core.Data.CubeType.Cube"/> represents a cube
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.CubeType.Dimension">
+            <summary>
+            The <see cref="F:Infragistics.Olap.Core.Data.CubeType.Cube"/> represents a dimension cube
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.CubeType.Unknown">
+            <summary>
+            It cannot be determined if the provider has specified that the <see cref="F:Infragistics.Olap.Core.Data.CubeType.Cube"/> represents a cube or a dimension.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.ScopeType">
+            <summary>
+            Represents the scope type of a <see cref="!:KeyPerformanceIndicator"/>. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.ScopeType.Unknown">
+            <summary>
+            It cannot be determined the scope of the <see cref="!:KeyPerformanceIndicator"/> .
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.ScopeType.Global">
+            <summary>
+            The scope of the <see cref="!:KeyPerformanceIndicator"/> is global.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.ScopeType.Session">
+            <summary>
+            The scope of the <see cref="!:KeyPerformanceIndicator"/> is session.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.DimensionType">
+            <summary>
+            Represents the dimension type of a <see cref="T:Infragistics.Olap.Core.Data.Dimension"/> 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Unknown">
+            <summary>
+            Describes a dimension with an unknown or unspecified type. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Time">
+            <summary>
+            Indicates that a dimension refers to time (for example, year, month, week, day). 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Measure">
+            <summary>
+            Describes a dimension that contains measures. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Other">
+            <summary>
+            Describes a dimension of the default dimension type, which is used for dimensions that are not time dimensions or measure dimensions.  
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Quantitative">
+            <summary>
+            Describes a dimension that contains quantitative elements (for example, income level, or number of children).  
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Accounts">
+            <summary>
+            Describes a dimension that contains an accounts structure with parent-child relationships. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Customers">
+            <summary>
+            Describes a dimension that contains customer information. The lowest level represents individual customers. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Products">
+            <summary>
+            Describes a dimension that contains product information. The lowest level represents individual products. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Scenario">
+            <summary>
+            Describes a dimension that contains different business scenarios. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Utility">
+            <summary>
+            Describes a dimension that contains only calculated members. This type of dimension is usually used for data visualization techniques. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Currency">
+            <summary>
+            Describes a dimension that contains currency information. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Rates">
+            <summary>
+            Describes a dimension that contains different types of rates (for example, buy, sell, or discounted).  
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Channel">
+            <summary>
+            Describes a dimension that contains information about a distribution channel.  
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Promotion">
+            <summary>
+            Describes a dimension that contains information about marketing and advertising promotions.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Organization">
+            <summary>
+            Describes a dimension that represents the reporting structure of an organization. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.BillOfMaterials">
+            <summary>
+            Describes a dimension that represents a material/component breakdown. The parent-child relationship implies a parent composed of its children. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.DimensionType.Geography">
+            <summary>
+            Describes a dimension that contains a geographic hierarchy.  
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.LevelType">
+            <summary>
+            Represents type of the level
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Account">
+            <summary>
+            Indicates that a level exists within an account dimension. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.All">
+            <summary>
+            Indicates the top (All) level of a dimension (the one that precalculates all the members of all lower levels).
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.BillOfMaterialsResource">
+            <summary>
+            Indicates that a level is part of a bill of materials dimension.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Calculated">
+            <summary>
+            Indicates that a level is part of a bill of materials dimension.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Channel">
+            <summary>
+            Indicates that a level exists within a distribution channel dimension.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Company">
+            <summary>
+            Indicates that a level contains information about a company. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.CurrencyDestination">
+            <summary>
+            Indicates that a level contains information about the resulting currency after a foreign exchange conversion. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.CurrencySource">
+            <summary>
+            Indicates that a level contains information about the starting currency before a foreign exchange conversion. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Customer">
+            <summary>
+            Indicates that a level contains information about an individual customer. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.CustomerGroup">
+            <summary>
+            Indicates that a level contains information about a customer group. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.CustomerHousehold">
+            <summary>
+            Indicates that a level contains information about an entire household.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoCity">
+            <summary>
+            Indicates that a level refers to a city name.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoContinent">
+            <summary>
+            Indicates that a level refers to a continent name.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoCountry">
+            <summary>
+            Indicates that a level refers to a country or region name.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoCounty">
+            <summary>
+            Indicates that a level refers to a county name.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoPoint">
+            <summary>
+            Indicates that a level refers to a location type that does not fit into the other geographic categories.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoPostalCode">
+            <summary>
+            Indicates that a level refers to a postal code.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoRegion">
+            <summary>
+            Indicates that a level refers to a custom-defined region.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.GeoStateOrProvince">
+            <summary>
+            Indicates that a level refers to a state or province name. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.OrgUnit">
+            <summary>
+            Indicates that a level refers to the name of a unit within a larger organization. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Person">
+            <summary>
+            Indicates that a level refers to an individual within a larger organization.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Product">
+            <summary>
+            Indicates that a level refers to an individual product.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.ProductGroup">
+            <summary>
+            Indicates that a level refers to a product group.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Promotion">
+            <summary>
+            Indicates that a level refers to a promotion.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Quantitative">
+            <summary>
+            Indicates that a level refers to a quantitative member within a quantitative dimension. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Regular">
+            <summary>
+            Indicates that the level is not related to time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Representative">
+            <summary>
+            Indicates that a level refers to a sales representative. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.ReservedForFutureUse">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Scenario">
+            <summary>
+            Indicates that a level refers to a scenario. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Time">
+            <summary>
+            Indicates that the level is related to time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeDays">
+            <summary>
+            Indicates that a level refers to days. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeHalfYears">
+            <summary>
+            Indicates that a level refers to half-years. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeHours">
+            <summary>
+            Indicates that a level refers to hours. It must be used in a dimension whose type is Time. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeMinutes">
+            <summary>
+            Indicates that a level refers to minutes. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeMonths">
+            <summary>
+            Indicates that a level refers to months. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeQuarters">
+            <summary>
+            Indicates that a level refers to (calendar) quarters. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeSeconds">
+            <summary>
+            Indicates that a level refers to seconds. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeUndefined">
+            <summary>
+            Indicates that a level refers to an indeterminate or nonstandard measurement of time. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeWeeks">
+            <summary>
+            Indicates that a level refers to an indeterminate or nonstandard measurement of time. It must be used in a dimension whose type is Time.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.TimeYears">
+            <summary>
+            Indicates that a level refers to years. It must be used in a dimension whose type is Time. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.LevelType.Utility">
+            <summary>
+            Indicates that a level exists in a utility dimension. 
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.HierarchyOrigin">
+            <summary>
+             An enumeration of different hierarchy origin.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.HierarchyOrigin.UserDefined">
+            <summary>
+            Identifies user defined hierarchies.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.HierarchyOrigin.SystemEnabled">
+            <summary>
+            Identifies attribute hierarchies.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.HierarchyOrigin.SystemInternal">
+            <summary>
+            Identifies attributes with no attribute .
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.AggregatorType">
+            <summary>
+             An enumeration of different function that can be applied to measures.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Unknown">
+            <summary>
+            The aggregated function is undefined.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Sum">
+            <summary>
+            The aggregated function adds all values.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Count">
+            <summary>
+            The aggregated function will count the number of the values.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Min">
+            <summary>
+            The aggregated function will returns the smallest value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Max">
+            <summary>
+            The aggregated function will returns the largest value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Average">
+            <summary>
+            The aggregated function will returns the average of cells value.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Variance">
+            <summary>
+            The aggregated function will estimates variance based on the sample.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Std">
+            <summary>
+            The aggregated function will estimates the standart deviation based on sample.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.DistinctCount">
+            <summary>
+            The aggregated function will returns the number of distinct, nonempty tuples in a set.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.None">
+            <summary>
+            No aggregation performed.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.AverageOfChildren">
+            <summary>
+            The aggregated function will returns the average of the measure's children.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.FirstNonEmpty">
+            <summary>
+            The aggregated function will returns the measure's first nonempty member.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.LastNonEmpty">
+            <summary>
+            The aggregated function will returns  the measure's last nonempty member.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.ByAccount">
+            <summary>
+            Aggregated by the aggregation function associated with the specified account type of an attribute in an account dimension.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Core.Data.AggregatorType.Calculated">
+            <summary>
+            The aggregated function will returns the result derived from a formula.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.CardinalityType">
+            <summary>
+            Constants which identify types of cardinality.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.MemberType">
+            <summary>
+            Constants which identify a member's type.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Hierarchy">
+            <summary>
+            Represents a hierarchy within a dimension
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.Name">
+            <summary>
+            Gets the name of the hierarchy.
+            </summary>
+            <value>The name of the hierarchy.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.UniqueName">
+            <summary>
+            Gets the unique name of the hierarchy.
+            </summary>
+            <value>The unique name of the hierarchy.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.DefaultHierarchy">
+            <summary>
+            Gets the default hierarchy of the dimension.
+            </summary>
+            <value>The default hierarchy of the dimension.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.Caption">
+            <summary>
+            Gets the caption of the hierarchy.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.Description">
+            <summary>
+            Gets the description of the hierarchy.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.DefaultMember">
+            <summary>
+            Gets the unique name of the default member for the Hierarchy
+            </summary>
+            <value>The unique name of the default member for the Hierarchy.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.AllMember">
+            <summary>
+            Gets the "All" member of this hierarchy.
+            </summary>
+            <value>The "All" member.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.DimensionUniqueName">
+            <summary>
+            Gets the dimension that contains the hierarchy.
+            </summary>
+            <value>The parent dimension.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.HierarchyOrigin">
+            <summary>
+            Gets the source of the hierarchy.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Hierarchy.HierarchyDisplayFolder">
+            <summary>
+            Gets or sets the hierarchy display folder.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.ICoreOlapElement">
+            <summary>
+            Encapsulates the core functionality of an OLAP element.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.ICoreOlapElement.Name">
+            <summary>
+            Gets the name of the olap element.
+            </summary>
+            <value>The name of the olap element.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.ICoreOlapElement.UniqueName">
+            <summary>
+            Gets the unique name of the olap element.
+            </summary>
+            <value>The unique name of the olap element.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.ICoreOlapElement.Caption">
+            <summary>
+            Gets the caption of the olap element.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Kpi">
+            <summary>
+            Represents a KPI within a cube
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.Name">
+            <summary>
+            Gets the name of the KPI.
+            </summary>
+            <value>The name of the measure.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.UniqueName">
+            <summary>
+            Gets the unique name of the measure.
+            </summary>
+            <value>The unique name of the measure.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.Caption">
+            <summary>
+            Gets the caption of the measure.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.Description">
+            <summary>
+            Gets the description of the measure.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.MeasureGroupName">
+            <summary>
+            Gets the name of the measure group measure belongs to.
+            </summary>
+            <value>The name of the measure group.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiDisplayFolder">
+            <summary>
+            Gets or sets the measure display folder.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiValue">
+            <summary>
+            The unique name of the member in the measures dimension for the KPI Value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiGoal">
+            <summary>
+            The unique name of the member in the measures dimension for the KPI Goal.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiStatus">
+            <summary>
+            The unique name of the member in the measures dimension for the KPI Status.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiTrend">
+            <summary>
+            The unique name of the member in the measures dimension for the KPI Trend.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiStatusGraphic">
+            <summary>
+            The default Status graphical representation of the KPI.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiTrendGraphic">
+            <summary>
+            The default Trend graphical representation of the KPI.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.KpiWeight">
+            <summary>
+            The unique name of the member in the measures dimension for the KPI Weight.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.ParentKpiName">
+            <summary>
+            The name of the parent KPI.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Kpi.CurrentTimeMember">
+            <summary>
+            The unique name of the member in the time dimension that defines the temporal context of the KPI.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Level">
+            <summary>
+            Represents a level within a hierarchy
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.Name">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>The name of the level.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.Caption">
+            <summary>
+            Gets the caption of the level.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.UniqueName">
+            <summary>
+            Gets the unique name of the level.
+            </summary>
+            <value>The unique name of the level.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.Description">
+            <summary>
+            Gets the description of the level.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.Depth">
+            <summary>
+            Gets the distance of the level from the root of the level. Root level is zero (0)
+            </summary>
+            <value>The depth.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.HierarchyUniqueName">
+            <summary>
+            Gets the hierarchy that contains the level.
+            </summary>
+            <value>The parent hierarchy.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.DimensionUniqueName">
+            <summary>
+            Gets the dimension that contains the level.
+            </summary>
+            <value>The parent hierarchy.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.MembersCount">
+            <summary>
+            Gets or sets the count of all members in the level.
+            </summary>
+            <value>The members count.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.LevelOrigin">
+            <summary>
+            Gets or sets a value that defines how the level was sourced.
+            </summary>
+            <value>The level origin.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Level.LevelOrderingProperty">
+            <summary>
+            Gets or sets the ID of the attribute that the level is sorted on.
+            </summary>
+            <value>The ID of the attribute that the level is sorted on.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Measure">
+            <summary>
+            Represents a measure within a cube
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.Name">
+            <summary>
+            Gets the name of the measure.
+            </summary>
+            <value>The name of the measure.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.UniqueName">
+            <summary>
+            Gets the unique name of the measure.
+            </summary>
+            <value>The unique name of the measure.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.Caption">
+            <summary>
+            Gets the caption of the measure.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.Description">
+            <summary>
+            Gets the description of the measure.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.MeasureGroupName">
+            <summary>
+            Gets the name of the measure group measure belongs to.
+            </summary>
+            <value>The name of the measure group.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.AggregatorType">
+            <summary>
+            Gets or sets the <see cref="P:Infragistics.Olap.Core.Data.Measure.AggregatorType"/> that identifies how a measure was derived.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.DefaultFormatString">
+            <summary>
+            Gets the default format string for the measure.
+            </summary>
+            <value>The default format.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Measure.MeasureDisplayFolder">
+            <summary>
+            Gets or sets the measure display folder.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.KpiMeasure">
+            <summary>
+            Represents a Key Performance Indicator within a cube.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.MeasureGroup">
+            <summary>
+            Represents a measure group within a cube.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroup.Description">
+            <summary>
+            Gets the description of the measure group.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroup.Name">
+            <summary>
+            Gets the name of the measure group.
+            </summary>
+            <value>The name of the measure group.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroup.Caption">
+            <summary>
+            Gets the caption of the measure group.
+            </summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroup.CubeName">
+            <summary>
+            Gets or sets the name of the cube this instance belongs to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroup.CatalogName">
+            <summary>
+            Gets or sets the name of the catalog this instance belongs to.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.MeasureGroupDimension">
+            <summary>
+            Represents a dimension within a cube
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroupDimension.CubeName">
+            <summary>
+            Gets or sets the name of the cube to which this instance belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroupDimension.CatalogName">
+            <summary>
+            Gets or sets the name of the catalog to which this instance belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroupDimension.MeasureGroupName">
+            <summary>
+            Gets or sets the name of the measure group to which this instance belongs.
+            </summary>
+            <value>
+            The name of the measure group.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.MeasureGroupDimension.DimensionUniqueName">
+            <summary>
+            Gets the unique name of the dimension to which this instance belongs.
+            </summary>
+            <value>The unique name of the dimension.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Member">
+            <summary>
+            Represents a member within a level.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.CubeName">
+            <summary>
+            Gets or sets the name of the cube this instance belongs to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.CatalogName">
+            <summary>
+            Gets or sets the unique name of the catalog this instance belongs to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.DimensionUniqueName">
+            <summary>
+            Gets the unique name of the dimension to which this instance belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.HierarchyUniqueName">
+            <summary>
+            Gets the unique name of the hierarchy to which this instance belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.LevelUniqueName">
+            <summary>
+            Gets the unique name of the level to which this instance belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.LevelDepth">
+            <summary>
+            Gets the depth of the level to which this member belongs.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.Name">
+            <summary>
+            Gets the name of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.UniqueName">
+            <summary>
+            Gets the unique name of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.MemberType">
+            <summary>
+            Gets or sets the type of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.Caption">
+            <summary>
+            Gets the caption of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.ChildrenCardinality">
+            <summary>
+            Gets the calculated child count. You CAN NOT rely on this property because this can be an estimate. 
+            Providers should return exact number if possible.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.ParentLevel">
+            <summary>
+            Gets the distance of the member's parent from the root level of the hierarchy. 
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.ParentUniqueName">
+            <summary>
+            Gets the parent unique name of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.Description">
+            <summary>
+            Gets the description of the member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.Data.Member.Scope">
+            <summary>
+            Gets the scope of this member. This is <c>null</c> for non-calculated members.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Result">
+            <summary>
+            Encapsulates the result of an OLAP query.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Axis">
+            <summary>
+            Encapsulates an axis on a multi-dimensional data source.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.AxisMember">
+            <summary>
+            Represents a member of an OLAP
+            <see cref="T:Infragistics.Olap.Core.Data.Axis">Axis</see>.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.Data.Cell">
+            <summary>
+            Encapsulates a cell within the data returned from an OLAP query.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.IConnection">
+            <summary>
+            Implementation of the model data provider.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverCatalogsAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the schema's catalogs asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverCubesAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the cubes asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverDimensionsAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the dimensions in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverHierarchiesAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the hierarchies in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverLevelsAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the levels in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverMeasuresAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the measures in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverMeasureGroupsAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the measures in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverMeasureGroupDimensionsAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the measure group dimensions in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverMembersAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the requested members asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapDiscoverDataProvider.DiscoverKpisAsync(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Loads the KPIs in the cube asynchronously.
+            </summary>
+            <param name="properties">The properties.</param>
+            <param name="restrictions">The restrictions.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.IOlapExecuteCommandProvider.ExecuteStatementAsync(System.String,System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.KeyValueItem})">
+            <summary>
+            Executes asynchronously the specified MDX statement.
+            </summary>
+            <param name="statement">The MDX statement.</param>
+            <param name="properties">The properties.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs">
+            <summary>
+            Event arguments for <see cref="E:Infragistics.Olap.Core.PositionResolver`2.GetPositionIndexCompleted"/> event.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs.#ctor(System.Int32,System.Exception,System.Boolean,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs"/> class.
+            </summary>
+            <param name="positionIndex">Index of the position.</param>
+            <param name="error">Any error that occured during the asynchronous operation.</param>
+            <param name="cancelled">A value that indicates wheter the asynchronous operation was canceled.</param>
+            <param name="userState">User supplied state object.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs.PositionIndex">
+            <summary>
+            Gets the index of the tuple.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.KeyValueItem.Key">
+            <summary>
+            Returns or sets the key for this item.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.KeyValueItem.Value">
+            <summary>
+            Returns or sets the value for this item.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.PositionIndex">
+            <summary>
+            Gets the index of a position related to this instance within axis. In order this index to be valid one, this instance
+            should be at most bottom level in the hierarchy of <see cref="T:Infragistics.Olap.Core.PositionItemInfo`2"/> objects.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.PositionItemDepth">
+            <summary>
+            Gets the level depth of the <see cref="T:Infragistics.Olap.Core.IPositionItem`2"/> from the position item this instance is connected to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.PositionItemIndex">
+            <summary>
+            Gets the depth of the hierarchy this instance is related to, in the axis/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.PositionSize">
+            <summary>
+            Gets the number of the items in a position.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.Key">
+            <summary>
+            Gets the key used to identify this instance.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.ParentKey">
+            <summary>
+            Gets the key used to identify the parent of this instance.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.IsExpandable">
+            <summary>
+            Gets or sets a value indicating whether this instance is expandable.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionItemInfo`2.IsExpanded">
+            <summary>
+            Gets or sets a value indicating whether this instance is expanded.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.#ctor(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.IPosition{`0,`1}},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.PositionResolver`2"/> class.
+            </summary>
+            <param name="positions">The list of positions this instance is working with.</param>
+            <param name="positionSize">The number of the items in a position.</param>
+        </member>
+        <member name="E:Infragistics.Olap.Core.PositionResolver`2.GetPositionIndexCompleted">
+            <summary>
+            Occurs when asynchronous operation of getting index of position is completed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionResolver`2.Positions">
+            <summary>
+            Gets the list of the positions this instance is working with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionResolver`2.PositionSize">
+            <summary>
+            Gets the number of the items in a position.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionResolver`2.RootPositionInfo">
+            <summary>
+            Gets the root <see cref="T:Infragistics.Olap.Core.PositionItemInfo`2"/> item.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.PositionResolver`2.HasUnregisterdPositions">
+            <summary>
+            Gets a value indicating whether this instance has unregisterd positions.
+            </summary>
+            <value>
+            	<c>true</c> if this instance has unregisterd positions; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.CompleteRegisterPositions">
+            <summary>
+            Registers all position items found in <see cref="P:Infragistics.Olap.Core.PositionResolver`2.Positions"/> collection.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.ResolveParentPositionItem(Infragistics.Olap.Core.IPositionItem{`0,`1},System.Int32@)">
+            <summary>
+            Resolves the parent member of specified position item.
+            </summary>
+            <param name="positionItem">The position item whose parent is resolved.</param>
+            <param name="parentPositionIndex">Index of the parent position.</param>
+            <returns>
+            The parent position item.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.GetChildPositionsIndexes(Infragistics.Olap.Core.IPositionItem{`0,`1},System.ComponentModel.ListSortDirection)">
+            <summary>
+            Gets the member children tuples indexes.
+            </summary>
+            <param name="positionItem">The tuple member.</param>
+            <param name="sortDirection">The sort direction.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.IsMemberExpanded(Infragistics.Olap.Core.IPositionItem{`0,`1})">
+            <summary>
+            Determines whether the specified position item has children items in the context of <see cref="P:Infragistics.Olap.Core.PositionResolver`2.Positions"/>. collection.
+            </summary>
+            <param name="positionItem">The position item.</param>
+            <returns><c>true</c> if the member is expanded; <c>false</c> if the member is collapsed; <c>null</c> this <see cref="P:Infragistics.Olap.Core.IPositionItem`2.Position"/> does not belong to <see cref="P:Infragistics.Olap.Core.PositionResolver`2.Positions"/> collection.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.GetPositionIndex(Infragistics.Olap.Core.IPosition{`0,`1})">
+            <summary>
+            Gets the index of the specified position.
+            </summary>
+            <param name="position">The position.</param>
+            <returns>The index of the position in <see cref="P:Infragistics.Olap.Core.PositionResolver`2.Positions"/> collection.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.GetPositionIndexAsync(Infragistics.Olap.Core.IPosition{`0,`1})">
+            <summary>
+            Gets the index of the specified position.
+            </summary>
+            <param name="position">The position.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.PositionResolver`2.OnGetPositionIndexCompleted(Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Infragistics.Olap.Core.PositionResolver`2.GetPositionIndexCompleted"/> event.
+            </summary>
+            <param name="args">The <see cref="T:Infragistics.Olap.Core.GetPositionIndexCompletedEventArgs"/> instance containing the event data.</param>
+        </member>
+    </members>
+</doc>

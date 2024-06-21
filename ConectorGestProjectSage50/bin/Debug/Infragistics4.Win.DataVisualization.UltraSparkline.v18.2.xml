@@ -1,0 +1,2134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Win.DataVisualization.UltraSparkline.v18.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Win.DataVisualization.SR">
+            <summary>
+            Internal class for retrieving information from an assembly's resource file.
+            </summary>
+            <remarks>
+            Any assembly that will share this class must have a default assembly level class
+            named "AssemblyRef" which has a const string field named "BaseResourceName". The
+            value of this const must be the resolved name of the resource file containing the
+            resources for the assembly - specifically the string resources. Note, the resolved
+            name is the default namespace for the project with the name of the resx file appended.
+            e.g.
+            class AssemblyRef
+            {
+            	// the default assembly here was Infragistics.Shared and the name
+            	// of the resx file was string.resx
+            	public const string BaseResourceName = "Infragistics.Shared.strings";
+            }
+            
+            Additionally, any assemblies using this class should also add the 
+            SatelliteContractVersion attribute to the assembly. This essentially provides a 
+            version number which any satellite assemblies will use to associate with
+            this assembly. Therefore, if the assembly using this class is rebuilt and
+            has its version number incremented, the satellite dlls that been built against
+            this dll will still work since it is the satellite contract version that binds
+            the two. If you do not add this attribute, the compiler will use the assembly
+            version number for the satellite contract version.
+            e.g.
+            [assembly: System.Resources.SatelliteContractVersion("1.0.5006.0")]
+            
+            And in case someone has a problem where the resources are not being displayed,
+            the best thing to use if the log binding viewer (fuslogvw.exe). However, in
+            order to have this work with resources, you need to make a modification to the
+            registry. You can also have this log all binding info, including successful binds.
+            The following info is straight out of MS's docs for settings this up:
+            To log all binds in the viewer 
+            	Set the HKLM\Software\Microsoft\Fusion\ForceLog registry value to 1 (the value is a DWORD). 
+            	By default, Fuslogvw.exe only logs failed attempts to locate assemblies. You might have a situation where it is useful to view all successful assembly binds. For example, you might want to verify that an assembly is loading from your application directory instead of from the global assembly cache. Setting this registry key forces Fuslogvw.exe to log all assembly binds.
+            To log bind failures to satellite assemblies 
+            	Set the HKLM\Software\Microsoft\Fusion\LogResourceBinds registry value to 1 (the value is a DWORD). 
+            	By default, Fuslogvw.exe does not log failed attempts to locate satellite assemblies. Setting this registry key enables this feature.
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SR.GetString(System.String)">
+            <summary>
+            Returns the resource string using the specified name and default culture.
+            </summary>
+            <param name="name">Name of the string resource to return.</param>
+            <returns>Null if the name is null; otherwise a string from the resource for the default culture.</returns>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SR.GetString(System.String,System.Object[])">
+            <summary>
+            Returns the resource string using the specified resource name and default culture. The string is then formatted using the arguments specified.
+            </summary>
+            <param name="name">Name of the string resource to return.</param>
+            <param name="args">Arguments supplied to the string.Format method when formatting the string.</param>
+            <returns>Null if the name is null; otherwise a formatted string using the resource specified.</returns>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SR.GetString(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            Returns the resource string using the culture and name specified.
+            </summary>
+            <param name="culture">Culture whose resource should loaded. The resource will go through a fallback process to locate the appropriate resources.</param>
+            <param name="name">Name of the string resource to return.</param>
+            <returns>Null if the name is null; otherwise a localized string for specified culture.</returns>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SR.GetString(System.Globalization.CultureInfo,System.String,System.Object[])">
+            <summary>
+            Returns the resource string using the name and culture specified. The string is then formatted using the arguments specified.
+            </summary>
+            <param name="culture">Culture whose resource should loaded. The resource will go through a fallback process to locate the appropriate resources.</param>
+            <param name="name">Name of the string resource to return.</param>
+            <param name="args">Arguments supplied to the string.Format method when formatting the string.</param>
+            <returns>Null if the name is null; otherwise a formatted string using the resource specified.</returns>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SR.GetBitmap(System.String)">
+            <summary>
+            Gets a Bitmap from this assembly's resources.
+            </summary>
+            <param name="name">The resource name of the Bitmap to get.</param>
+            <returns>The requested Bitmap.</returns>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.LocalizedCategoryAttribute">
+            <summary>
+            Internal class for returning a localized category string
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.LocalizedCategoryAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new <b>LocalizedCategoryAttribute</b>
+            </summary>
+            <param name="category">Name of the resource containing the localizable category name</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.LocalizedCategoryAttribute.GetLocalizedString(System.String)">
+            <summary>
+            Returns the localized category name
+            </summary>
+            <param name="value">Name of the category to retreive</param>
+            <returns>The localized string value</returns>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.LocalizedDescriptionAttribute">
+            <summary>
+            Internal class for returning the localized description string
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.LocalizedDescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance of a <b>LocalizedDescriptionAttribute</b>
+            </summary>
+            <param name="description">Name of the resource containing the localizable description</param>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.SparklineDisplayType">
+            <summary>
+            Represents the type of sparkline
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.DataVisualization.SparklineDisplayType.Line">
+            <summary>
+            Display the sparkline as a line.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.DataVisualization.SparklineDisplayType.Area">
+            <summary>
+            Display the sparkline as a filled polygon.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.DataVisualization.SparklineDisplayType.Column">
+            <summary>
+            Display the sparkline as a set of columns.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Win.DataVisualization.SparklineDisplayType.WinLoss">
+            <summary>
+            Display the sparkline as a set of columns on a boolean scale.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs">
+            <summary>
+            EventArgs class for axis FormatLabel events.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs"/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Label">
+            <summary>
+            Gets or sets the text of the label.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.ShouldSerializeLabel">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Label"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Label"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.ResetLabel">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Label"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Label"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Value">
+            <summary>
+            The data item in context.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs.Reset">
+            <summary>
+            Resets all the properties to their default values
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.SparklineFormatLabelEventHandler">
+            <summary>
+            Delegate for Sparkline FormatLabel events.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="item">Contextual information about the event being raised.</param>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.SparklineToolTipContext">
+            <summary>
+            Represents the data context for the sparkline tooltip.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.SparklineToolTipContext.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.DataVisualization.SparklineToolTipContext"/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineToolTipContext.First">
+            <summary>
+            Gets or sets the First value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineToolTipContext.High">
+            <summary>
+            Gets or sets the High value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineToolTipContext.Last">
+            <summary>
+            Gets or sets the Last value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineToolTipContext.Low">
+            <summary>
+            Gets or sets the Low value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineToolTipContext.Modified">
+            <summary>
+            Indicates if context was modified 
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.UltraSparkline">
+            <summary>
+            Represents a sparkline chart.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Win.DataVisualization.UltraSparkline"/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.ActualPixelScalingRatio">
+            <summary>
+            Gets the actual scaling value used by the component to affect the pixel density of the control.
+            </summary>
+            <remarks>
+            A higher scaling ratio will produce crisper visuals at the expense of memory.  Lower values will cause the control
+            to appear blurry.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.Brush">
+            <summary>
+            Gets or sets the sparkline brush.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Brush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Brush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Brush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Brush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.DataSource">
+            <summary>
+            Gets or sets the DataSource of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeDataSource">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DataSource"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DataSource"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetDataSource">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DataSource"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DataSource"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.DisplayType">
+            <summary>
+            Gets or sets the display type of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeDisplayType">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DisplayType"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DisplayType"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetDisplayType">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DisplayType"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.DisplayType"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerBrush">
+            <summary>
+            Gets or sets the first marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFirstMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFirstMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerSize">
+            <summary>
+            Gets or sets the first marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFirstMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFirstMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerVisibility">
+            <summary>
+            Gets or sets the first marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFirstMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFirstMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FirstMarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily">
+            <summary>
+            Returns or sets the font family for the axis labels.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFontFamily">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFontFamily">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize">
+            <summary>
+            Returns or sets the font size for the axis labels.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFontSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFontSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle">
+            <summary>
+            Returns or sets the font style for the axis labels.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontFamily"/>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeFontStyle">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetFontStyle">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.FontStyle"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerBrush">
+            <summary>
+            Gets or sets the high marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeHighMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetHighMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerSize">
+            <summary>
+            Gets or sets the high marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeHighMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetHighMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerVisibility">
+            <summary>
+            Gets or sets the high marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeHighMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetHighMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HighMarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisBrush">
+            <summary>
+            Gets or sets the horizontal axis line brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeHorizontalAxisBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetHorizontalAxisBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisVisibility">
+            <summary>
+            Gets or sets the display state of the horizontal axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeHorizontalAxisVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetHorizontalAxisVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.HorizontalAxisVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LabelMemberPath">
+            <summary>
+            String identifier of a column or property name to get labels from on each item in the data source.  These labels will be retrieved from the first and last item, and displayed by the horizontal axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLabelMemberPath">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LabelMemberPath"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LabelMemberPath"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLabelMemberPath">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LabelMemberPath"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LabelMemberPath"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerBrush">
+            <summary>
+            Gets or sets the last marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLastMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLastMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerSize">
+            <summary>
+            Gets or sets the last marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLastMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLastMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerVisibility">
+            <summary>
+            Gets or sets the last marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLastMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLastMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LastMarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LineThickness">
+            <summary>
+            Gets or sets the line thickness of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLineThickness">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LineThickness"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LineThickness"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLineThickness">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LineThickness"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LineThickness"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerBrush">
+            <summary>
+            Gets or sets the low marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLowMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLowMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerSize">
+            <summary>
+            Gets or sets the low marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLowMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLowMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerVisibility">
+            <summary>
+            Gets or sets the low marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeLowMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetLowMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.LowMarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerBrush">
+            <summary>
+            Gets or sets the marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerSize">
+            <summary>
+            Gets or sets the marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerVisibility">
+            <summary>
+            Gets or sets the marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.MarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.Maximum">
+            <summary>
+            Gets or sets the maximum value of the y axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeMaximum">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Maximum"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Maximum"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetMaximum">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Maximum"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Maximum"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.Minimum">
+            <summary>
+            Gets or sets the minimum value of the y axis.
+            </summary>>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeMinimum">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Minimum"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Minimum"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetMinimum">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Minimum"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.Minimum"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeBrush">
+            <summary>
+            Gets or sets the negative brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNegativeBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNegativeBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerBrush">
+            <summary>
+            Gets or sets the negative marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNegativeMarkerBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNegativeMarkerBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerSize">
+            <summary>
+            Gets or sets the negative marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNegativeMarkerSize">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerSize"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerSize"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNegativeMarkerSize">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerSize"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerSize"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerVisibility">
+            <summary>
+            Gets or sets the negative marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNegativeMarkerVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNegativeMarkerVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NegativeMarkerVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeFill">
+            <summary>
+            Gets or sets the normal range brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNormalRangeFill">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeFill"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeFill"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNormalRangeFill">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeFill"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeFill"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMaximum">
+            <summary>
+            Gets or sets the maximum value of the normal range.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNormalRangeMaximum">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMaximum"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMaximum"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNormalRangeMaximum">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMaximum"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMaximum"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMinimum">
+            <summary>
+            Gets or sets the minimum value of the normal range.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNormalRangeMinimum">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMinimum"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMinimum"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNormalRangeMinimum">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMinimum"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeMinimum"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeVisibility">
+            <summary>
+            Gets or sets the normal range visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeNormalRangeVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetNormalRangeVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.NormalRangeVisibility"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.TextColor">
+            <summary>
+            Gets or sets the text color for the axis labels.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeTextColor">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TextColor"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TextColor"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetTextColor">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TextColor"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TextColor"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineBrush">
+            <summary>
+            Gets or sets the trendline brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeTrendLineBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetTrendLineBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLinePeriod">
+            <summary>
+            Gets or sets the trendline period used by the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeTrendLinePeriod">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLinePeriod"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLinePeriod"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetTrendLinePeriod">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLinePeriod"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLinePeriod"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineThickness">
+            <summary>
+            Gets or sets the thickness of the sparkline's trendline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeTrendLineThickness">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineThickness"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineThickness"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetTrendLineThickness">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineThickness"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineThickness"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineType">
+            <summary>
+            Gets or sets the type of trendline used by the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeTrendLineType">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineType"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineType"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetTrendLineType">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineType"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.TrendLineType"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.UnknownValuePlotting">
+            <summary>
+            Gets or sets the way null values are interpreted.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeUnknownValuePlotting">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.UnknownValuePlotting"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.UnknownValuePlotting"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetUnknownValuePlotting">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.UnknownValuePlotting"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.UnknownValuePlotting"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.ValueMemberPath">
+            <summary>
+            Gets or sets the string path to the value column.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeValueMemberPath">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ValueMemberPath"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ValueMemberPath"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetValueMemberPath">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ValueMemberPath"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ValueMemberPath"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisBrush">
+            <summary>
+            Gets or sets the vertical axis line brush of the sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeVerticalAxisBrush">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisBrush"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisBrush"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetVerticalAxisBrush">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisBrush"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisBrush"/>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisVisibility">
+            <summary>
+            Gets or sets the display state of the vertical axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeVerticalAxisVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetVerticalAxisVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.VerticalAxisVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ExportVisualData">
+            <summary>
+            Returns the sparkline visuals expressed as a SparklineVisualData object.
+            </summary>
+            <returns>A SparklineVisualData object representing the current sparkline visuals.</returns>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.NotifyClearItems(System.Object)">
+            <summary>
+            Used to manually notify the UltraSparkline that the data source has reset or cleared its items.  Invoking this method is only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source which was cleared or reset.</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.NotifyInsertItem(System.Object,System.Int32,System.Object)">
+            <summary>
+            Used to manually notify the UltraSparkline that the data source has had an item inserted. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the new item</param>
+            <param name="newItem">The new item.</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.NotifyRemoveItem(System.Object,System.Int32,System.Object)">
+            <summary>
+            Used to manually notify the UltraSparkline that the data source has had an item removed. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the old item.</param>
+            <param name="oldItem">The old item.</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.NotifyResized">
+            <summary>
+            Notify that the control has resized.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.NotifySetItem(System.Object,System.Int32,System.Object,System.Object)">
+            <summary>
+            Used to manually notify the UltraSparkline that the data source has had an item set. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the change</param>
+            <param name="oldItem">The old item.</param>
+            <param name="newItem">The new item.</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ProvideContainer(System.Object)">
+            <summary>
+            Provides a container to the sparkline control.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.Reset">
+            <summary>
+            Resets all the properties to their default values
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.OnFormatLabel(Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs)">
+            <summary>
+            Used to invoke the <see cref="E:Infragistics.Win.DataVisualization.UltraSparkline.FormatLabel"/> event.
+            </summary>
+            <param name="e">The data for this event.</param>
+            <seealso cref="T:Infragistics.Win.DataVisualization.SparklineFormatLabelEventArgs"/>
+            <seealso cref="E:Infragistics.Win.DataVisualization.UltraSparkline.FormatLabel"/>
+        </member>
+        <member name="E:Infragistics.Win.DataVisualization.UltraSparkline.FormatLabel">
+            <summary>
+            Event raised for the purpose of determining the text of each label.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.About">
+            <summary>
+            Display the about dialog.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.ToolTipVisibility">
+            <summary>
+            Determines the visibility of tooltips.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ShouldSerializeToolTipVisibility">
+            <summary>
+            Indicates if the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ToolTipVisibility"/> property needs to be serialized.
+            </summary>
+            <returns>A boolean indicating if the property needs to be serialized.</returns>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ToolTipVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.ResetToolTipVisibility">
+            <summary>
+            Resets the <see cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ToolTipVisibility"/> property to its default value.
+            </summary>
+            <seealso cref="P:Infragistics.Win.DataVisualization.UltraSparkline.ToolTipVisibility"/>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.Flush">
+            <summary>
+            Flushes the actions from the queue.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Win.DataVisualization.UltraSparkline.TooltipContentUpdating">
+            <summary>
+            Occurs when the ToolTip for the <see cref="T:Infragistics.Win.DataVisualization.UltraSparkline"/> is updating the content to be rendered.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.FlushActions">
+            <summary>
+            Flushes the actions.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Win.DataVisualization.UltraSparkline.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.HandleCreated event.
+            </summary>
+            <param name="e">An System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.BackColor">
+            <summary>
+            Gets or sets the background color for the control.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.ForeColor">
+            <summary>
+            Gets or sets the foreground color of the control.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.Text">
+            <summary>
+            Gets or sets the text associated with this control.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.UltraSparkline.Font">
+            <summary>
+            Gets or sets the font of the text displayed by the control.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Win.DataVisualization.SparklineTooltipContentEventArgs">
+            <summary>
+            The event arguments for the TooltipContentUpdating event of the <see cref="T:Infragistics.Win.DataVisualization.UltraSparkline"/>
+            </summary>
+        </member>
+        <member name="P:Infragistics.Win.DataVisualization.SparklineTooltipContentEventArgs.DataContext">
+            <summary>
+            Represents contextual data for the funnel chart.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparklineFormatLabelEventArgs">
+            <summary>
+            EventArgs class for axis FormatLabel events.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineFormatLabelEventArgs.Value">
+            <summary>
+            The data item in context.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineFormatLabelEventArgs.Label">
+            <summary>
+            Gets or sets the text of the label.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparklineToolTipContext">
+            <summary>
+            Represents the data context for the sparkline tooltip.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineToolTipContext.High">
+            <summary>
+            Gets or sets the High value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineToolTipContext.Low">
+            <summary>
+            Gets or sets the Low value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineToolTipContext.First">
+            <summary>
+            Gets or sets the First value.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.SparklineToolTipContext.Last">
+            <summary>
+            Gets or sets the Last value.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.XamSparkline">
+            <summary>
+            Represents a sparkline chart.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Infragistics.Controls.Charts.XamSparkline"/>.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.BrushProperty">
+            <summary>
+            Identifies the Brush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.Brush">
+            <summary>
+            Gets or sets the sparkline brush.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NegativeBrushProperty">
+            <summary>
+            Identifies the NegativeBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NegativeBrush">
+            <summary>
+            Gets or sets the negative brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.MarkerBrushProperty">
+            <summary>
+            Identifies the MarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.MarkerBrush">
+            <summary>
+            Gets or sets the marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerBrushProperty">
+            <summary>
+            Identifies the NegativeMarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerBrush">
+            <summary>
+            Gets or sets the negative marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.FirstMarkerBrushProperty">
+            <summary>
+            Identifies the FirstMarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.FirstMarkerBrush">
+            <summary>
+            Gets or sets the first marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LastMarkerBrushProperty">
+            <summary>
+            Identifies the LastMarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LastMarkerBrush">
+            <summary>
+            Gets or sets the last marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.HighMarkerBrushProperty">
+            <summary>
+            Identifies the HighMarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.HighMarkerBrush">
+            <summary>
+            Gets or sets the high marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LowMarkerBrushProperty">
+            <summary>
+            Identifies the LowMarkerBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LowMarkerBrush">
+            <summary>
+            Gets or sets the low marker brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.TrendLineBrushProperty">
+            <summary>
+            Identifies the TrendLineBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TrendLineBrush">
+            <summary>
+            Gets or sets the trendline brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.HorizontalAxisBrushProperty">
+            <summary>
+            Identifies the HorizontalAxisBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.HorizontalAxisBrush">
+            <summary>
+            Gets or sets the horizontal axis line brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.VerticalAxisBrushProperty">
+            <summary>
+            Identifies the VerticalAxisBrush dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.VerticalAxisBrush">
+            <summary>
+            Gets or sets the vertical axis line brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NormalRangeFillProperty">
+            <summary>
+            Identifies the NormalRangeFill dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NormalRangeFill">
+            <summary>
+            Gets or sets the normal range brush of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.HorizontalAxisVisibilityProperty">
+            <summary>
+            Identifies the HorizontalAxisVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.HorizontalAxisVisibility">
+            <summary>
+            Gets or sets the display state of the horizontal axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.VerticalAxisVisibilityProperty">
+            <summary>
+            Identifies the VerticalAxisVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.VerticalAxisVisibility">
+            <summary>
+            Gets or sets the display state of the vertical axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.MarkerVisibilityProperty">
+            <summary>
+            Identifies the MarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.MarkerVisibility">
+            <summary>
+            Gets or sets the marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerVisibilityProperty">
+            <summary>
+            Identifies the NegativeMarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerVisibility">
+            <summary>
+            Gets or sets the negative marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.FirstMarkerVisibilityProperty">
+            <summary>
+            Identifies the FirstMarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.FirstMarkerVisibility">
+            <summary>
+            Gets or sets the first marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LastMarkerVisibilityProperty">
+            <summary>
+            Identifies the LastMarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LastMarkerVisibility">
+            <summary>
+            Gets or sets the last marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LowMarkerVisibilityProperty">
+            <summary>
+            Identifies the LowMarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LowMarkerVisibility">
+            <summary>
+            Gets or sets the low marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.HighMarkerVisibilityProperty">
+            <summary>
+            Identifies the HighMarkerVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.HighMarkerVisibility">
+            <summary>
+            Gets or sets the high marker visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NormalRangeVisibilityProperty">
+            <summary>
+            Identifies the NormalRangeVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NormalRangeVisibility">
+            <summary>
+            Gets or sets the normal range visibility of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.MarkerSizeProperty">
+            <summary>
+            Identifies the MarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.MarkerSize">
+            <summary>
+            Gets or sets the marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.FirstMarkerSizeProperty">
+            <summary>
+            Identifies the FirstMarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.FirstMarkerSize">
+            <summary>
+            Gets or sets the first marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LastMarkerSizeProperty">
+            <summary>
+            Identifies the LastMarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LastMarkerSize">
+            <summary>
+            Gets or sets the last marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.HighMarkerSizeProperty">
+            <summary>
+            Identifies the HighMarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.HighMarkerSize">
+            <summary>
+            Gets or sets the high marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LowMarkerSizeProperty">
+            <summary>
+            Identifies the LowMarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LowMarkerSize">
+            <summary>
+            Gets or sets the low marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerSizeProperty">
+            <summary>
+            Identifies the NegativeMarkerSize dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NegativeMarkerSize">
+            <summary>
+            Gets or sets the negative marker size of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LineThicknessProperty">
+            <summary>
+            Identifies the LineThickness dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LineThickness">
+            <summary>
+            Gets or sets the line thickness of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.MinimumProperty">
+            <summary>
+            Identifies the Minimum dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.Minimum">
+            <summary>
+            Gets or sets the minimum value of the y axis.
+            </summary>>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.MaximumProperty">
+            <summary>
+            Identifies the Maximum dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.Maximum">
+            <summary>
+            Gets or sets the maximum value of the y axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.ItemsSourceProperty">
+            <summary>
+            Identifies the ItemsSource dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.ItemsSource">
+            <summary>
+            Gets or sets the DataSource of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.ValueMemberPathProperty">
+            <summary>
+            Identifies the ValueMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.ValueMemberPath">
+            <summary>
+            Gets or sets the string path to the value column.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.LabelMemberPathProperty">
+            <summary>
+            Identifies the LabelMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.LabelMemberPath">
+            <summary>
+            String identifier of a column or property name to get labels from on each item in the data source.  These labels will be retrieved from the first and last item, and displayed by the horizontal axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.ToolTipProperty">
+            <summary>
+            Identifies the ToolTip dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.ToolTip">
+            <summary>
+            Gets or sets the tooltip of the sparkline.
+            </summary>
+            <remarks>
+            The tooltip applies to the entire sparkline control, not the data portion of it.
+            </remarks>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.ToolTipVisibilityProperty">
+            <summary>
+            Identifies the ToolTipVisibility dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.ToolTipVisibility">
+            <summary>
+            Determines the visibility of tooltips.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.TrendLineTypeProperty">
+            <summary>
+            Identifies the TrendLineType dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TrendLineType">
+            <summary>
+            Gets or sets the type of trendline used by the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.TrendLinePeriodProperty">
+            <summary>
+            Identifies the TrendLinePeriod dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TrendLinePeriod">
+            <summary>
+            Gets or sets the trendline period used by the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.TrendLineThicknessProperty">
+            <summary>
+            Identifies the TrendLineThickness dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TrendLineThickness">
+            <summary>
+            Gets or sets the thickness of the sparkline's trendline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NormalRangeMinimumProperty">
+            <summary>
+            Identifies the NormalRangeMinimum dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NormalRangeMinimum">
+            <summary>
+            Gets or sets the minimum value of the normal range.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.NormalRangeMaximumProperty">
+            <summary>
+            Identifies the NormalRangeMaximum dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.NormalRangeMaximum">
+            <summary>
+            Gets or sets the maximum value of the normal range.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.DisplayTypeProperty">
+            <summary>
+            Identifies the DisplayType dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.DisplayType">
+            <summary>
+            Gets or sets the display type of the sparkline.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.XamSparkline.UnknownValuePlottingProperty">
+            <summary>
+            Identifies the UnknownValuePlotting dependency property.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.UnknownValuePlotting">
+            <summary>
+            Gets or sets the way null values are interpreted.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Controls.Charts.XamSparkline.FormatLabel">
+            <summary>
+            Event raised for the purpose of determining the text of each label.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.OnPropertyChanged(System.String,System.Object,System.Object)">
+            <summary>
+            Handles property changes.
+            </summary>
+            <param name="propertyName">Property Name</param>
+            <param name="oldValue">Old value</param>
+            <param name="newValue">New value</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.Destroy">
+            <summary>
+            Clean up the sparkline control.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.ProvideContainer(System.Object)">
+            <summary>
+            Provides a container to the sparkline control.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.NotifyResized">
+            <summary>
+            Notify that the control has resized.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.NotifySetItem(System.Object,System.Int32,System.Object,System.Object)">
+            <summary>
+            Used to manually notify the XamSparkline that the data source has had an item set. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the change</param>
+            <param name="oldItem">The old item.</param>
+            <param name="newItem">The new item.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.NotifyClearItems(System.Object)">
+            <summary>
+            Used to manually notify the XamSparkline that the data source has reset or cleared its items.  Invoking this method is only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source which was cleared or reset.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.NotifyInsertItem(System.Object,System.Int32,System.Object)">
+            <summary>
+            Used to manually notify the XamSparkline that the data source has had an item inserted. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the new item</param>
+            <param name="newItem">The new item.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.NotifyRemoveItem(System.Object,System.Int32,System.Object)">
+            <summary>
+            Used to manually notify the XamSparkline that the data source has had an item removed. Only necessary if that datasource is not observable.
+            </summary>
+            <param name="source_">The data source changed.</param>
+            <param name="index">The index of the old item.</param>
+            <param name="oldItem">The old item.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparkline.ExportVisualData">
+            <summary>
+            Returns the sparkline visuals expressed as a SparklineVisualData object.
+            </summary>
+            <returns>A SparklineVisualData object representing the current sparkline visuals.</returns>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.PixelScalingRatio">
+            <summary>
+            Gets or sets the scaling value used to affect the pixel density of the control.
+            </summary>
+            <remarks>
+            A higher scaling ratio will produce crisper visuals at the expense of memory.  Lower values will cause the control
+            to appear blurry.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.ActualPixelScalingRatio">
+            <summary>
+            Gets the actual scaling value used by the component to affect the pixel density of the control.
+            </summary>
+            <remarks>
+            A higher scaling ratio will produce crisper visuals at the expense of memory.  Lower values will cause the control
+            to appear blurry.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TextStyle">
+            <summary>
+            Gets or sets CSS font property for labels on X-axis
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.XamSparkline.TextColor">
+            <summary>
+            Gets or sets the text color for the axis labels.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparklineConnector">
+            <summary>
+            Represents a connector class that links Model, View and Controller together.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.SparklineConnector.#ctor(Infragistics.Portable.Components.DependencyObject,Infragistics.Controls.Charts.XamSparklineView)">
+            <summary>
+            Creates a new sparkline connector.
+            </summary>
+            <param name="parent">Parent object.</param>
+            <param name="view">Instance of the sparkline view.</param>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparkLayerType">
+            <summary>
+            Enumeration of spark layer types.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparklineDisplayType">
+            <summary>
+            Represents the type of sparkline
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.SparklineDisplayType.Line">
+            <summary>
+            Display the sparkline as a line.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.SparklineDisplayType.Area">
+            <summary>
+            Display the sparkline as a filled polygon.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.SparklineDisplayType.Column">
+            <summary>
+            Display the sparkline as a set of columns.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Controls.Charts.SparklineDisplayType.WinLoss">
+            <summary>
+            Display the sparkline as a set of columns on a boolean scale.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.AxisRenderMessage">
+            <summary>
+            Message used to render an axis
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ClearMessage">
+            <summary>
+            A clear message is used to clear out a particular layer of the sparkline.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ColumnMessage">
+            <summary>
+            Message used to update sparkline columns.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ConfigurationMessage">
+            <summary>
+            A base class for configuration type messages.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.InteractionMessage">
+            <summary>
+            A base class for interaction type messages.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MarkerMessage">
+            <summary>
+            Message that updates the sparkline markers.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.Message">
+            <summary>
+            Base class for all sparkline messages.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MessageChannel">
+            <summary>
+            A service used to send sparkline messages.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MessageEventHandler">
+            <summary>
+            Delegate for message events.
+            </summary>
+            <param name="message">The message</param>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MessageHandler">
+            <summary>
+            A class used to handle specific message types.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MessageHandlerEventHandler">
+            <summary>
+            Delegate for receiving messages.
+            </summary>
+            <param name="m">The received message</param>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MouseLeaveMessage">
+            <summary>
+            Message used when the mouse has left the sparkline control boundary.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.MouseMoveMessage">
+            <summary>
+            Message used when the mouse is moving over the sparkline control boundary.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.NormalRangeMessage">
+            <summary>
+            Message used for updating the sparkline range geometry.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.PolygonMessage">
+            <summary>
+            Message used for updating the main sparkline geometry.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.PropertyChangedMessage">
+            <summary>
+            A message that changes a property value.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.RenderingMessage">
+            <summary>
+            Base class for rendering type messages.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ServiceProvider">
+            <summary>
+            Class used to manage services attached to the sparkline.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ToolTipMessage">
+            <summary>
+            Message used to update the tooltip.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ToolTipTemplateMessage">
+            <summary>
+            Message used to update the tooltip template.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.TrendLineMessage">
+            <summary>
+            Message used to update the trendline geometry.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ViewportChangedMessage">
+            <summary>
+            A message that changes the sparkline viewport.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ContainerSizeChangedMessage">
+            <summary>
+            A message that triggers a container resize.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.WinLossColumnMessage">
+            <summary>
+            Message used to update the WinLoss column geometry.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ContainerMessage">
+            <summary>
+            Message used to provide a container.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.VisibilityChangedMessage">
+            <summary>
+            Message used to change a visibility property.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.BrushChangedMessage">
+            <summary>
+            Message used to change a brush property.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.NumberChangedMessage">
+            <summary>
+            Message used to change a number property.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.ContainerResizedMessage">
+            <summary>
+            Message used to notify that the container has resized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.DataChangedMessage">
+            <summary>
+            Message used to change data.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.Messaging.PixelRatioMessage">
+            <summary>
+            Message used to change the pixel ratio.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.SparklineFormatLabelEventHandler">
+            <summary>
+            Delegate for Sparkline FormatLabel events.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="item">Contextual information about the event being raised.</param>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.VisualData.SparklineVisualData">
+            <summary>
+            Visual data for the Sparkline control.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineVisualData.#ctor">
+            <summary>
+            Creates a new SparklineVisualData instance.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.Name">
+            <summary>
+            Gets or sets the name of the visual data.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.HorizontalAxis">
+            <summary>
+            Gets or sets the horizontal axis visual data.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.VerticalAxis">
+            <summary>
+            Gets or sets the vertical axis visual data.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.SparkPath">
+            <summary>
+            Gets or sets the visual data for the main sparkline geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.NegativeSparkPath">
+            <summary>
+            Gets or sets the visual data for the negative sparkline geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.TrendLinePath">
+            <summary>
+            Gets or sets the visual data for the trendline geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.RangePath">
+            <summary>
+            Gets or sets the visual data for the range geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.MarkersPath">
+            <summary>
+            Gets or sets the visual data for the marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.NegativeMarkersPath">
+            <summary>
+            Gets or sets the visual data for the negative marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.LowMarkersPath">
+            <summary>
+            Gets or sets the visual data for low marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.HighMarkersPath">
+            <summary>
+            Gets or sets the visual data for the high marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.FirstMarkerPath">
+            <summary>
+            Gets or sets the visual data for the first marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.LastMarkerPath">
+            <summary>
+            Gets or sets the visual data for the last marker geometry.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.Viewport">
+            <summary>
+            Gets or sets the viewport.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineVisualData.MarginViewport">
+            <summary>
+            Gets or sets the margin viewport.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineVisualData.ScaleByViewport">
+            <summary>
+            Scales the sparkline data against a viewport to normalize the data for comparison.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineVisualData.Serialize">
+            <summary>
+             Serializes this object to a string
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData">
+            <summary>
+            Visual data for the sparkline axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.#ctor">
+            <summary>
+            Creates a new SparklineAxisVisualData instance.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.Name">
+            <summary>
+            Gets or sets the name of the axis.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.MinLabel">
+            <summary>
+            Gets or sets the label appearance data for the minimum label.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.MaxLabel">
+            <summary>
+            Gets or sets the label appearance data for the maximum label.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.AxisLine">
+            <summary>
+            Gets or sets the axis line visual data.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.ScaleByViewport(Infragistics.Portable.VisualData.RectData)">
+            <summary>
+            Scales the axis data against a viewport to normalize the data for comparison.
+            </summary>
+            <param name="viewport">The viewport to scale by.</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VisualData.SparklineAxisVisualData.Serialize">
+            <summary>
+             Serializes this object to a string
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.HorizontalAxisView">
+            <summary>
+            View class for a horizontal axis in XamSparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.HorizontalAxisView.#ctor(Infragistics.Controls.Charts.XamSparkline)">
+            <summary>
+            HorizontalAxisView constructor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.VerticalAxisView">
+            <summary>
+            View class for a vertical axis in XamSparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.VerticalAxisView.#ctor(Infragistics.Controls.Charts.XamSparkline)">
+            <summary>
+            VerticalAxisView constructor.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Controls.Charts.XamSparklineView">
+            <summary>
+            Represents the visual component of a sparkline.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparklineView.#ctor">
+            <summary>
+            Creates a new instance of XamSparklineView.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparklineView.UpdateBrush(System.String,Infragistics.Portable.Graphics.Media.Brush,System.String,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="name">Name of path/brush</param>
+            <param name="brush">Not null only when set by property</param>
+            <param name="clr">Null if set by property and not null when set as css-default</param>
+            <param name="opacity">css-default when clr != null</param>
+            <param name="thickness">css-default when clr != null</param>
+        </member>
+        <member name="M:Infragistics.Controls.Charts.XamSparklineView.PreRender">
+            <summary>
+            Called before a render pass starts.
+            </summary>
+        </member>
+    </members>
+</doc>

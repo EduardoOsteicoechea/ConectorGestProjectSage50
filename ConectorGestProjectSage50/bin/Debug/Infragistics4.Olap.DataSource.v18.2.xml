@@ -1,0 +1,3478 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataSource.v18.2</name>
+    </assembly>
+    <members>
+        <member name="M:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.ProcessHierarchyZero(System.Collections.Generic.IList{Infragistics.Olap.Core.PositionItemInfo{System.String,System.Object}})">
+            <summary>
+            Creates headers for the position items from hierarchy zero.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.ProcessNextHierarchy(Infragistics.Olap.Core.TableCompactViewHeadersFactory.Header)">
+            <summary>
+            Creates headers for the children of the specified header
+            from the previous hierarchy.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.AddHeader(Infragistics.Olap.Core.PositionItemInfo{System.String,System.Object})">
+            <summary>
+            Adds one if it doesn't already exist
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.GetHeader(Infragistics.Olap.Core.PositionItemInfo{System.String,System.Object})">
+            <summary>
+            Returns the header for the specified position item or null
+            if it does not exist.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.Item(System.Int32,System.Int32)">
+            <summary>
+            Returns the headers belonging to the specified hierarchy
+            at the specified level.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableCompactViewHeadersFactory.HeaderTree.Item(System.Int32)">
+            <summary>
+            Returns the headers belonging to the specified hierarchy.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.TableView">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableView.#ctor(Infragistics.Olap.Core.Data.Result,System.Boolean,System.Boolean,Infragistics.Olap.Core.TableViewSettings)">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableView.ColumnSortDirections">
+            <summary>
+            Gets the list of tuple sort directions.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableView.LevelSortDirections">
+            <summary>
+            Gets the list of level sort directions.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableView.AppliedColumnSortDirections">
+            <summary>
+            Gets a list of the tuple sort directions, which are applied to the result.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableView.AppliedLevelSortDirections">
+            <summary>
+            Gets a list of the level sort directions, which are applied to the result.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.RowHeaderLayout">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.ResultView">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.TableViewHeaderCell">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.TableViewHeaderCell.#ctor">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.TableViewResultCell">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.TableViewSettings">
+            <summary>For Infragistics internal use.</summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableViewSettings.IsParentInFrontForColumns">
+            <summary>
+            Gets or sets a value indicating whether parent for columns is in front of its children.
+            </summary>
+            <value><c>true</c> if parent is in front of children; otherwise, <c>false</c>.</value>
+            <remarks>
+            If set to <c>true</c>, the query set sorts members in a level in their natural order. Their natural order is the default ordering of the members along the hierarchy when no other sort conditions are specified. Child members immediately follow their parent members.
+            <br/>
+            If set to <c>false</c>, the query set sorts the members in a level using a post-natural order. In other words, child members precede their parents.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableViewSettings.IsParentInFrontForRows">
+            <summary>
+            Gets or sets a value indicating whether parent for rows is in front of its children.
+            </summary>
+            <value><c>true</c> if parent is in front of children; otherwise, <c>false</c>.</value>
+            <remarks>
+            If set to <c>true</c>, the query set sorts members in a level in their natural order. Their natural order is the default ordering of the members along the hierarchy when no other sort conditions are specified. Child members immediately follow their parent members.
+            <br/>
+            If set to <c>false</c>, the query set sorts the members in a level using a post-natural order. In other words, child members precede their parents.
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.Core.TableViewSettings.CompactColumnHeaders">
+            <summary>
+            Gets or sets a value indicating wheter the column headers should be arranged for compact header layout – each hieararchy is in a single row.
+            <value>
+            <c>true</c> if the the headers should be arranged for compact layout; otherwise, <c>false</c>.
+            </value>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.MetaTreeHelper">
+            <summary>
+            Exposes methods used to create the cube's metadata tree.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.MetaTreeHelper.GetDimensionMetaItems(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Dimension},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Measure},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Kpi},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Hierarchy},System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Level},System.Boolean,Infragistics.Olap.Core.CubeMetaItemsCache)">
+            <summary>
+            Gets the list of <see cref="T:Infragistics.Olap.Core.MetadataTreeItem"/> for all dimensions, loaded with all related metadata.
+            </summary>
+            <param name="dimensions">The list of source dimensions.</param>
+            <param name="measures">The list of source measures.</param>
+            <param name="hierarchies">The list of source hierarchies.</param>
+            <param name="levels">The list of source levels.</param>
+            <param name="createMeasureGroupFolders">if set to <c>true</c> [ignore measure groups].</param>
+            <returns>
+            The list of <see cref="T:Infragistics.Olap.Core.MetadataTreeItem"/> items.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Core.MetaTreeHelper.SetMetaItemChildren(Infragistics.Olap.Core.MetadataTreeItem,System.Collections.Generic.IList{Infragistics.Olap.Core.MetadataTreeItem})">
+            <summary>
+            Sets the <see cref="P:Infragistics.Olap.Core.MetadataTreeItem.Children"/> array with the specified items from the list.
+            </summary>
+            <param name="metaItem">The item which children should be set.</param>
+            <param name="children">The list of the children items.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Core.HierarchyFilterView">
+            <summary>
+            Provides a view about the visual state of the members of a <see cref="P:Infragistics.Olap.Core.HierarchyFilterView.Hierarchy"/> as each member of the
+            hierarchy is reflected by instance of <see cref="T:Infragistics.Olap.Core.FilterMember"/> class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.#ctor(Infragistics.Olap.Core.Data.Hierarchy)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.HierarchyFilterView"/> class.
+            </summary>
+            <param name="hierarchy">The hierarchy this instance is working with.</param>
+        </member>
+        <member name="E:Infragistics.Olap.Core.HierarchyFilterView.FilterMemberExpansionChanged">
+            <summary>
+            Occurs when expansion state of a filter member of this view is changed.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Olap.Core.HierarchyFilterView.FilterMemberSelectionChanged">
+            <summary>
+            Occurs when selection state of a filter member of this view is changed.
+            This event is fired just for the very first filter member in the hierarchy that changes its selection state.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.HierarchyFilterView.Hierarchy">
+            <summary>
+            Gets the hierarchy this filter view instance is working with.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.AddFiltersForMembers(System.Collections.Generic.IEnumerable{Infragistics.Olap.Core.Data.Member})">
+            <summary>
+            Creates filter members for the specified members and attach them to this filter view.
+            </summary>
+            <param name="members">The members.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.AddFilterForMember(Infragistics.Olap.Core.Data.Member)">
+            <summary>
+            Creates filter member for the specified member and attach it to this filter view.
+            </summary>
+            <param name="member">The member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.TryGetFilterMember(System.String)">
+            <summary>
+            Gets the filter member for the specified unique name.
+            </summary>
+            <param name="memberUniqueName">The unique name of the member.</param>
+            <returns>The filter member.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.GetRootFilterMembers">
+            <summary>
+            Gets the list of the filter members which appear at the root of the hierarchy.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.HierarchyFilterView.GetSelectedFilterItems">
+            <summary>
+            Gets a list of selected filter members sufficient to represent the current selection state of the hierarchy.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.FilterMember">
+            <summary>
+            Provides an information about expansion and selection state of a <see cref="T:Infragistics.Olap.Core.Data.Member"/> of hierarchy.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.FilterMember.#ctor(Infragistics.Olap.Core.Data.Member)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.FilterMember"/> class.
+            </summary>
+            <param name="member">The member.</param>
+        </member>
+        <member name="E:Infragistics.Olap.Core.FilterMember.SelectionChanged">
+            <summary>
+            Occurs when <see cref="P:Infragistics.Olap.Core.FilterMember.IsSelected"/> changes.
+            </summary>
+        </member>
+        <member name="E:Infragistics.Olap.Core.FilterMember.PropertyChanged">
+            <summary>
+            Occurs when a property value has changed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.Parent">
+            <summary>
+            Gets the parent filter member.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.Member">
+            <summary>
+            Gets the member this filter member is working with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.IsExpandable">
+            <summary>
+            Gets a value indicating whether this instance is expandable.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is expandable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.IsExpanded">
+            <summary>
+            Gets or sets a value indicating whether this instance is expanded.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is expanded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.IsSelected">
+            <summary>
+            Gets or sets a value indicating whether this instance is selected.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is selected; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMember.Children">
+            <summary>
+            Gets the children filter members of this instance.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Core.FilterMemberStateChangedEventArgs">
+            <summary>
+            Provides event arguments for <see cref="E:Infragistics.Olap.Core.HierarchyFilterView.FilterMemberSelectionChanged"/> and
+            <see cref="E:Infragistics.Olap.Core.HierarchyFilterView.FilterMemberExpansionChanged"/> events.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Core.FilterMemberStateChangedEventArgs.#ctor(Infragistics.Olap.Core.FilterMember)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Core.FilterMemberStateChangedEventArgs"/> class.
+            </summary>
+            <param name="filterMember">The filter member.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Core.FilterMemberStateChangedEventArgs.FilterMember">
+            <summary>
+            Gets the filter member which state has changed.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.#ctor(Infragistics.Olap.Core.DataSourceBaseOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.OlapDataSource"/> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSourceInternal.Result">
+            <summary>
+            Gets the result for current state of data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.SetCube(System.String)">
+            <summary>
+            Sets the current cube for the data source and updates <see cref="P:Infragistics.Olap.OlapDataSourceInternal.Cube"/>, <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MeasureGroup"/> and <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MetadataTree"/> properties.
+            </summary>
+            <param name="cubeName">Name of the cube.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task`1"/> which is completed when the metadata tree for the specified cube is loaded.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.SetMeasureGroup(System.String)">
+            <summary>
+            Sets the current measure group for the data source and updates <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MeasureGroup"/> and <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MetadataTree"/> properties.
+            </summary>
+            <param name="measureGroupName">Name of the measure group.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task`1"/> which is completed when the metadata tree for the specified measure group is loaded.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.GetCoreElement(System.Func{Infragistics.Olap.Core.Data.ICoreOlapElement,System.Boolean},System.Type)">
+            <summary>
+            Gets first core element which satisfies the specified condition.
+            </summary>
+            <param name="predicate">The predicate which specifies the condition.</param>
+            <param name="elementType">Type of the element.</param>
+            <returns>
+            The core element which satisfies the specified condition.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.ExpandTupleMember(System.String,System.Int32,System.Int32)">
+            <summary>
+            Expands a tuple member.
+            </summary>
+            <param name="axisName">Name of the axis the expanded member belongs to.</param>
+            <param name="tupleIndex">Index of the tuple the expanded member belongs to.</param>
+            <param name="memberIndex">Index of the expanded member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.CollapseTupleMember(System.String,System.Int32,System.Int32)">
+            <summary>
+            Collapses a tuple member.
+            </summary>
+            <param name="axisName">Name of the axis the collapsed member belongs to.</param>
+            <param name="tupleIndex">Index of the tuple the collapsed member belongs to.</param>
+            <param name="memberIndex">Index of the collapsed member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.ClearPendingChanges">
+            <summary>
+            Clears all pending changes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.Update">
+            <summary>
+            Performs an update with the list of pending changes and updates the data source result.
+            </summary>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task`1"/> which is completed when the new result for a data source is ready.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.Initialize">
+            <summary>
+            Initializes the data source with the initialization values specified by <see cref="P:Infragistics.Olap.OlapDataSourceInternal.SourceOptions"/> and updates <see cref="P:Infragistics.Olap.OlapDataSourceInternal.Catalogs"/>, <see cref="T:Infragistics.Olap.Core.Data.Catalog"/>, 
+            <see cref="P:Infragistics.Olap.OlapDataSourceInternal.Cubes"/>, <see cref="P:Infragistics.Olap.OlapDataSourceInternal.Cube"/>, <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MeasureGroups"/>, <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MeasureGroup"/> and <see cref="P:Infragistics.Olap.OlapDataSourceInternal.MetadataTree"/> properties. 
+            If <see cref="P:Infragistics.Olap.OlapDataSourceInternal.SourceOptions"/> have specified initialization values for columns/rows/filters/measures then the <see cref="P:Infragistics.Olap.OlapDataSourceInternal.Result"/> property will be updated as well.
+            </summary>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task`1"/>.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.AddFilterMember(System.String,System.String)">
+            <summary>
+            Adds a member to list of filter members that will be present in result.
+            If a member of given hierarchy is added to this filter list then only those members which are present in this filter list will be present for that hierarchy in the result.
+            </summary>
+            <param name="hierarchyUniqueName">Hierarchy unique name.</param>
+            <param name="memberUniqueName">Unique name of a member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.RemoveFilterMember(System.String,System.String)">
+            <summary>
+            Removes a member from the list of filter members that will be present in result.
+            </summary>
+            <param name="hierarchyUniqueName">Hierarchy unique name.</param>
+            <param name="memberUniqueName">Unique name of a member.</param>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSourceInternal.RemoveAllFilterMembers(System.String)">
+            <summary>
+            Removes all members from the list of filter members and the filter for the specified hierarchy is cleared.
+            </summary>
+            <param name="hierarchyUniqueName">Hierarchy unique name.</param>
+        </member>
+        <member name="T:Infragistics.Olap.LevelSortDirection">
+            <summary>
+            Specifies the relation between a level and its default members sort direction.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.LevelSortDirection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.LevelSortDirection"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.LevelSortDirection.LevelUniqueName">
+            <summary>
+            Gets or sets the level's unique name.
+            </summary>
+            <value>
+            The level unique name.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.LevelSortDirection.SortDirection">
+            <summary>
+            Gets or sets the default sort direction used for level.
+            </summary>
+            <value>
+            The default sort direction.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.LevelSortDirection.SortBehavior">
+            <summary>
+            Gets or sets the sort behavior for a level.
+            </summary>
+            <value>
+            The sort behavior.
+            </value>
+        </member>
+        <member name="T:Infragistics.Olap.LevelSortBehavior">
+            <summary>
+            Specifies a sort behavior for a level members.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.LevelSortBehavior.Alphabetical">
+            <summary>
+            Level members are sorted in alphabetical order.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.LevelSortBehavior.System">
+            <summary>
+            Level members order depends on the order they are ordered by underlying data provider.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.TupleSortDirection">
+            <summary>
+            Specifies the relation between a tuple and its default members sort direction.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.TupleSortDirection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.TupleSortDirection"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleSortDirection.TupleIndex">
+            <summary>
+            Gets or set the index of the tuple to be sorted.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleSortDirection.MemberNames">
+            <summary>
+            Gets or sets an array of the tuples' member names.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleSortDirection.SortDirection">
+            <summary>
+            Gets or sets the default sort direction used for level.
+            </summary>
+            <value>
+            The default sort direction.
+            </value>
+        </member>
+        <member name="P:Infragistics.Olap.TupleSortDirection.Comparer">
+            <summary>
+            Gets or sets a custom comparer for the sorting.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisType">
+            <summary>
+            Constants which identify the type of an
+            <see cref="T:Infragistics.Olap.Core.Data.Axis">Axis</see>
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.AxisType.None">
+            <summary>
+            Used for variable initialization.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.AxisType.Column">
+            <summary>
+            The column (a.k.a., horizontal) axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.AxisType.Row">
+            <summary>
+            The row (a.k.a., vertical) axis.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceErrorReason">
+            <summary>
+            Constants which identify the reason for an error
+            which occurred while updating a data source.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.None">
+            <summary>
+            Used for variable initialization.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.InitializationFailed">
+            <summary>
+            First-time initialization of the data source has failed.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.GetHierarchyMembersFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsync(System.String,System.Windows.Forms.Control)">GetHierarchyMembersAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.ExpandAxisTupleMemberFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsync(Infragistics.Olap.AxisType,System.Int32,System.Int32,System.Boolean,System.Windows.Forms.Control)">ExpandAxisTupleMemberAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.CollapseAxisTupleMemberFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsync(Infragistics.Olap.AxisType,System.Int32,System.Int32,System.Boolean,System.Windows.Forms.Control)">CollapseAxisTupleMemberAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.AddFilterMemberFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.AddFilterMemberAsync(Infragistics.Olap.Core.Data.Hierarchy,Infragistics.Olap.Core.Data.Member,System.Boolean,System.Windows.Forms.Control)">AddFilterMemberAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.RemoveFilterMemberFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsync(Infragistics.Olap.Core.Data.Hierarchy,Infragistics.Olap.Core.Data.Member,System.Boolean,System.Windows.Forms.Control)">RemoveFilterMemberAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.RemoveAllFilterMembersFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsync(Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">RemoveAllFilterMembersAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.AxisAddHierarchyFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsync(Infragistics.Olap.AxisType,System.String,System.Boolean,System.Windows.Forms.Control)">AxisAddHierarchyAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.AxisRemoveHierarchyFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsync(Infragistics.Olap.AxisType,System.String,System.Boolean,System.Windows.Forms.Control)">AxisRemoveHierarchyAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.AddMeasureFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.AddMeasureAsync(System.String,System.Boolean,System.Windows.Forms.Control)">AddMeasureAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.RemoveMeasureFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.RemoveMeasureAsync(System.String,System.Boolean,System.Windows.Forms.Control)">RemoveMeasureAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.AddFilterFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.AddFilterAsync(System.String,System.Boolean,System.Windows.Forms.Control)">AddFilterAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.RemoveFilterFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.RemoveFilterAsync(System.String,System.Boolean,System.Windows.Forms.Control)">RemoveFilterAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.GetCatalogsFailed">
+            <summary>
+            An error occurred during execution of the GetCatalogsAsync method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.GetCubesFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.GetCubesAsync(System.Windows.Forms.Control)">GetCubesAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.SetCubeFailed">
+            <summary>
+            An error occurred during execution of the SetCubeAsync method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.SetCatalogFailed">
+            <summary>
+            An error occurred during execution of the SetCatalogAsync method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.GetHierarchiesFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.GetHierarchiesAsync(System.Windows.Forms.Control)">GetHierarchiesAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.GetMeasuresFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.GetMeasuresAsync(System.Windows.Forms.Control)">GetMeasuresAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceErrorReason.UpdateFailed">
+            <summary>
+            An error occurred during execution of the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceChangeType">
+            <summary>
+            Constants which identify the type of change that occurred to a data source.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.None">
+            <summary>
+            Used for variable initialization.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.Initialized">
+            <summary>
+            First-time initialization of the data source has occurred.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.RowAxisTupleMemberExpanded">
+            <summary>
+            An tuple member has been expanded on the row axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.ColumnAxisTupleMemberExpanded">
+            <summary>
+            An tuple member has been expanded on the column axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.RowAxisTupleMemberCollapsed">
+            <summary>
+            An tuple member has been collapsed on the row axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.ColumnAxisTupleMemberCollapsed">
+            <summary>
+            An tuple member has been collapsed on the column axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.HierarchyFilterMemberAdded">
+            <summary>
+            A filter member was added to a hierarchy.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.HierarchyFilterMemberRemoved">
+            <summary>
+            A filter member was removed from a hierarchy.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.HierarchyAllFilterMembersRemoved">
+            <summary>
+            All filter members were removed from a hierarchy.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.AxisHierarchyAdded">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            was added to the row or column axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.AxisHierarchyRemoved">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            was removed from the row or column axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.MeasureAdded">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            was added.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.MeasureRemoved">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            was removed.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.FilterAdded">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            was added to the filter axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.FilterRemoved">
+            <summary>
+            A
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            was removed from the filter axis.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.CubeChanged">
+            <summary>
+            The currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            has changed.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.CatalogChanged">
+            <summary>
+            The currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>
+            has changed.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.DataSourceChangeType.Update">
+            <summary>
+            One or more pending changes that were made to the data source were committed by calling the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetHierarchyMembersAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">GetHierarchyMembersAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.GetHierarchyMembersAsyncCompletedEventArgs.HierarchyUniqueName">
+            <summary>
+            Returns the unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            whose list of members was retrieved.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.GetHierarchyMembersAsyncCompletedEventArgs.Members">
+            <summary>
+            Returns a list of the members which belong to the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetHierarchyMembersAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">GetHierarchyMembersAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.InitializeAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.InitializeAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.TupleMemberExpandedStateChangedEventArgs">
+            <summary>
+            Base event arguments class for the TupleMemberExpanded
+            and TupleMemberCollapsed event args classes.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleMemberExpandedStateChangedEventArgs.AxisType">
+            <summary>
+            Returns a constant which identifies the axis on
+            which a member was expanded or collapsed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleMemberExpandedStateChangedEventArgs.TupleIndex">
+            <summary>
+            Returns the index of the tuple on which a member
+            was expanded or collapsed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.TupleMemberExpandedStateChangedEventArgs.MemberIndex">
+            <summary>
+            Returns the index of the tuple member that was expanded or collapsed.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.ExpandAxisTupleMemberAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.ExpandAxisTupleMemberAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.CollapseAxisTupleMemberAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.CollapseAxisTupleMemberAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceErrorEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceError">DataSourceError</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.DataSourceErrorEventArgs.Exception">
+            <summary>
+            Returns the exception which caused the associated event to occur.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.DataSourceErrorEventArgs.Reason">
+            <summary>
+            Returns a constant which describes the reason for the error.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceErrorHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceError">DataSourceError</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceChangedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanged">DataSourceChanged</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.DataSourceChangedEventArgs.ChangeType">
+            <summary>
+            Returns a constant which describes the type of change that has taken place.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceChangedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanged">DataSourceChanged</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceChangingEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanging">DataSourceChanging</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.DataSourceChangingEventArgs.ChangeType">
+            <summary>
+            Returns a constant which describes the change that is about to take place.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceChangingHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanging">DataSourceChanging</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.HierarchyEventArgs">
+            <summary>
+            Base event args class for events which involve a
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.HierarchyEventArgs.HierarchyUniqueName">
+            <summary>
+            Returns the unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            associated with this event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.MeasureEventArgs">
+            <summary>
+            Base event args class for events which involve a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.MeasureEventArgs.MeasureUniqueName">
+            <summary>
+            Returns the unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            associated with this event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.HierarchyMemberEventArgs">
+            <summary>
+            Base event args class for events which involve a
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            and a
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.HierarchyMemberEventArgs.MemberUniqueName">
+            <summary>
+            Returns the unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Member">Member</see>
+            associated with this event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddFilterMemberAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddFilterMemberAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveFilterMemberAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveFilterMemberAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveAllFilterMembersAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveAllFilterMembersAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisAddHierarchyAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.AxisAddHierarchyAsyncCompletedEventArgs.AxisType">
+            <summary>
+            Returns a constant which identifies the axis
+            to which the hierarchy was added.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisAddHierarchyAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisRemoveHierarchyAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.AxisRemoveHierarchyAsyncCompletedEventArgs.AxisType">
+            <summary>
+            Returns a constant which identifies the axis
+            from which the hierarchy was removed.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisRemoveHierarchyAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddMeasureAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddMeasureAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveMeasureAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveMeasureAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddFilterAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AddFilterAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveFilterAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.RemoveFilterAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method that handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetHierarchiesAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchiesAsyncCompleted">GetHierarchiesAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.GetHierarchiesAsyncCompletedEventArgs.Hierarchies">
+            <summary>
+            Returns a collection which contains each
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            retrieved from the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetHierarchiesAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchiesAsyncCompleted">GetHierarchiesAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetMeasuresAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetMeasuresAsyncCompleted">GetMeasuresAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.GetMeasuresAsyncCompletedEventArgs.Measures">
+            <summary>
+            Returns a collection which contains each
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            retrieved from the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetMeasuresAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetMeasuresAsyncCompleted">GetMeasuresAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetCubesAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.GetCubesAsyncCompletedEventArgs.Cubes">
+            <summary>
+            Returns a collection which contains each
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            available under the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">Catalog</see>
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.GetCubesAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.SetCubeAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.SetCubeAsyncCompleted">SetCubeAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.SetCubeAsyncCompletedEventArgs.CubeName">
+            <summary>
+            Returns the name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            associated with this event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.SetCubeAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.SetCubeAsyncCompleted">SetCubeAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.UpdateAsyncCompletedEventArgs">
+            <summary>
+            Contains information about the
+            <see cref="E:Infragistics.Olap.OlapDataSource.UpdateAsyncCompleted">UpdateAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.UpdateAsyncCompletedEventArgs.Changes">
+            <summary>
+            Returns a list of the changes that were applied by this update.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.UpdateAsyncCompletedHandler">
+            <summary>
+            Defines the signature of the method which handles the
+            <see cref="E:Infragistics.Olap.OlapDataSource.UpdateAsyncCompleted">UpdateAsyncCompleted</see>
+            event.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.OlapDataSource">
+            <summary>
+            Base class for OLAP (Online Analytical Processing) data sources.
+            </summary>
+            <remarks>
+            <p class="body">
+            The OlapDataSource class is an abstract class which defines the interface
+            through which a data consumer (such as the UltraPivotGrid control) communicates
+            with an OLAP data server.
+            </p>
+            <p class="body">
+            Because communication with an OLAP server is accomplished through
+            client requests and server responses, most of the methods exposed by
+            this class, and derived classes, are asynchronous in nature.
+            </p>
+            <p class="body">
+            Many of the asynchronous methods exposed by this class follows a design pattern
+            that makes it possible for the consumer to easily obtain data from the OLAP server,
+            without the need for a complicated multi-threaded consumer implementation.
+            The main features of this pattern are as follows:
+            <ul>
+                <li>A naming convention which suffixes all applicable methods with the phrase 'Async'.</li>
+                <li>An event which fires after the server responds to the request.</li>
+                <li>An optional parameter which provides the ability to specify whether the server request should be sent immediately, or deferred until the data source is updated manually.</li>
+                <li>An optional parameter which provides the ability to specify the thread on which the server raises this event.</li>
+                <li>A separate event which occurs when an exception is thrown by the server during processing of a request.</li>
+            </ul>
+            </p>
+            <p class="body">
+            For example, consider the
+            <see cref="M:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsync(Infragistics.Olap.AxisType,System.Int32,System.Int32,System.Boolean,System.Windows.Forms.Control)">ExpandAxisTupleMemberAsync</see>
+            method. The first three method parameters allow the caller to specify the axis on which the member resides,
+            the index of the tuple containing the member to expand, and the index of the member to expand, respectively.
+            </p>
+            <p class="body">
+            Setting the value of the 'update' parameter to false allows the caller to defer the update until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called. This provides a way to perform 'batch' style updating, where
+            more than one change is made to the data source, with the multiple changes
+            being applied later, as one atomic operation.
+            </p>
+            <p class="body">
+            When true is specified as the value of the 'update' parameter,
+            the request is dispatched to the OLAP server immediately. If, during
+            processing of the request, an exception is thrown, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceError">DataSourceError</see>
+            event occurs, reporting the error to listeners.
+            </p>
+            <p class="body">
+            If the request is processed successfully, and the value of the 'update' parameter is set to true, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event occurs, notifying listeners that the operation has been completed.
+            </p>
+            <p class="body">
+            Notifications received from the OLAP server are dispatched on a background thread.
+            Because Windows Forms controls are not thread safe, attempting to access properties
+            or methods exposed by the control directly from within the contents of the event handler
+            can cause a cross-thread exception to occur. The 'control' parameter provides a way for
+            the developer to direct these notifications to the same thread as the one on which the
+            control's handle was created. This eliminates the need for the listener to marshal the
+            notification across thread boundaries, further simplifying the client implementation.
+            </p>
+            </remarks>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for the list of members associated with a given hierarchy.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnGetHierarchyMembersAsyncCompleted(Infragistics.Olap.GetHierarchyMembersAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">GetHierarchyMembersAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.GetHierarchyMembersAsyncCompletedEventArgs">GetHierarchyMembersAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.GetHierarchiesAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for the list of the hierarchies associated with the currently
+            selected cube.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnGetHierarchiesAsyncCompleted(Infragistics.Olap.GetHierarchiesAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchiesAsyncCompleted">GetHierarchiesAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.GetHierarchiesAsyncCompletedEventArgs">GetHierarchiesAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.GetMeasuresAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for the list of the hierarchies associated with the currently
+            selected cube.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnGetMeasuresAsyncCompleted(Infragistics.Olap.GetMeasuresAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetMeasuresAsyncCompleted">GetMeasuresAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.GetMeasuresAsyncCompletedEventArgs">GetMeasuresAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to initialize the data source.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnInitializeAsyncCompleted(Infragistics.Olap.InitializeAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.InitializeAsyncCompletedEventArgs">InitializeAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to expand an axis tuple member.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnExpandAxisTupleMemberAsyncCompleted(Infragistics.Olap.ExpandAxisTupleMemberAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.ExpandAxisTupleMemberAsyncCompletedEventArgs">ExpandAxisTupleMemberAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to collapse an axis tuple member.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnCollapseAxisTupleMemberAsyncCompleted(Infragistics.Olap.CollapseAxisTupleMemberAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.CollapseAxisTupleMemberAsyncCompletedEventArgs">CollapseAxisTupleMemberAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a member to a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnAddFilterMemberAsyncCompleted(Infragistics.Olap.AddFilterMemberAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.AddFilterMemberAsyncCompletedEventArgs">AddFilterMemberAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to remove a member from a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnRemoveFilterMemberAsyncCompleted(Infragistics.Olap.RemoveFilterMemberAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.RemoveFilterMemberAsyncCompletedEventArgs">RemoveFilterMemberAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to remove a member from a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnRemoveAllFilterMembersAsyncCompleted(Infragistics.Olap.RemoveAllFilterMembersAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.RemoveAllFilterMembersAsyncCompletedEventArgs">RemoveAllFilterMembersAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a hierarchy to the row or column axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnAxisAddHierarchyAsyncCompleted(Infragistics.Olap.AxisAddHierarchyAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.AxisAddHierarchyAsyncCompletedEventArgs">AxisAddHierarchyAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a hierarchy to the row or column axis.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnAxisRemoveHierarchyAsyncCompleted(Infragistics.Olap.AxisRemoveHierarchyAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.AxisRemoveHierarchyAsyncCompletedEventArgs">AxisRemoveHierarchyAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a member to a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnAddMeasureAsyncCompleted(Infragistics.Olap.AddMeasureAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.AddMeasureAsyncCompletedEventArgs">AddMeasureAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a member to a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnRemoveMeasureAsyncCompleted(Infragistics.Olap.RemoveMeasureAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.RemoveMeasureAsyncCompletedEventArgs">RemoveMeasureAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a member to a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnAddFilterAsyncCompleted(Infragistics.Olap.AddFilterAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.AddFilterAsyncCompletedEventArgs">AddFilterAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            to add a member to a hierarchy filter.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnRemoveFilterAsyncCompleted(Infragistics.Olap.RemoveFilterAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.RemoveFilterAsyncCompletedEventArgs">RemoveFilterAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.DataSourceError">
+            <summary>
+            Occurs when the OLAP server reports an error while processing a client request.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnDataSourceError(Infragistics.Olap.DataSourceErrorEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceError">DataSourceError</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.DataSourceErrorEventArgs">DataSourceErrorEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.DataSourceChanged">
+            <summary>
+            Occurs when the data source changes.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnDataSourceChanged(Infragistics.Olap.DataSourceChangedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanged">DataSourceChanged</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.DataSourceChangedEventArgs">DataSourceChangedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.DataSourceChanging">
+            <summary>
+            Occurs when a change is about to be made to the data source.
+            </summary>
+            <remarks>
+            <p class="body">
+            This event can be canceled to prevent the change from taking place.
+            </p>
+            <p class="body">
+            This event is always raised on the same thread as that of the calling code.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnDataSourceChanging(Infragistics.Olap.DataSourceChangingEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceChanging">DataSourceChanging</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.DataSourceChangingEventArgs">DataSourceChangingEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for the list of all available cubes associated with the currently
+            selected catalog.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnGetCubesAsyncCompleted(Infragistics.Olap.GetCubesAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.GetCubesAsyncCompletedEventArgs">GetCubesAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.SetCubeAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds to an asynchronous request
+            for the list of all available cubes associated with the currently
+            selected catalog.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnSetCubeAsyncCompleted(Infragistics.Olap.SetCubeAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.SetCubeAsyncCompleted">SetCubeAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.SetCubeAsyncCompletedEventArgs">SetCubeAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="E:Infragistics.Olap.OlapDataSource.UpdateAsyncCompleted">
+            <summary>
+            Occurs when the OLAP server responds after a call to the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnUpdateAsyncCompleted(Infragistics.Olap.UpdateAsyncCompletedEventArgs)">
+            <summary>
+            Raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.UpdateAsyncCompleted">UpdateAsyncCompleted</see>
+            event.
+            </summary>
+            <param name="e">
+            A
+            <see cref="T:Infragistics.Olap.UpdateAsyncCompletedEventArgs">UpdateAsyncCompletedEventArgs</see>
+            instance containing information about the event.
+            </param>
+        </member>
+        <member name="F:Infragistics.Olap.OlapDataSource.pendingChanges">
+            <summary>pendingChanges</summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.#ctor(Infragistics.Olap.InitialSettings)">
+            <summary>
+            Creates a new instance of the class, initialized with the specified settings.
+            </summary>
+            <param name="settings">
+            An
+            <see cref="T:Infragistics.Olap.InitialSettings">InitialSettings</see>
+            instance containing the initial settings for the data source, or
+            null.
+            </param>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.DisplayName">
+            <summary>
+            Returns or sets a human-readable string which is displayed
+            by user interface elements to identify this data source.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.Timeout">
+            <summary>
+            Specifies the amount of time for which an inactive asynchronous operation
+            will wait before throwing an exception.
+            </summary>
+            <remarks>
+            <p class="body">
+            When an asynchronous task is executed, the amount of time it takes
+            to process the request is dependent on various factors, such as current
+            server load, server processor capabilities, network bandwidth, etc.
+            </p>
+            <p class="body">
+            If an asynchronous task spends more time in the 'waiting for activation'
+            state than is allowed by the value of this property, a
+            <see cref="T:System.TimeoutException">TimeoutException</see>
+            is thrown.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.VerifyTimeElapsed(System.Threading.Tasks.TaskStatus,System.Int32)">
+            <summary>VerifyTimeElapsed</summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.VerifyCancel(System.String)">
+            <summary>VerifyCancel</summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.CancelUpdate">
+            <summary>
+            Cancels any currently executing asynchronous operation.
+            </summary>
+            <remarks>
+            <p class="body">
+            Calling this method causes an
+            <see cref="T:Infragistics.Olap.AsyncOperationCanceledException">AsyncOperationCanceledException</see>
+            to be thrown, which is caught and propagated to listeners via the
+            <see cref="E:Infragistics.Olap.OlapDataSource.DataSourceError">DataSourceError</see>
+            event.
+            </p>
+            <p class="body">
+            Canceling an asynchronous update does not reverse the change to the data source;
+            upon the next operation that triggers an update, the change for which the update was
+            canceled is applied as well.
+            </p>
+            <p class="body">
+            Operations for which an update was canceled are not recorded as
+            <see cref="P:Infragistics.Olap.OlapDataSource.PendingChanges">PendingChanges</see>.
+            </p>
+            <p class="body">
+            In the case where the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is canceled, any remaining uncommitted pending changes are discarded.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsync(System.String,System.Windows.Forms.Control)">
+            <summary>
+            Sends a request to the OLAP server for a list of the members which belong to the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">GetHierarchyMembersAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            whose members are to be retrieved.
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchyMembersAsyncCompleted">GetHierarchyMembersAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual list of members, however,
+            is not available until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.TryGetMember(System.String,Infragistics.Olap.Core.Data.Member@)">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.Core.Data.Member">Member</see>
+            with the specified unique name, or null if the member does not exist.
+            </summary>
+            <param name="memberUniqueName">The unique name of the Member to return.</param>
+            <param name="member">[out] Upon return, contains a reference to the Member, or null if the Member does not exist.</param>
+            <returns>A boolean value indicating whether the member was found.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.InitializeAsync(System.Windows.Forms.Control)">
+            <summary>
+            Sends a request to the OLAP server to initialize the data source, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            False if no
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            is currently set, true otherwise.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual initialization, however,
+            is not complete until the server signifies completion, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.OnBeforeInitializeAsync">
+            <summary>Called before the InitializeAsync method is executed.</summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.GetHierarchiesAsync(System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to return a list of all
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchies</see>
+            available under the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetHierarchiesAsyncCompleted">GetHierarchiesAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            If this data source has not yet been initialized, calling this method
+            will trigger initialization.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.GetMeasuresAsync(System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to return a list of all
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measures</see>
+            available under the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetMeasuresAsyncCompleted">GetMeasuresAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            If this data source has not yet been initialized, calling this method
+            will trigger initialization.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.GetCubesAsync(System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to return a list of all
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cubes</see>
+            available under the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Catalog">catalog</see>.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.SetCubeAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to set the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cube</see>
+             as the data source's current cube.
+            </summary>
+            <param name="cubeName">
+            The name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">cube</see>
+            to which the data source's current cube is to be set.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.GetCubesAsyncCompleted">GetCubesAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            The data source's cube, sometimes referred to as a 'hypercube' or 'datacube',
+            defines the set of
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchies</see>
+            and
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measures</see>
+            that are available to the consumer.
+            </p>
+            <p class="body">
+            Changing the data source's currently selected cube triggers
+            re-initialization of the data source.Any previously defined
+            hierarchies and measures are no longer valid, so any cached
+            information that references hierarchies or measures defined
+            by the previously selected cube should be refreshed after
+            calling this method.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsync(Infragistics.Olap.AxisType,System.Int32,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to expand the
+            specified axis tuple member.
+            </summary>
+            <param name="axisType">Identifies the axis to which the tuple member belongs, i.e., the row or column axis.</param>
+            <param name="tupleIndex">The index of the tuple to expand.</param>
+            <param name="memberIndex">The index of the member to expand.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.ExpandAxisTupleMemberAsyncCompleted">ExpandAxisTupleMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            If the specified member is not expandable, or is currently expanded, this method returns without incident.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual expansion, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsync(Infragistics.Olap.AxisType,System.Int32,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to collapse the
+            specified axis tuple member, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="axisType">Identifies the axis to which the tuple member belongs, i.e., the row or column axis.</param>
+            <param name="tupleIndex">The index of the tuple to collapse.</param>
+            <param name="memberIndex">The index of the member to collapse.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.CollapseAxisTupleMemberAsyncCompleted">CollapseAxisTupleMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            If the specified member is not expandable, or is currently collapsed, this method returns without incident.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual collapse, however,
+            does not occur until the server returns this request, which happens
+            indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddFilterMemberAsync(Infragistics.Olap.Core.Data.Hierarchy,Infragistics.Olap.Core.Data.Member,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified member to the specified hierarchy's filter, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchy">The hierarchy to which the filter member is to be added.</param>
+            <param name="member">The filter member to add.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method adds a member to the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddFilterMemberAsync(System.String,System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified member to the specified hierarchy's filter, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchyUniqueName">The unique name of the hierarchy to which the filter member is to be added.</param>
+            <param name="memberUniqueName">The unique name of the filter member to add.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method adds a member to the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>        
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsync(Infragistics.Olap.Core.Data.Hierarchy,Infragistics.Olap.Core.Data.Member,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified member to the specified hierarchy's filter, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchy">The hierarchy to which the filter member is to be added.</param>
+            <param name="member">The filter member to add.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method adds a member to the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsync(System.String,System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified member from the specified hierarchy's filter, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchyUniqueName">The unique name of the hierarchy from which the filter member is to be removed.</param>
+            <param name="memberUniqueName">The unique name of the filter member to remove.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterMemberAsyncCompleted">RemoveFilterMemberAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method adds a member to the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsync(Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified filter member, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchy">The hierarchy from which all filter members are to be removed.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method removes a member from the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified filter member, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event when the server sends the response.
+            </summary>
+            <param name="hierarchyUniqueName">The unique name of the hierarchy from which all filter members are to be removed.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterMemberAsyncCompleted">AddFilterMemberAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveAllFilterMembersAsyncCompleted">RemoveAllFilterMembersAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="note">
+            This method removes a member from the list of filter members that will appear in the column axis.
+            </p>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsync(Infragistics.Olap.AxisType,System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified hierarchy to the specified axis.
+            </summary>
+            <param name="axisType">The axis to which the hierarchy is to be added.</param>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be added. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy already exists on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            <p class="body">
+            If the specified hierarchy already exists on the specified axis, it is removed
+            from its current position and added at the end of the list.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsync(Infragistics.Olap.AxisType,Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the
+            specified hierarchy to the specified axis.
+            </summary>
+            <param name="axisType">The axis to which the hierarchy is to be added.</param>
+            <param name="hierarchy">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be added.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy already exists on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            <p class="body">
+            If the specified hierarchy already exists on the specified axis, it is removed
+            from its current position and added at the end of the list.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisInsertHierarchyAsync(Infragistics.Olap.AxisType,System.String,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the
+            specified hierarchy at the specified ordinal position along the specified axis.
+            </summary>
+            <param name="axisType">The axis to which the hierarchy is to be added.</param>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be inserted. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="index">The ordinal position at which to insert the hierarchy.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy already exists on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            <p class="body">
+            If the specified hierarchy already exists on the specified axis, it is removed
+            from its current position and inserted at the new position.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisInsertHierarchyAsync(Infragistics.Olap.AxisType,Infragistics.Olap.Core.Data.Hierarchy,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the
+            specified hierarchy at the specified ordinal position along the specified axis.
+            </summary>
+            <param name="axisType">The axis to which the hierarchy is to be added.</param>
+            <param name="hierarchy">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be inserted.
+            </param>
+            <param name="index">The ordinal position at which to insert the hierarchy.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy already exists on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            <p class="body">
+            If the specified hierarchy already exists on the specified axis, it is removed
+            from its current position and inserted at the new position.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsync(Infragistics.Olap.AxisType,System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified hierarchy from the specified axis.
+            </summary>
+            <param name="axisType">The axis from which the hierarchy is to be removed.</param>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be removed. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy does not exist on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsync(Infragistics.Olap.AxisType,Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified hierarchy from the specified axis.
+            </summary>
+            <param name="axisType">The axis from which the hierarchy is to be removed.</param>
+            <param name="hierarchy">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be removed.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AxisRemoveHierarchyAsyncCompleted">AxisRemoveHierarchyAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified hierarchy does not exist on the specified axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual filtering operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AxisAddHierarchyAsyncCompleted">AxisAddHierarchyAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddMeasureAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measure</see> to the
+            'slicer' axis.
+            </summary>
+            <param name="measureUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be added. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.MeasureNotFoundException">MeasureNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddMeasureAsync(Infragistics.Olap.Core.Data.Measure,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measure</see> to the
+            'slicer' axis
+            </summary>
+            <param name="measure">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be added.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.InsertMeasureAsync(System.String,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measure</see>
+            at the specified ordinal position within the 'slicer' axis.
+            </summary>
+            <param name="measureUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be inserted. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.MeasureNotFoundException">MeasureNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="index">Optional ordinal position at which to insert the measure. If no value is specified, the measure is added as the last one on the axis.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.InsertMeasureAsync(Infragistics.Olap.Core.Data.Measure,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">measure</see>
+            at the specified ordinal position within the 'slicer' axis.
+            </summary>
+            <param name="measure">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be inserted.
+            </param>
+            <param name="index">Optional ordinal position at which to insert the measure. If no value is specified, the measure is added as the last one on the axis.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddMeasureAsyncCompleted">AddMeasureAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveMeasureAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove
+            the specified measure from the 'slicer' axis.
+            </summary>
+            <param name="measureUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be removed. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.MeasureNotFoundException">MeasureNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified measure does not exist on the slicer axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveMeasureAsync(Infragistics.Olap.Core.Data.Measure,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified measure from the 'slicer' axis.
+            </summary>
+            <param name="measure">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            to be removed.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified measure does not exist, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddFilterAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see> to
+            the filter axis.
+            </summary>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be added. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.AddFilterAsync(Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to add the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            to the filter axis.
+            </summary>
+            <param name="hierarchy">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            to be added.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            </param>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.InsertFilterAsync(System.String,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            at the specified ordinal position within the filter axis.
+            </summary>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            to be inserted. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="index">Optional ordinal position at which to insert the hierarchy. If no value is specified, the hierarchy is added as the last one on the filter axis.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.InsertFilterAsync(Infragistics.Olap.Core.Data.Hierarchy,System.Int32,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to insert the specified
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            at the specified ordinal position.
+            </summary>
+            <param name="hierarchy">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchy</see>
+            to be inserted.
+            </param>
+            <param name="index">Optional ordinal position at which to insert the hierarchy. If no value is specified, the hierarchy is added as the last one on the filter axis.</param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.AddFilterAsyncCompleted">AddFilterAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveFilterAsync(System.String,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove
+            the specified hierarchy from the filter axis.
+            </summary>
+            <param name="hierarchyUniqueName">
+            The unique name of the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be removed. If the specified unique name cannot be resolved, a
+            <see cref="T:Infragistics.Olap.HierarchyNotFoundException">HierarchyNotFoundException</see>
+            exception is thrown.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified measure does not exist on the slicer axis, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.RemoveFilterAsync(Infragistics.Olap.Core.Data.Hierarchy,System.Boolean,System.Windows.Forms.Control)">
+            <summary>
+            Sends an asynchronous request to the OLAP server to remove the
+            specified hierarchy from the filter axis.
+            </summary>
+            <param name="measure">
+            The
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            to be removed.
+            </param>
+            <param name="update">
+            <p class="body">
+            Optional boolean value indicating whether to update the data source immediately.
+            </p>
+            <p class="body">
+            The default value is true, which causes the request to be sent to the OLAP server immediately, and raises the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event when the server's response has been received.
+            </p>
+            <p class="body">
+            If false is specified, the request is not sent to the server until the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method is called.
+            </p>
+            <p class="body">
+            Note that when false is specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event does not occur.
+            </p>
+            </param>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveFilterAsyncCompleted">RemoveFilterAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value indicating whether the method call resulted in any change to the data source.
+            If the specified measure does not exist, false is returned and no action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">
+            <summary>
+            Updates the data source, applying all pending changes.
+            </summary>
+            <param name="control">
+            Optional reference to a Control. If specified, the
+            <see cref="E:Infragistics.Olap.OlapDataSource.RemoveMeasureAsyncCompleted">RemoveMeasureAsyncCompleted</see>
+            event is raised on the thread on which this control's handle was created.
+            This approach makes it possible to access control members directly from the event handler.
+            </param>
+            <returns>
+            A boolean value specifying whether any request was sent to the OLAP server.
+            In the case where there are no pending changes, this method returns false,
+            and no further action is taken.
+            </returns>
+            <remarks>
+            <p class="body">
+            This method returns immediately after issuing the request to the OLAP server
+            so as not to block the calling thread. The actual operation, however,
+            does not occur until the server returns this request, which happens indeterminately.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.HasPendingChanges">
+            <summary>
+            Returns a boolean value indicating whether this data source has any changes pending.
+            </summary>
+            <remarks>
+            <p class="body">
+            When any of the methods which result in a change in the data source are called
+            with a value of false for the 'update' parameter, the change request is cached,
+            but not sent to the OLAP server; this property returns true if any such changes
+            have been made since the last call to the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.PendingChanges">
+            <summary>
+            Returns a list of changes made to the data source since the last call to the
+            <see cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</see>
+            method.
+            </summary>
+            <remarks>
+            <p class="body">
+            When any of the methods which result in a change in the data source are called
+            with a value of false for the 'update' parameter, the change request is cached,
+            but not sent to the OLAP server; this property returns a list of these pending
+            changes.
+            </p>
+            </remarks>
+            <seealso cref="P:Infragistics.Olap.OlapDataSource.HasPendingChanges">HasPendingChanges</seealso>
+            <seealso cref="M:Infragistics.Olap.OlapDataSource.UpdateAsync(System.Windows.Forms.Control)">UpdateAsync</seealso>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.UpdateAsyncCompleted">UpdateAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.VerifyMethodCallOK(System.String,System.Boolean)">
+            <summary>VerifyMethodCallOK</summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.VerifyCanInitialize">
+            <summary>
+            When overridden in  derived class, provides a way to ensure
+            that the data source is properly configured before allowing
+            it to be initialized.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.VerifyCanSetCube">
+            <summary>
+            When overridden in  derived class, provides a way to ensure
+            that the data source supports setting the current data cube.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.Cube">
+            <summary>
+            Returns the currently selected
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>,
+            or null if no cube is selected.
+            </summary>
+            <remarks>
+            <p class="body">
+            The current cube can be changed by calling the SetCubeAsync method.
+            </p>
+            <p class="body">
+            Setting the current cube is an asynchronous operation; as such this property
+            will not return a valid value until the
+            <see cref="E:Infragistics.Olap.OlapDataSource.SetCubeAsyncCompleted">SetCubeAsyncCompleted</see>
+            event has occurred.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.IsInitializing">
+            <summary>
+            Returns boolean value indicating whether the data source
+            is currently initializing.
+            </summary>
+            <remarks>
+            <p class="body">
+            This property returns true when the
+            <see cref="M:Infragistics.Olap.OlapDataSource.InitializeAsync(System.Windows.Forms.Control)">InitializeAsync</see>
+            method has been called, and the OLAP server has not yet sent a response indicating
+            that initialization is complete.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.IsAsyncOperationPending">
+            <summary>
+            Returns boolean value indicating whether the data source
+            is currently processing an asynchronous method call.
+            </summary>
+            <remarks>
+            <p class="body">
+            This property returns true when an asynchronous method
+            has been called, and the OLAP server has not yet sent a response indicating
+            that the operation is complete.
+            </p>
+            </remarks>
+        </member>
+        <member name="P:Infragistics.Olap.OlapDataSource.IsInitialized">
+            <summary>
+            Returns a boolean value indicating whether this OlapDataSource
+            instance has been initialized.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.TryGetHierarchy(System.String,Infragistics.Olap.Core.Data.Hierarchy@)">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            with the specified unique name.
+            </summary>
+            <param name="hierarchyUniqueName">The value of the UniqueName property of the hierarchy to retrieve.</param>
+            <param name="hierarchy">[out] Upon return, contains a reference to the Hierarchy, or null if no hierarchy was found.</param>
+            <returns>True if a hierarchy with the specified unique name exists.</returns>
+            <remarks>
+            <p class="body">
+            Calling this method before the data source has been initialized causes an exception to be thrown.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.TryGetMeasure(System.String,Infragistics.Olap.Core.Data.Measure@)">
+            <summary>
+            Returns a reference to the
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            with the specified unique name.
+            </summary>
+            <param name="measureUniqueName">The value of the UniqueName property of the measure to retrieve.</param>
+            <param name="measure">[out] Upon return, contains a reference to the Measure, or null if no measure was found.</param>
+            <returns>True if a measure with the specified unique name exists.</returns>
+            <remarks>
+            <p class="body">
+            Calling this method before the data source has been initialized causes an exception to be thrown.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.GetInitialSettings">
+            <summary>
+            For internal use only
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.OlapDataSource.SortLevels(Infragistics.Olap.Core.TableView,System.ComponentModel.ListSortDirection,Infragistics.Olap.LevelSortBehavior)">
+            <summary>
+            When overridden in a derived class, sorts all hierarchical levels
+            according to the specified criteria.
+            </summary>
+            <param name="tableView">A reference to the TableView on which the levels are to be sorted.</param>
+            <param name="direction">Sort direction, i.e., ascending or descending.</param>
+            <param name="behavior">Sort direction, i.e., system or alphabetical.</param>
+        </member>
+        <member name="T:Infragistics.Olap.AsyncUpdatePendingException">
+            <summary>
+            Thrown when an asynchronous method which causes a change to the data source
+            is called when completion of a previously requested update operation is
+            still pending.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AxisNotFoundException">
+            <summary>
+            Thrown when an axis name which could not be resolved is specified
+            as an argument to a method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.MeasureNotFoundException">
+            <summary>
+            Thrown when a measure name which could not be resolved is specified
+            as an argument to a method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.HierarchyNotFoundException">
+            <summary>
+            Thrown when a measure name which could not be resolved is specified
+            as an argument to a method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.MemberNotFoundException">
+            <summary>
+            Thrown when a member name which could not be resolved is specified
+            as an argument to a method.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.MeasureAlreadyExistsException">
+            <summary>
+            Thrown when the AddMeasureAsync method is called on a Measure which has already been added.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.HierarchyAlreadyExistsException">
+            <summary>
+            Thrown when the AddHierarchyAsync method is called on a Hierarchy which has already been added.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.CannotModifySettingsException">
+            <summary>
+            Thrown when an attempt is made to modify a property of an
+            <see cref="T:Infragistics.Olap.InitialSettings">InitialSettings</see>
+            derived class after the associated data source has been initialized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.SettingsAlreadyAssignedException">
+            <summary>
+            Thrown when an attempt is made to modify a property of an
+            <see cref="T:Infragistics.Olap.InitialSettings">InitialSettings</see>
+            derived class after the associated data source has been initialized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.DataSourceNotInitializedException">
+            <summary>
+            Thrown when an attempt is made to modify a data source which
+            has not yet been initialized.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.AsyncOperationCanceledException">
+            <summary>
+            Thrown when an asynchronous operation has been canceled.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.KeyedCollectionBase`1">
+            <summary>
+            Base class for keyed collections.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.KeyedCollectionBase`1.table">
+            <summary>Dictionary of (string, T)</summary>
+        </member>
+        <member name="P:Infragistics.Olap.KeyedCollectionBase`1.Item(System.String)">
+            <summary>
+            Returns the item with the specified unique name,
+            or null if no such item exists.
+            </summary>
+            <param name="uniqueName">The unique name by which to search.</param>
+        </member>
+        <member name="P:Infragistics.Olap.KeyedCollectionBase`1.Count">
+            <summary>
+            Returns the number of items in this collection.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.KeyedCollectionBase`1.CreateTable">
+            <summary>CreateTable</summary>
+        </member>
+        <member name="T:Infragistics.Olap.MetadataTreeItemCollectionBase`1">
+            <summary>
+            Base class for keyed collections which obtain data from a MetadataTreeItem
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.MetadataTreeItemCollectionBase`1.CreateTable">
+            <summary>CreateTable</summary>
+        </member>
+        <member name="T:Infragistics.Olap.MeasuresCollection">
+            <summary>
+            Collection class for
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measure</see>
+            objects.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.HierarchiesCollection">
+            <summary>
+            Collection class for
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">Hierarchy</see>
+            objects.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.CubesCollection">
+            <summary>
+            Collection class for
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            objects.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.CubesCollection.CreateTable">
+            <summary>CreateTable</summary>
+        </member>
+        <member name="T:Infragistics.Olap.InitialSettings">
+            <summary>
+            Class which exposes properties used to specify the
+            initial settings for the associated data source.
+            </summary>
+            <remarks>
+            <p class="body">
+            An instance of this class can be passed to the constructor of the 
+            <see cref="T:Infragistics.Olap.OlapDataSource">OlapDataSource</see>
+            class to establish the initial state of the data source upon initialization.
+            </p>
+            <p class="body">
+            Once the associated data source has been initialized, none of the property values
+            of this class can be changed; attempting to do so will result in an exception
+            being thrown.
+            </p>
+            <p class="body">
+            When the
+            <see cref="M:Infragistics.Olap.OlapDataSource.InitializeAsync(System.Windows.Forms.Control)">InitializeAsync</see>
+            method is called, data is requested from the OLAP server, using the property values
+            from an instance of this class to set the initial cube, as well as the contents
+            of the row, column, and slicer axes.
+            </p>
+            </remarks>
+            <seealso cref="M:Infragistics.Olap.OlapDataSource.InitializeAsync(System.Windows.Forms.Control)">InitializeAsync</seealso>
+            <seealso cref="E:Infragistics.Olap.OlapDataSource.InitializeAsyncCompleted">InitializeAsyncCompleted</seealso>
+        </member>
+        <member name="M:Infragistics.Olap.InitialSettings.#ctor(Infragistics.Olap.Core.DataSourceBaseOptions)">
+            <summary>
+            Creates a new instance.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.InitialSettings.VerifyPropertySet(System.String)">
+            <summary>VerifyPropertySet</summary>
+        </member>
+        <member name="P:Infragistics.Olap.InitialSettings.Cube">
+            <summary>
+            Returns or sets a string value which determines the initial
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>
+            for the data source.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.InitialSettings.Measures">
+            <summary>
+            Returns or sets a string value which specifies one or more
+            <see cref="T:Infragistics.Olap.Core.Data.Measure">Measures</see>
+            to be displayed for the current
+            <see cref="T:Infragistics.Olap.Core.Data.Cube">Cube</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.InitialSettings.Filters">
+            <summary>
+            Returns or sets a string value which specifies the
+            initial filters for the associated data source.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.InitialSettings.Columns">
+            <summary>
+            Returns or sets a string value which specifies the initial
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchies</see>
+            to be displayed on the column
+            <see cref="T:Infragistics.Olap.Core.Data.Axis">Axis</see>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.InitialSettings.Rows">
+            <summary>
+            Returns or sets a string value which specifies the initial
+            <see cref="T:Infragistics.Olap.Core.Data.Hierarchy">hierarchies</see>
+            to be displayed on the row
+            <see cref="T:Infragistics.Olap.Core.Data.Axis">Axis</see>.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|c:\\users\\eduar\\documents\\work\\external\\avantleap\\conectorgestprojectsage50\\conectorgestprojectsage50\\ui\\styles\\eostyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\ui\\styles\\eostyles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|c:\\users\\eduar\\documents\\work\\external\\avantleap\\conectorgestprojectsage50\\conectorgestprojectsage50\\ui\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\ui\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|c:\\users\\eduar\\documents\\work\\external\\avantleap\\conectorgestprojectsage50\\conectorgestprojectsage50\\sage50\\reverseengeniering\\replicateddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\sage50\\reverseengeniering\\replicateddb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\conectorgestprojectsage50\\sage50\\linksage50.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\sage50\\linksage50.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\conectorgestprojectsage50\\sage50\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\sage50\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\conectorgestprojectsage50\\sage50\\reverseengeniering\\replicated_functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\sage50\\reverseengeniering\\replicated_functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\conectorgestprojectsage50\\ui\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E4175BA-6F90-4C77-9CBF-B434152E7DCF}|ConectorGestProjectSage50\\ConectorGestProjectSage50.csproj|solutionrelative:conectorgestprojectsage50\\ui\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAowCMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T10:52:04.538Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\Customer.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\Sage50\\Customer.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\Customer.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\Sage50\\Customer.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAswEsAAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T13:22:30.095Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Replicated_FUNCTIONS.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\Replicated_FUNCTIONS.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\Replicated_FUNCTIONS.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\Replicated_FUNCTIONS.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\Replicated_FUNCTIONS.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAvwHMAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T14:15:27.702Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LinkSage50.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\LinkSage50.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\Sage50\\LinkSage50.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\LinkSage50.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\Sage50\\LinkSage50.cs",
+              "ViewState": "AQIAAAwCAAAAAAAAAIA9wCECAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T14:37:52.076Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EOStyles.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\Styles\\EOStyles.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\UI\\Styles\\EOStyles.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\Styles\\EOStyles.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\UI\\Styles\\EOStyles.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:29:21.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\UI\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\UI\\MainWindow.cs [Design]",
+              "RelativeToolTip": "ConectorGestProjectSage50\\UI\\MainWindow.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T20:29:21.396Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReplicatedDB.cs",
+              "DocumentMoniker": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\ReplicatedDB.cs",
+              "RelativeDocumentMoniker": "ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\ReplicatedDB.cs",
+              "ToolTip": "C:\\Users\\eduar\\Documents\\work\\external\\avantleap\\ConectorGestProjectSage50\\ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\ReplicatedDB.cs",
+              "RelativeToolTip": "ConectorGestProjectSage50\\Sage50\\ReverseEngeniering\\ReplicatedDB.cs",
+              "ViewState": "AQIAAMUJAAAAAAAAAAAAwAgKAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T08:52:37.233Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

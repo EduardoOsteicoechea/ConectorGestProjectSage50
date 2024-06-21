@@ -1,0 +1,549 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infragistics4.Olap.DataProvider.Xmla.v18.2</name>
+    </assembly>
+    <members>
+        <member name="T:Infragistics.Olap.Xmla.Core.Serializer.XmlaConstants">
+            <summary>
+            Exposes constant values used when requests against XMLA service are formed.
+            </summary>    
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.DiscoverResponseResult">
+            <summary>
+            Result object returned when <see cref="T:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover"/> is executed.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapMessageHeader">
+            <summary>
+            Specifies the XMLA soap meassage header types. 
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMessageHeader.None">
+            <summary>
+            Specifies that request message has no header.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMessageHeader.Session">
+            <summary>
+            Specifies that request message to identify an existing session.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMessageHeader.BeginSession">
+            <summary>
+            Specifies that request message to start a new session.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMessageHeader.EndSession">
+            <summary>
+            Specifies that request message to end an existing session .
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.Error">
+            <summary>
+            Contains information about an error returned by an instance of Microsoft SQL Server Analysis Services.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.Error.ErrorCode">
+            <summary>
+            Gets or sets the  the numeric return code of the error.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.Error.Description">
+            <summary>
+            Gets or sets the descriptive text of the error.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.Error.Source">
+            <summary>
+            Gets or sets the name of the component that generated the error.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.Error.HelpFile">
+            <summary>
+            Gets or sets the path or URL to the Help file or topic that describes the error.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.Error.Severity">
+            <summary>
+            Gets or sets the severity of the error.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.RequestCompletedEventArgs`1">
+            <summary>
+            Provides event arguments for completion of XMLA requests.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.RequestCompletedEventArgs`1.#ctor(`0,System.Exception,System.Boolean,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.RequestCompletedEventArgs`1"/> class.
+            </summary>
+            <param name="result">The result.</param>
+            <param name="exception">The exception.</param>
+            <param name="cancelled">if set to <c>true</c> [cancelled].</param>
+            <param name="userState">State of the user.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.RequestCompletedEventArgs`1.Result">
+            <summary>
+            Gets the result.
+            </summary>
+            <value>The result.</value>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.ExecuteResponseResult">
+            <summary>
+            Result object returned when <see cref="T:Infragistics.Olap.Xmla.XmlaSoapMethodExecute"/> is executed.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IXmlaMethodResult">
+            <summary>
+            Provides a common interface for the response's result of the requests sent against XMLA service.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaMethodResult.Return">
+            <summary>
+            Gets the content found under "root" element of XMLA response.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaMethodResult.SessionId">
+            <summary>
+            Gets or sets the session id for the request.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.IXmlaSoapMethod">
+            <summary>
+            Provides an information about XMLA request method.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Name">
+            <summary>
+            Gets the name the method is identified with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Parameters">
+            <summary>
+            Gets the collection of the additional parameters applied to Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Properties">
+            <summary>
+            Gets the collection of the additional properties applied to Discover/Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Headers">
+            <summary>
+            Gets collection of the header elements applied to SOAP message.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IXmlaSoapMethod.Construct(System.Xml.Linq.XNamespace)">
+            <summary>
+            Populates the <see cref="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Parameters"/> collection with the elements used to form Discover/Execute methods.
+            </summary>
+            <param name="headerNamespace">The header namespace.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.IXmlaSoapMethod.MergeProperties(Infragistics.Olap.Xmla.XmlaPropertiesCollection)">
+            <summary>
+            Merges the <see cref="P:Infragistics.Olap.Xmla.IXmlaSoapMethod.Properties"/> with all <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/> instances found in <paramref name="properties"/> collection.
+            </summary>
+            <param name="properties">The collection of <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/>.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaCompression.Decompress(System.Byte[])">
+            <summary>
+            https://msdn.microsoft.com/en-us/library/ee320884(v=sql.105).aspx // protocol layout
+            https://msdn.microsoft.com/en-us/library/ee334172(v=sql.105).aspx // decompresion algorithm
+            </summary>
+            <param name="compressedStream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaPropertiesCollection">
+            <summary>
+            Collection of <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/> items.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaPropertiesCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.TryGetValue(System.String,Infragistics.Olap.Xmla.XmlaQueryProperty@)">
+            <summary>
+            Gets the property with the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns>
+                <c>true</c> if a property with the specified name if found; otherwise, <c>false</c>
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Contains(System.String)">
+            <summary>
+            Determines whether the collection contains a property with the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the collection contains a property with the specified name; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.IndexOf(Infragistics.Olap.Xmla.XmlaQueryProperty)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Insert(System.Int32,Infragistics.Olap.Xmla.XmlaQueryProperty)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+            <param name="item">The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception>
+              
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception>
+              
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <returns>The element at the specified index.</returns>
+              
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception>
+              
+            <exception cref="T:System.NotSupportedException">The property is set and the <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Add(Infragistics.Olap.Xmla.XmlaQueryProperty)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.</exception>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only. </exception>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Contains(Infragistics.Olap.Xmla.XmlaQueryProperty)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1"/> contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+            <returns>
+            true if <paramref name="item"/> is found in the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.CopyTo(Infragistics.Olap.Xmla.XmlaQueryProperty[],System.Int32)">
+            <summary>
+            Copies the elements to the specified array.
+            </summary>
+            <param name="array">The array.</param>
+            <param name="arrayIndex">Index of the array.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.</returns>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaPropertiesCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.</returns>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.Remove(Infragistics.Olap.Xmla.XmlaQueryProperty)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.</exception>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaPropertiesCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaQueryProperty">
+            <summary>
+            Class for creating XMLA properties used by XMLA Dicover and Execute methods.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaQueryProperty.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/> class.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaQueryProperty.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/> class.
+            </summary>
+            <param name="name">The name of the property.</param>
+            <param name="value">The value of the propery.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaQueryProperty.PropertyName">
+            <summary>
+            Gets or sets the name of of this <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/>.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaQueryProperty.Value">
+            <summary>
+            Gets or sets the value of this <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/>.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaQueryProperty.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapFault">
+            <summary>
+            Provides an information about an error occured during communication to XMLA service.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapFault.FaultCode">
+            <summary>
+            Gets or sets the fault code of the error intended for use by software to provide an algorithmic mechanism for identifying the fault.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapFault.FaultString">
+            <summary>
+            Gets or sets a human readable explanation of the fault and is not intended for algorithmic processing.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapFault.FaultActor">
+            <summary>
+            Gets or sets an information about who caused the fault to happen within the message path.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapFault.FaultDetail">
+            <summary>
+            Gets or sets application specific error information related to the Body element.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapMethod">
+            <summary>
+            Provides an information about XMLA request method.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMethod.PropertiesConstant">
+            <summary>
+            A value for Properties element of XMLA SOAP message.
+            </summary>
+        </member>
+        <member name="F:Infragistics.Olap.Xmla.XmlaSoapMethod.PropertyListConstant">
+            <summary>
+            A value for PropertyList element of XMLA SOAP message.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaSoapMethod"/> class.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Properties">
+            <summary>
+            Gets the collection of the additional properties applied to Discover/Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Name">
+            <summary>
+            Gets the name the method is identified with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Parameters">
+            <summary>
+            Gets the collection of the additional parameters applied to Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Headers">
+            <summary>
+            Gets a collection of the header elements applied to SOAP message.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.ParametersList">
+            <summary>
+            Gets the collection of the additional parameters applied to Execute request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethod.HeadersList">
+            <summary>
+            Gets a collection of the header elements applied to SOAP message.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethod.Construct(System.Xml.Linq.XNamespace)">
+            <summary>
+            Populates the <see cref="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Parameters"/> collection with the elements used to form Discover/Execute methods.
+            </summary>
+            <param name="headerNamespace">The header namespace.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethod.MergeProperties(Infragistics.Olap.Xmla.XmlaPropertiesCollection)">
+            <summary>
+            Merges the <see cref="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Properties"/> with all <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/> instances found in <paramref name="properties"/> collection.
+            </summary>
+            <param name="properties">The collection of <see cref="T:Infragistics.Olap.Xmla.XmlaQueryProperty"/>.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover">
+            <summary>
+            Provides an information about XMLA Discover method.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover"/> class.
+            </summary>
+            <param name="requestType">Type of the request.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.Restrictions">
+            <summary>
+            Gets the additional restrictions applied to Discover request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.RequestType">
+            <summary>
+            Gets the type of the request.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.Name">
+            <summary>
+            Gets the name the method is identified with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.HeaderType">
+            <summary>
+            Gets or sets the header applied to XMLA SOAP message.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.SessionId">
+            <summary>
+            Gets or sets the session id for the request message.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethodDiscover.Construct(System.Xml.Linq.XNamespace)">
+            <summary>
+            Populates the <see cref="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Parameters"/> collection with the elements used to form Discover/Execute methods.
+            </summary>
+            <param name="headerNamespace">The header namespace.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapMethodExecute">
+            <summary>
+            Provides an information about XMLA Execute method.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethodExecute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaSoapMethodExecute"/> class.
+            </summary>
+            <param name="statement">The statement applied to XMLA Command element.</param>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodExecute.Name">
+            <summary>
+            Gets the name the method is identified with.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodExecute.Statement">
+            <summary>
+            Gets the statement applied to XMLA Command element.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapMethodExecute.Construct(System.Xml.Linq.XNamespace)">
+            <summary>
+            Populates the <see cref="P:Infragistics.Olap.Xmla.XmlaSoapMethod.Properties"/> collection with the elements used to form Execute method.
+            </summary>
+            <param name="headerNamespace">The header namespace.</param>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapMethodResult">
+            <summary>
+            Provides the result object of the requests sent against XMLA service.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodResult.Return">
+            <summary>
+            Gets the content found under "root" element of XMLA response.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapMethodResult.SessionId">
+            <summary>
+            Gets or sets the session id for the request.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapWebClient">
+            <summary>
+            A base web client for requests sent to XMLA service.
+            </summary>
+        </member>
+        <member name="T:Infragistics.Olap.Xmla.XmlaSoapWebClient`1">
+            <summary>
+            A web client for requests of specific type <typeparamref name="T"/> sent to XMLA service.
+            </summary>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.#ctor(System.Uri,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infragistics.Olap.Xmla.XmlaSoapWebClient`1"/> class.
+            </summary>
+            <param name="serverUri">The XMLA server URI.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="E:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.RequestCompleted">
+            <summary>
+            Occurs when the request against XMLA service has completed.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.Credentials">
+            <summary>
+            Gets or sets the <see cref="!:XmlaNetworkCredential"/> used to authenticate against XMLA service.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.ServerUri">
+            <summary>
+            Gets the XMLA server URI the request is sent to.
+            </summary>
+        </member>
+        <member name="P:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.IsCompleted">
+            <summary>
+            Gets a value indicating whether the request is completed.
+            </summary>
+            <value>
+            	<c>true</c> if the request is completed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.RequestAsync(Infragistics.Olap.Xmla.IXmlaSoapMethod)">
+            <summary>
+            Sends an asynchronous request for the specified xmla method against the XMLA service.
+            </summary>
+            <param name="xmlaSoapMethod">The xmla method which specifies the type of the request.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.RequestAsync(Infragistics.Olap.Xmla.IXmlaSoapMethod,System.Object)">
+            <summary>
+            Sends an asynchronous request for the specified xmla method against the XMLA service.
+            </summary>
+            <param name="xmlaSoapMethod">The xmla method which specifies the type of the request.</param>
+            <param name="userData">The user provided object.</param>
+        </member>
+        <member name="M:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.OnRequestCompleted(Infragistics.Olap.Xmla.RequestCompletedEventArgs{`0})">
+            <summary>
+            Raises the <see cref="E:Infragistics.Olap.Xmla.XmlaSoapWebClient`1.RequestCompleted"/> event.
+            </summary>
+            <param name="args">The <see cref="T:Infragistics.Olap.Xmla.RequestCompletedEventArgs`1"/> instance containing the event data.</param>
+        </member>
+    </members>
+</doc>
